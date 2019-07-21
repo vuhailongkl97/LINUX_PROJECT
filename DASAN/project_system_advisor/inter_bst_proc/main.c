@@ -42,6 +42,11 @@ int pid_is_not_in_proc(int pid)
     }
     return 0;
 }
+int enough_time_overload(type_data)
+{
+    
+    return 0;
+}
 node *delete_process_if_not_exist_in_proc(node * root)
 {
     int n = 0, i = 0;
@@ -62,6 +67,15 @@ node *delete_process_if_not_exist_in_proc(node * root)
         if (1 == pid_is_not_in_proc(arr[i]))
         {
             mdata.pid = arr[i];
+
+            /*
+                check if enought time overload 
+                then call write to file 
+            */
+            if (1 == enough_time_overload(mdata))
+            {
+                write_to_file(mdata);
+            }
             root =  delete_node(root ,mdata , int_comp);
         }
     }
@@ -157,14 +171,27 @@ int main(void)
                                 /*update start time  */
                                 s = search(root, _data_fake, int_comp);
                                 update_state_start_time(&(s->data));
-                                write_to_file(s->data);
+                                //write_to_file(s->data);
                             }
                             else 
                             {
                                 /*update stop time*/
                                 update_state_stop_time(&(s->data));
+                               
                             }
                             
+                        }
+                        else 
+                        { 
+                                s = search(root, _data_fake, int_comp);
+                                /*feature 2  tracking system*/
+                                 if(s && (FEATURE_2 == feature) )
+                                {
+                                    if(enough_time_overload(s->data))
+                                    {
+                                        write_to_file(s->data);
+                                    }
+                                }
                         }
                     }	
 
