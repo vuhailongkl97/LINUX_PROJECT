@@ -11,8 +11,10 @@
 #include <time.h>
 #include "my_lib_process.h"
 
+extern int feature;
+extern int limit_time;
 
-enum feature {FEATURE_1 = 0, FEATURE_2 = 1 };
+enum feature {FEATURE_1 = 1, FEATURE_2 = 2 };
 
 typedef struct _data{
 	int pid;
@@ -48,6 +50,7 @@ int write_to_file(type_data mdata);
 node *delete_process_if_not_exist_in_proc(node * root);
 extern void traverse_tree(node *root, int *n, int *arr);
 extern node* delete_node(node* , type_data ,comparer );
+extern node* search(node *, type_data ,comparer );
 
 #endif
 

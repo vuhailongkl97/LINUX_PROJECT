@@ -6,7 +6,20 @@
 #include "bst.h"
 
 int max_mem = 1;
+int feature = 0 ;
+int limit_time = 0;
 
+int in_array_pid_tracking(int pid, int arr[], int n)
+{
+    int i = 0;
+
+    for(i = 0; i< n; i++)
+    {
+        if(pid == arr[i])
+            return 1;
+    }
+    return 0;
+}
 int main(int argc, char *argv[])
 {
     DIR *d;
@@ -17,7 +30,9 @@ int main(int argc, char *argv[])
     callback f = display;
     type_data _data_fake, mdata_limit;
     FILE *fp = NULL; 
-    int feature = 0 ;
+    
+    int *arr_p_tracking = NULL;
+    int number_p_tracking = 0;
 
     pid = 0;
     mdata_limit.cpu = 0;
@@ -29,14 +44,35 @@ int main(int argc, char *argv[])
     if( argc < 2 )
     {
         puts("incorrect argument, please follow : ./m <number_feature>");
-        feature = atoi(argv[1]);
         return -1;
     }
-    
+    feature = atoi(argv[1]);
+
+    if (FEATURE_1 == feature )
+    {
+        printf("Tracking some processes on this system\n");
+        printf("Enter number process tracking (PID) : ");
+        scanf("%d", &number_p_tracking);
+        arr_p_tracking = (int *)malloc(sizeof(int) * number_p_tracking);
+        for (i = 0; i< number_p_tracking; i++)
+        {
+            scanf("%d", arr_p_tracking + i);
+        }
+    }
+    else if(FEATURE_2 == feature)
+    {
+        printf("Tracking all processes on this system\n");
+    }
+
+    puts("Enter limit of memory in percent %");
+    scanf("%f", &mdata_limit.mem);
+    puts("Enter x time which is limit time overload");
+    scanf("%d", &limit_time);
+
+    /* fork  */
     do 
     {
-        puts("enter limit of memory in percent %%");
-        scanf("%f", &mdata_limit.mem);
+
         root = delete_process_if_not_exist_in_proc(root);
 
         d = opendir("/proc");
@@ -46,12 +82,13 @@ int main(int argc, char *argv[])
             {
                 if(1 == check_is_pid(dir->d_name) )
                 {
-                        pid = atoi(dir->d_name);
-                        fill_data(&_data_fake, pid);
-
-                        if(1 == process_is_overload(_data_fake, mdata_limit))
+                    pid = atoi(dir->d_name);
+                    fill_data(&_data_fake, pid);
+                    if (FEATURE_2 == feature )
+                    {
+                        if( 1 == process_is_overload(_data_fake, mdata_limit))
                         {   
-                     
+                        
                             s = search(root, _data_fake, int_comp);
                             if (NULL == s)
                             {
@@ -65,15 +102,15 @@ int main(int argc, char *argv[])
                             {
                                 /*update stop time*/
                                 update_state_stop_time(&(s->data));
-                               
+                                
                             }
-                            
                         }
                         else 
                         { 
+                                /* this process escape from overload */
                                 s = search(root, _data_fake, int_comp);
                                 /*feature 2  tracking system*/
-                                 if(s && (FEATURE_2 == feature) )
+                                if(NULL != s )
                                 {
                                     if(enough_time_overload(s->data))
                                     {
@@ -81,7 +118,34 @@ int main(int argc, char *argv[])
                                     }
                                 }
                         }
-                    }	
+                    }
+                    else if(FEATURE_1 == feature)
+                    {
+                            if (1 == in_array_pid_tracking(pid, arr_p_tracking, number_p_tracking))
+                            {
+                                s = search(root, _data_fake, int_comp);
+                                if (NULL == s)
+                                {
+                                    root = insert_node(root,int_comp,_data_fake);
+                                    /*update start time  */
+                                    s = search(root, _data_fake, int_comp);
+                                    update_state_start_time(&(s->data));
+                                    write_to_file(s->data);
+                                }
+                                else 
+                                {
+                                    /*update stop time*/
+                                    update_state_stop_time(&(s->data));
+                                    
+                                }
+                            }
+                    }
+                    else 
+                    {
+                        puts("error argument ");
+                        exit (-1);
+                    }
+                }	
 
             }
             closedir(d);

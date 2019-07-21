@@ -112,6 +112,7 @@ int write_to_file(type_data mdata)
     printf("%-5d %-2.2f %-2.2f %-20s %-20s %-7s %-30s\n", 
             mdata.pid, mdata.cpu, mdata.mem, mdata.start_time, mdata.stop_time,
             mdata.name, mdata.status);
+            
     fclose(fp);
 }
 node *delete_process_if_not_exist_in_proc(node * root)
@@ -119,6 +120,7 @@ node *delete_process_if_not_exist_in_proc(node * root)
     int n = 0, i = 0;
     int *arr = NULL;
     type_data mdata;
+    node *s =  NULL;
     comparer int_comp = compare;
     
     if( NULL == root)
@@ -134,14 +136,15 @@ node *delete_process_if_not_exist_in_proc(node * root)
         if (1 == pid_is_not_in_proc(arr[i]))
         {
             mdata.pid = arr[i];
-
+            s = search(root, mdata, int_comp);
             /*
-                check if enought time overload 
+                check if enought time overload ( feature 2)
+                or feature 1
                 then call write to file 
             */
-            if (1 == enough_time_overload(mdata))
+            if ((FEATURE_1 == feature) || (1 == enough_time_overload(s->data)))
             {
-                write_to_file(mdata);
+                write_to_file(s->data);
             }
             root =  delete_node(root ,mdata , int_comp);
         }
