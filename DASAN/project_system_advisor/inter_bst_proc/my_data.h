@@ -4,9 +4,15 @@
 #define MAX_LENGTH_OF_NAME 70
 #define MAX_LENGTH_OF_TIME 40
 #define MAX_LENGTH_OF_STATUS 10
+
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <time.h>
+#include "my_lib_process.h"
+
+
+enum feature {FEATURE_1 = 0, FEATURE_2 = 1 };
 
 typedef struct _data{
 	int pid;
@@ -32,7 +38,17 @@ typedef int (*comparer)(type_data, type_data);
 extern void enter_data(type_data *, type_data );
 extern int compare(type_data left,type_data right);
 extern void display(node* nd);
- 
+int fill_raw_data(type_data *mdata,int pid, float cpu, float mem, char *name) ;
+int fill_data(type_data *mdata, int pid);
+int update_state_start_time(type_data *mdata);
+int update_state_stop_time(type_data *mdata);
+int enough_time_overload(type_data mdata);
+int process_is_overload(type_data mdata, type_data mdata_limit);
+int write_to_file(type_data mdata);
+node *delete_process_if_not_exist_in_proc(node * root);
+extern void traverse_tree(node *root, int *n, int *arr);
+extern node* delete_node(node* , type_data ,comparer );
+
 #endif
 
 

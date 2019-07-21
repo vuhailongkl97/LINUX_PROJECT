@@ -1,6 +1,5 @@
 #include "my_lib_process.h"
 #include <unistd.h>
-#include "my_data.h"
 
 extern int max_mem;
 int check_is_pid(const char *name)
@@ -81,5 +80,18 @@ float read_mem(int pid)
 	mem = (mem * 100.0/max_mem);
 
 	return mem;	
+}
+int pid_is_not_in_proc(int pid)
+{
+    DIR *d;
+    char tmp[30];
+    
+    sprintf(tmp, "/proc/%d", pid);
+    d = opendir(tmp);
+    if (NULL == d)
+    {
+        return 1;
+    }
+    return 0;
 }
 
