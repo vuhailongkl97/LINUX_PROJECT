@@ -168,10 +168,9 @@ int main(int argc, char *argv[])
             }
             closedir(d);
         }
-        printf(" into the tree.\n\n");
     
         /* display the tree */
-        display_tree(root);
+        //display_tree(root);
         //puts("please enter choose > 0 to continue");
        // scanf("%d", &choose);
        sleep(1);

@@ -1,5 +1,5 @@
 #include "my_lib_process.h"
-#include "lib_get_cpu.h"
+
 #include <unistd.h>
 
 extern int max_mem;
@@ -21,7 +21,7 @@ float read_cpu(int pid)
 	char tmp[100];
 	float cpu = 0;
 	FILE *fp;
-    struct pstat p1, p2;
+
     int ret = 0;
     float user_use_cpu_percent = 0;
     float kernel_use_cpu_percent = 0;
@@ -32,19 +32,9 @@ float read_cpu(int pid)
 	if(NULL == fp)
 	{
 		printf("fail open stat for read cpu (pid %d)\n", pid);
-		return -1;
+		return 0;
 	}
 	fclose(fp);
-
-    if((ret = get_usage(pid, &p1)) != 0)
-        goto err_get_usage;
-    usleep(10000);
-    if((ret = get_usage(pid, &p2)) != 0)
-        goto err_get_usage;
-
-    calc_cpu_usage_pct(&p2, &p1, &user_use_cpu_percent, &kernel_use_cpu_percent);
-
-    cpu= 8.0*(user_use_cpu_percent +  kernel_use_cpu_percent);
 
     if( cpu>= 100.0)
     {
@@ -56,9 +46,6 @@ float read_cpu(int pid)
     }
 
 	return cpu;	
-
-    err_get_usage:
-        return -1;
 }
 char* read_name(int pid,char *const name)
 {
@@ -92,17 +79,17 @@ float read_mem(int pid)
 	fp = fopen(tmp, "r");
 	if(NULL == fp)
 	{
-		printf("fail open stat for read name (pid %d)\n", pid);
-		return -1;
+		printf("fail open stat for read mem (pid %d)\n", pid);
+		return 0;
 	}
 
 	fscanf(fp, "%*f%f", &mem);
-	fclose(fp);
 
 	mem *= sysconf(_SC_PAGE_SIZE) / 1024;
 
 	mem = (mem * 100.0/max_mem);
 
+	fclose(fp);
 	return mem;	
 }
 int pid_is_not_in_proc(int pid)
@@ -116,6 +103,8 @@ int pid_is_not_in_proc(int pid)
     {
         return 1;
     }
+
+	closedir(d);
     return 0;
 }
 int process_alert_overload()

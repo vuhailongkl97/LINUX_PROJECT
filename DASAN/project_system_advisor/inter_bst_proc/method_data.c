@@ -71,6 +71,7 @@ int update_state_start_time(type_data *mdata)
     time(&t);
     
     snprintf(mdata->start_time, MAX_LENGTH_OF_NAME, "%s", ctime(&t));
+    mdata->start_time[strlen(mdata->start_time) -1 ]= '\0'; 
     strcpy(mdata->stop_time , "None");
     strcpy(mdata->status, "Running");
 
@@ -83,6 +84,7 @@ int update_state_stop_time(type_data *mdata)
     time(&t);
     
     snprintf(mdata->stop_time, MAX_LENGTH_OF_NAME, "%s", ctime(&t));
+    mdata->stop_time[strlen(mdata->stop_time)- 1] = '\0';
     strcpy(mdata->status, "Stoped");
 
     return 0;
@@ -114,7 +116,8 @@ int write_to_file(type_data mdata)
         perror("open file in write to file is fail");
         return -1;
     }
-    printf("%-5d %-2.2f %-2.2f %-20s %-20s %-7s %-30s\n", 
+    puts("write log to file ... ");
+    fprintf(fp, "%-5d %-2.2f %-2.2f %-20s %-20s %-7s %-30s\n", 
             mdata.pid, mdata.cpu, mdata.mem, mdata.start_time, mdata.stop_time,
             mdata.name, mdata.status);
             
