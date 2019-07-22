@@ -16,7 +16,10 @@ void enter_data(type_data *mdata, type_data sdata)
 		mdata->pid = sdata.pid;
 		mdata->cpu = sdata.cpu;
 		mdata->mem = sdata.mem;
-		strncpy(mdata->name, sdata.name, MAX_LENGTH_OF_NAME);
+		if(NULL == mdata->name)
+			strcpy(mdata->name , "");
+		else 
+			strncpy(mdata->name, sdata.name, MAX_LENGTH_OF_NAME);
 	}
 }
 
@@ -31,6 +34,9 @@ void display(node* nd)
     mem = (nd->data).mem;
     name = (nd->data).name;
     
+	if (NULL == name)
+		strcpy(name, "");
+
     if(nd != NULL)
  	 printf("pid = %-6d cpu = %-2.2f mem = %-2.2f name = %s\n"\
 			, pid, cpu, mem, name);      
@@ -41,7 +47,7 @@ int fill_raw_data(type_data *mdata,int pid, float cpu, float mem, char *name)
 	mdata->pid = pid;
 	mdata->cpu = cpu;
 	mdata->mem = mem;
-
+	
 	strncpy(mdata->name, name, MAX_LENGTH_OF_NAME );
 	return 0;
 }

@@ -174,7 +174,7 @@ int main(int argc, char *argv[])
         display_tree(root);
         //puts("please enter choose > 0 to continue");
        // scanf("%d", &choose);
-       sleep(5);
+       sleep(1);
     } while(choose > 0);
     /* remove element */
   
