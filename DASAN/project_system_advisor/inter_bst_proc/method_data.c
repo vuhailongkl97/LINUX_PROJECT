@@ -84,8 +84,7 @@ int update_state_stop_time(type_data *mdata)
 
 int enough_time_overload(type_data mdata)
 {
-    
-    return 0;
+    return (get_duration_time(mdata.start_time, mdata.stop_time) > limit_time) ;
 }
 
 int process_is_overload(type_data mdata, type_data mdata_limit)
@@ -142,6 +141,7 @@ node *delete_process_if_not_exist_in_proc(node * root)
                 or feature 1
                 then call write to file 
             */
+
             if ((FEATURE_1 == feature) || (1 == enough_time_overload(s->data)))
             {
                 write_to_file(s->data);
@@ -150,4 +150,36 @@ node *delete_process_if_not_exist_in_proc(node * root)
         }
     }
     return root;
+}
+int get_second_from_time(const char *mtime)
+{
+	int n = 0, i;	
+	int hs = 1, hsx = 1;
+	int ret = 0;
+
+	n = strlen(mtime);
+
+	for (i = n-1; i >= 0 ; i--)
+	{
+		if( mtime[i] != ':')
+		{
+			ret += hs*(mtime[i] - '0') *hsx;	
+			hsx *= 10;
+		}
+		else 
+		{
+			hsx = 1;
+			hs *= 60;
+		}
+	}
+	return ret;
+}
+int get_duration_time(const char *start_time, const char *stop_time)
+{
+	char mtime1[20],mtime2[20];
+
+	sscanf(start_time, "%*s%*s%*d%s%*d", mtime1);
+    sscanf(stop_time, "%*s%*s%*d%s%*d", mtime2);
+
+	return abs(get_second_from_time(mtime1) - get_second_from_time(mtime2));	
 }

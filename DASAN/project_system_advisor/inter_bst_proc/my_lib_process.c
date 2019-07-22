@@ -94,4 +94,9 @@ int pid_is_not_in_proc(int pid)
     }
     return 0;
 }
-
+int process_alert_overload()
+{
+	/*double fork at here */
+	puts("\n\n\nalert\n\n\n");
+	return 0;
+}

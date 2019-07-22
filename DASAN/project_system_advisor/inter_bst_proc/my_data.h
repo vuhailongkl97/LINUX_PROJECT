@@ -9,6 +9,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <time.h>
+#include <math.h>
 #include "my_lib_process.h"
 
 extern int feature;
@@ -51,6 +52,8 @@ node *delete_process_if_not_exist_in_proc(node * root);
 extern void traverse_tree(node *root, int *n, int *arr);
 extern node* delete_node(node* , type_data ,comparer );
 extern node* search(node *, type_data ,comparer );
+int get_second_from_time(const char *mtime);
+int get_duration_time(const char *start_time, const char *stop_time);
 
 #endif
 

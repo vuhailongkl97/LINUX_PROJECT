@@ -1,6 +1,7 @@
 #include <dirent.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
 #include "my_lib_process.h"
 #include "my_data.h"
 #include "bst.h"
@@ -36,7 +37,7 @@ int main(int argc, char *argv[])
 
     pid = 0;
     mdata_limit.cpu = 0;
-    mdata_limit.mem = 1;
+    mdata_limit.mem = 0.1f;
     fp = fopen("/proc/meminfo", "r");
 	fscanf(fp,"%*s%d", &max_mem);
 	printf("mem_max is %d\n", max_mem);
@@ -63,16 +64,17 @@ int main(int argc, char *argv[])
     {
         printf("Tracking all processes on this system\n");
     }
-
     puts("Enter limit of memory in percent %");
     scanf("%f", &mdata_limit.mem);
     puts("Enter x time which is limit time overload");
     scanf("%d", &limit_time);
-
     /* fork  */
     do 
     {
 
+        // block all signal to this process after read all information about process 
+        // unblock to receive signal ( write to file from other process )
+        
         root = delete_process_if_not_exist_in_proc(root);
 
         d = opendir("/proc");
@@ -88,7 +90,6 @@ int main(int argc, char *argv[])
                     {
                         if( 1 == process_is_overload(_data_fake, mdata_limit))
                         {   
-                        
                             s = search(root, _data_fake, int_comp);
                             if (NULL == s)
                             {
@@ -102,12 +103,24 @@ int main(int argc, char *argv[])
                             {
                                 /*update stop time*/
                                 update_state_stop_time(&(s->data));
+                                /* 
+                                    alert
+                                    if process enought overload time 
+                                */
+                                if(1 == enough_time_overload(s->data))
+                                {
+                                    process_alert_overload();
+                                }
                                 
                             }
                         }
                         else 
-                        { 
-                                /* this process escape from overload */
+                        {
+                                /* 
+                                    this process escape from overload state
+                                        1. update stop time 
+                                        2. delete this node from Binary Search Tree 
+                                */
                                 s = search(root, _data_fake, int_comp);
                                 /*feature 2  tracking system*/
                                 if(NULL != s )
@@ -117,12 +130,18 @@ int main(int argc, char *argv[])
                                         write_to_file(s->data);
                                     }
                                 }
+                                root = delete_node(root, _data_fake, int_comp);
                         }
                     }
                     else if(FEATURE_1 == feature)
                     {
                             if (1 == in_array_pid_tracking(pid, arr_p_tracking, number_p_tracking))
                             {
+                                /* 
+                                    alert
+                                    if process enought overload time 
+                                */
+                              
                                 s = search(root, _data_fake, int_comp);
                                 if (NULL == s)
                                 {
@@ -130,7 +149,6 @@ int main(int argc, char *argv[])
                                     /*update start time  */
                                     s = search(root, _data_fake, int_comp);
                                     update_state_start_time(&(s->data));
-                                    write_to_file(s->data);
                                 }
                                 else 
                                 {
@@ -154,8 +172,9 @@ int main(int argc, char *argv[])
     
         /* display the tree */
         display_tree(root);
-        puts("please enter choose > 0 to continue");
-        scanf("%d", &choose);
+        //puts("please enter choose > 0 to continue");
+       // scanf("%d", &choose);
+       sleep(5);
     } while(choose > 0);
     /* remove element */
   

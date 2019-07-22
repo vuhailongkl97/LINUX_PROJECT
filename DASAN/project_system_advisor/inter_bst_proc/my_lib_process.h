@@ -11,6 +11,6 @@ float read_cpu(int pid);
 char* read_name(int pid, char *const name);
 float read_mem(int pid);
 int pid_is_not_in_proc(int pid);
-
+int process_alert_overload();
 
 #endif

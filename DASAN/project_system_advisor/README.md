@@ -1,6 +1,6 @@
 Project : system tracking 
 
-Target: 
+Description: 
 > Use knowleage about Process , Signal to create a APP tracking CPU, MEMORY, ... and save 
     log file
 
