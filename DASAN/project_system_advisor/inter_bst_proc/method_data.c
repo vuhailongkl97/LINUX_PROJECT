@@ -85,7 +85,6 @@ int update_state_stop_time(type_data *mdata)
     
     snprintf(mdata->stop_time, MAX_LENGTH_OF_NAME, "%s", ctime(&t));
     mdata->stop_time[strlen(mdata->stop_time)- 1] = '\0';
-    strcpy(mdata->status, "Stoped");
 
     return 0;
 }
@@ -109,7 +108,7 @@ int write_to_file(type_data mdata)
     FILE *fp = NULL;
 
     snprintf(path, MAX_LENGTH_OF_NAME, "./log/%d.txt", pid);
-    fp = fopen(path, "w+");
+    fp = fopen(path, "a");
     
     if(NULL == fp)
     {
@@ -117,9 +116,9 @@ int write_to_file(type_data mdata)
         return -1;
     }
     puts("write log to file ... ");
-    fprintf(fp, "%-5d %-2.2f %-2.2f %-20s %-20s %-7s %-30s\n", 
-            mdata.pid, mdata.cpu, mdata.mem, mdata.start_time, mdata.stop_time,
-            mdata.name, mdata.status);
+    fprintf(fp, "%-30s %-2.2f %-2.2f %-20s - %-20s %-10s\n", 
+            mdata.name, mdata.cpu, mdata.mem, mdata.start_time, mdata.stop_time,
+            mdata.status);
             
     fclose(fp);
 }
@@ -153,6 +152,8 @@ node *delete_process_if_not_exist_in_proc(node * root)
 
             if ((FEATURE_1 == feature) || (1 == enough_time_overload(s->data)))
             {
+                update_state_stop_time(&(s->data));
+                strcpy((s->data).status, "Stoped");
                 write_to_file(s->data);
             }
             root =  delete_node(root ,mdata , int_comp);

@@ -127,6 +127,7 @@ int main(int argc, char *argv[])
                                 {
                                     if(enough_time_overload(s->data))
                                     {
+                                        puts("here need write to file ");
                                         write_to_file(s->data);
                                     }
                                 }

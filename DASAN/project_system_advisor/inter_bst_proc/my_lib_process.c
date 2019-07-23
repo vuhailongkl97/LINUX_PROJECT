@@ -55,12 +55,13 @@ char* read_name(int pid,char *const name)
 	sprintf(tmp,"/proc/%d/cmdline", pid);
 	
 	fp = fopen(tmp, "r");
+	strcpy(name, "");
+	
 	if(NULL == fp)
 	{
 		printf("fail open stat for read name (pid %d)\n", pid);
-		return NULL;
+		return name;
 	}
-	strcpy(name, "");
 	fgets(name, MAX_LENGTH_OF_NAME-1, fp);
 
 	name[MAX_LENGTH_OF_NAME -1 ] = '\0';
