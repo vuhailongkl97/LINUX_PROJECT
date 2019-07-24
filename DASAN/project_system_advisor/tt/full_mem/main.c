@@ -4,12 +4,17 @@ int main(void)
 {
 	int *a;
 	int i = 0;
-	
-	a = (int *)malloc(sizeof(int) *1000 * 10000);
-	for (i = 0; i< 1000 * 10000; i++)
-		a[i] = i;
-	
-	sleep(10000);
+	int j = 0;
+	int num = 10;	
+
+	for (j =0 ; j< 1000; j ++)	
+	{
+		a = (int *)malloc(sizeof(int) *1000 * 100000);
+		for (i = 0; i< 1000 * 100000; i++)
+			a[i] = i;
+		puts("enter a number to continue");
+		scanf("%d", &num);
+	}
 	free(a);
 	
 	return 0;
