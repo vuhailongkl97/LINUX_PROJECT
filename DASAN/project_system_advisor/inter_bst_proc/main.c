@@ -25,7 +25,7 @@ int main(int argc, char *argv[])
 {
     DIR *d;
     struct dirent *dir;
-    int  pid, i, choose;
+    int  pid, i, choose =1, pid_f = 0;
     node* root = NULL , *s;
     comparer int_comp = compare;
     callback f = display;
@@ -69,6 +69,28 @@ int main(int argc, char *argv[])
     puts("Enter x time which is limit time overload");
     scanf("%d", &limit_time);
     /* fork  */
+    
+    pid_f = fork();
+    if( pid_f < 0){
+        perror("fork fail");
+        exit(-1);
+    } 
+    else if( pid_f > 0)
+    {
+            /*parent */
+            int time_out_f = 10;
+            while(1)
+            {
+                sleep(time_out_f);
+                kill(pid_f, SIGUSR1);
+            }
+    }
+    else 
+    {
+        /*child */
+        /*update handler for write tree to file  */
+        signal(SIGUSR1, write_tree_handler);
+        
     do 
     {
 
@@ -102,15 +124,11 @@ int main(int argc, char *argv[])
                             else 
                             {
                                 /*update stop time*/
+                                /*update memory , cpu  */
+
+                                s->data.mem = _data_fake.mem;
+                                s->data.cpu = _data_fake.cpu;
                                 update_state_stop_time(&(s->data));
-                                /* 
-                                    alert
-                                    if process enought overload time 
-                                */
-                                if(1 == enough_time_overload(s->data))
-                                {
-                                    process_alert_overload();
-                                }
                                 
                             }
                         }
@@ -125,13 +143,16 @@ int main(int argc, char *argv[])
                                 /*feature 2  tracking system*/
                                 if(NULL != s )
                                 {
+                                    s->data.mem = _data_fake.mem;
+                                    s->data.cpu = _data_fake.cpu;
+                                    update_state_stop_time(&(s->data));
                                     if(enough_time_overload(s->data))
                                     {
-                                        puts("here need write to file ");
                                         write_to_file(s->data);
                                     }
+                                    root = delete_node(root, _data_fake, int_comp);
                                 }
-                                root = delete_node(root, _data_fake, int_comp);
+                                
                         }
                     }
                     else if(FEATURE_1 == feature)
@@ -142,7 +163,6 @@ int main(int argc, char *argv[])
                                     alert
                                     if process enought overload time 
                                 */
-                              
                                 s = search(root, _data_fake, int_comp);
                                 if (NULL == s)
                                 {
@@ -150,10 +170,16 @@ int main(int argc, char *argv[])
                                     /*update start time  */
                                     s = search(root, _data_fake, int_comp);
                                     update_state_start_time(&(s->data));
+
+                                
                                 }
                                 else 
                                 {
                                     /*update stop time*/
+                                    /*update cpu , mem */
+                                    
+                                    s->data.mem = read_mem(pid);
+                                    s->data.cpu = read_cpu(pid);
                                     update_state_stop_time(&(s->data));
                                     
                                 }
@@ -172,13 +198,14 @@ int main(int argc, char *argv[])
     
         /* display the tree */
         //display_tree(root);
-        //puts("please enter choose > 0 to continue");
-       // scanf("%d", &choose);
+       //puts("please enter choose > 0 to continue");
+        //scanf("%d", &choose);
        sleep(1);
     } while(choose > 0);
     /* remove element */
   
     dispose(root);
+    }
 
     return(0);
 }

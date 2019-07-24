@@ -74,6 +74,7 @@ int update_state_start_time(type_data *mdata)
     mdata->start_time[strlen(mdata->start_time) -1 ]= '\0'; 
     strcpy(mdata->stop_time , "None");
     strcpy(mdata->status, "Running");
+    mdata->alert = 0;
 
     return 0;
 }
@@ -83,6 +84,11 @@ int update_state_stop_time(type_data *mdata)
     time_t t;
     time(&t);
     
+    if( ( 0 == mdata->alert ) && (1 == enough_time_overload(*mdata)))
+    {
+        process_alert_overload(*mdata);
+        mdata->alert = 1;
+    }
     snprintf(mdata->stop_time, MAX_LENGTH_OF_NAME, "%s", ctime(&t));
     mdata->stop_time[strlen(mdata->stop_time)- 1] = '\0';
 
@@ -91,7 +97,21 @@ int update_state_stop_time(type_data *mdata)
 
 int enough_time_overload(type_data mdata)
 {
-    return (get_duration_time(mdata.start_time, mdata.stop_time) > limit_time) ;
+    type_data tmp;
+    int time_overload = 0;
+
+    /*get time at now */
+    update_state_stop_time(&tmp);
+    if(strcmp("None", mdata.stop_time) == 0)
+    {
+        time_overload = get_duration_time(mdata.start_time, tmp.stop_time);    
+    }
+    else 
+    {
+        time_overload = get_duration_time(mdata.start_time, mdata.stop_time);
+    }
+    return (time_overload > limit_time);
+    
 }
 
 int process_is_overload(type_data mdata, type_data mdata_limit)
@@ -149,11 +169,10 @@ node *delete_process_if_not_exist_in_proc(node * root)
                 or feature 1
                 then call write to file 
             */
-
+            strcpy((s->data).status, "Stoped");
+            update_state_stop_time(&(s->data));
             if ((FEATURE_1 == feature) || (1 == enough_time_overload(s->data)))
             {
-                update_state_stop_time(&(s->data));
-                strcpy((s->data).status, "Stoped");
                 write_to_file(s->data);
             }
             root =  delete_node(root ,mdata , int_comp);

@@ -1,1 +1,0 @@
-/usr/lib/firefox/firefox       0.00 6.35 Mon Jul 22 23:12:35 2019 - Mon Jul 22 23:12:56 2019 Stoped    

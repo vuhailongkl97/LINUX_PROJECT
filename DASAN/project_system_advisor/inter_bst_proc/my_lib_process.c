@@ -108,9 +108,13 @@ int pid_is_not_in_proc(int pid)
 	closedir(d);
     return 0;
 }
-int process_alert_overload()
+int process_alert_overload(type_data mdata)
 {
 	/*double fork at here */
-	//puts("\n\n\nalert\n\n\n");
+	printf("\nalert %s is overload ( mem = %f%%)\n", mdata.name, mdata.mem );
 	return 0;
+}
+void write_tree_handler(int signo)
+{
+	puts("write tree to file ");
 }

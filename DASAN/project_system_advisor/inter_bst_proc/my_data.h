@@ -21,6 +21,7 @@ typedef struct _data{
 	int pid;
 	float cpu;
 	float mem;
+	char alert;
 	char name[MAX_LENGTH_OF_NAME + 1];
 	char start_time[MAX_LENGTH_OF_TIME + 1];
 	char stop_time[MAX_LENGTH_OF_TIME + 1];

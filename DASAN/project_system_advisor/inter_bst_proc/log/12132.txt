@@ -1,1 +1,0 @@
-/usr/lib/firefox/firefox       0.00 6.86 Mon Jul 22 23:17:01 2019 - Mon Jul 22 23:17:06 2019 Running   
