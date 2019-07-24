@@ -111,7 +111,44 @@ int pid_is_not_in_proc(int pid)
 int process_alert_overload(type_data mdata)
 {
 	/*double fork at here */
-	printf("\nalert %s is overload ( mem = %f%%)\n", mdata.name, mdata.mem );
+	int tmp_pid = 0;
+
+	
+	tmp_pid = fork();
+	if( tmp_pid < 0 )
+	{
+		perror("fork fail in process alert overload ");
+		return -1;
+	}
+	else if (tmp_pid == 0)
+	{
+		
+		int tmp_pid2 = fork();
+		if( tmp_pid2 > 0 )
+		{
+			//usleep(10);
+			exit(0);
+		}
+		else if( tmp_pid2 == 0)
+		{
+			//system("ogg123 alert.ogg");
+			usleep(100000);
+			printf("\nalert %s is overload ( mem = %f%%)\n", mdata.name, mdata.mem );
+			exit(0);
+		}
+		else 
+		{
+			perror("fork twice fail");
+			return -1;
+		}
+		
+	}
+	
+	wait(NULL);
+	//printf("\nalert %s is overload ( mem = %f%%)\n", mdata.name, mdata.mem );
+	
+	
+	
 	return 0;
 }
 void write_tree_handler(int signo)
