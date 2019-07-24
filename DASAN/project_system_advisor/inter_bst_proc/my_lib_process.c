@@ -49,25 +49,13 @@ float read_cpu(int pid)
 }
 char* read_name(int pid,char *const name)
 {
-	char tmp[100];
-	FILE *fp;
+	char path[MAX_LENGTH_OF_NAME];
 
-	sprintf(tmp,"/proc/%d/cmdline", pid);
+	memset(name, '\0', MAX_LENGTH_OF_NAME + 1);
+	sprintf(path,"/proc/%d/exe", pid);
 	
-	fp = fopen(tmp, "r");
-	strcpy(name, "");
-	
-	if(NULL == fp)
-	{
-		printf("fail open stat for read name (pid %d)\n", pid);
-		return name;
-	}
-	fgets(name, MAX_LENGTH_OF_NAME-1, fp);
+	readlink(path, name, MAX_LENGTH_OF_NAME );
 
-	name[MAX_LENGTH_OF_NAME -1 ] = '\0';
-
-	fclose(fp);
-	
 	return name;	
 }
 float read_mem(int pid)
@@ -131,8 +119,8 @@ int process_alert_overload(type_data mdata)
 		}
 		else if( tmp_pid2 == 0)
 		{
-			//system("ogg123 alert.ogg");
 			usleep(100000);
+			system("ogg123 alert.ogg");
 			printf("\nalert %s is overload ( mem = %f%%)\n", mdata.name, mdata.mem );
 			exit(0);
 		}
@@ -154,6 +142,6 @@ void write_tree_handler(int signo)
 	puts("write tree to file ");
 	if (SIGUSR1 == signo)
 	{
-		
+		write_tree_to_file(root);
 	}
 }

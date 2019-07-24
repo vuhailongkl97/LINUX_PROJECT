@@ -6,6 +6,9 @@
 #include <dirent.h>
 #include "my_data.h"
 #include <signal.h>
+#include <sys/wait.h>
+
+
 
 int check_is_pid(const char *name);
 float read_cpu(int pid);

@@ -1,7 +1,7 @@
 #ifndef _MY_DATA_H
 #define _MY_DATA_H
 
-#define MAX_LENGTH_OF_NAME 70
+#define MAX_LENGTH_OF_NAME 90
 #define MAX_LENGTH_OF_TIME 40
 #define MAX_LENGTH_OF_STATUS 10
 
@@ -14,6 +14,8 @@
 
 extern int feature;
 extern int limit_time;
+
+
 
 enum feature {FEATURE_1 = 1, FEATURE_2 = 2 };
 
@@ -30,7 +32,7 @@ typedef struct _data{
 
 typedef m_data type_data;
 
-type_data mdata_limit;
+extern type_data mdata_limit;
 
 typedef struct node
 {
@@ -38,6 +40,8 @@ typedef struct node
     struct node* left;
     struct node* right;
 } node;
+
+extern node *root;
 typedef void (*callback)(node*);
 
 typedef int (*comparer)(type_data, type_data);
@@ -51,6 +55,7 @@ int update_state_stop_time(type_data *mdata);
 int enough_time_overload(type_data mdata);
 int process_is_overload(type_data mdata, type_data mdata_limit);
 int write_to_file(type_data mdata);
+int write_tree_to_file(node *root);
 node *delete_process_if_not_exist_in_proc(node * root);
 extern void traverse_tree(node *root, int *n, int *arr);
 extern node* delete_node(node* , type_data ,comparer );

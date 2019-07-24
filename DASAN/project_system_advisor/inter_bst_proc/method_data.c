@@ -76,6 +76,7 @@ int update_state_start_time(type_data *mdata)
     strcpy(mdata->status, "Running");
     mdata->alert = 0;
 
+
     return 0;
 }
 
@@ -84,11 +85,7 @@ int update_state_stop_time(type_data *mdata)
     time_t t;
     time(&t);
     
-    if(( 0 == mdata->alert ) && (1 == enough_time_overload(*mdata)) && ( 1 == process_is_overload(*mdata, mdata_limit)))
-    {
-        process_alert_overload(*mdata);
-        mdata->alert = 1;
-    }
+    //printf("limit.mem , limit.timeout %f   %d\n",mdata_limit.mem, limit_time);
     snprintf(mdata->stop_time, MAX_LENGTH_OF_NAME, "%s", ctime(&t));
     mdata->stop_time[strlen(mdata->stop_time)- 1] = '\0';
 
@@ -164,11 +161,7 @@ node *delete_process_if_not_exist_in_proc(node * root)
         {
             mdata.pid = arr[i];
             s = search(root, mdata, int_comp);
-            /*
-                check if enought time overload ( feature 2)
-                or feature 1
-                then call write to file 
-            */
+
             strcpy((s->data).status, "Stoped");
             update_state_stop_time(&(s->data));
             if ((FEATURE_1 == feature) || (1 == enough_time_overload(s->data)))
@@ -211,4 +204,13 @@ int get_duration_time(const char *start_time, const char *stop_time)
     sscanf(stop_time, "%*s%*s%*d%s%*d", mtime2);
 
 	return abs(get_second_from_time(mtime1) - get_second_from_time(mtime2));	
+}
+int write_tree_to_file(node *root)
+{
+    if (NULL != root)
+    {
+        write_to_file(root->data);
+        write_tree_to_file(root->left);
+        write_tree_to_file(root->right);
+    }
 }

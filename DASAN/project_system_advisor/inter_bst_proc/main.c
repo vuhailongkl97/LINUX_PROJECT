@@ -10,6 +10,7 @@ int max_mem = 1;
 int feature = 0 ;
 int limit_time = 0;
 type_data mdata_limit;
+node* root = NULL;
 
 int in_array_pid_tracking(int pid, int arr[], int n)
 {
@@ -27,7 +28,7 @@ int main(int argc, char *argv[])
     DIR *d;
     struct dirent *dir;
     int  pid, i, choose =1, pid_f = 0;
-    node* root = NULL , *s;
+    node *s;
     comparer int_comp = compare;
     callback f = display;
     type_data _data_fake;
@@ -80,11 +81,22 @@ int main(int argc, char *argv[])
     {
             /*parent */
             int time_out_f = 10;
-            while(1)
+
+            if (FEATURE_1 == feature )
             {
-                sleep(time_out_f);
-                kill(pid_f, SIGUSR1);
+                while(1)
+                {
+                    sleep(time_out_f);
+                    kill(pid_f, SIGUSR1);
+                }
             }
+            else 
+                while (1)
+                {
+                    /* code */
+                    sleep(1000);
+                }
+
     }
     else 
     {
@@ -108,12 +120,13 @@ int main(int argc, char *argv[])
                 if(1 == check_is_pid(dir->d_name) )
                 {
                     pid = atoi(dir->d_name);
-                    
+                    fill_data(&_data_fake, pid);
                     if (FEATURE_2 == feature )
                     {
-                        fill_data(&_data_fake, pid);
+                        
                         if( 1 == process_is_overload(_data_fake, mdata_limit))
                         {   
+
                             s = search(root, _data_fake, int_comp);
                             if (NULL == s)
                             {
@@ -127,11 +140,16 @@ int main(int argc, char *argv[])
                             {
                                 /*update stop time*/
                                 /*update memory , cpu  */
-
-                                s->data.mem = _data_fake.mem;
-                                s->data.cpu = _data_fake.cpu;
-                                update_state_stop_time(&(s->data));
-                                
+                            s->data.mem = _data_fake.mem;
+                            s->data.cpu = _data_fake.cpu;
+                            update_state_stop_time(&(s->data));
+                            if((0 == s->data.alert ) && (1 == enough_time_overload(_data_fake)))
+                            {
+                                process_alert_overload(s->data);
+                                //mdata->alert = 1;
+                                s->data.alert = 1;
+                            }
+     
                             }
                         }
                         else 
@@ -165,7 +183,7 @@ int main(int argc, char *argv[])
                                     alert
                                     if process enought overload time 
                                 */
-                                fill_data(&_data_fake, pid);
+                                
                                 s = search(root, _data_fake, int_comp);
                                 if (NULL == s)
                                 {
@@ -184,6 +202,13 @@ int main(int argc, char *argv[])
                                     s->data.mem = read_mem(pid);
                                     s->data.cpu = read_cpu(pid);
                                     update_state_stop_time(&(s->data));
+
+                                    if((0 == s->data.alert ) && (1 == process_is_overload(s->data,mdata_limit)))
+                                    {
+                                        process_alert_overload(s->data);
+                                        //mdata->alert = 1;
+                                        s->data.alert = 1;
+                                    }
                                     
                                 }
                             }
@@ -201,7 +226,7 @@ int main(int argc, char *argv[])
     
         /* display the tree */
         //display_tree(root);
-       //puts("please enter choose > 0 to continue");
+     //  puts("please enter choose > 0 to continue");
         //scanf("%d", &choose);
        sleep(1);
     } while(choose > 0);

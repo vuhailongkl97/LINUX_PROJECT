@@ -190,3 +190,4 @@ void traverse_tree(node *root, int *n, int *arr)
         traverse_tree(root->right, n, arr);
     }
 }
+
