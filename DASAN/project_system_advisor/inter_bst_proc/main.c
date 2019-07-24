@@ -9,6 +9,7 @@
 int max_mem = 1;
 int feature = 0 ;
 int limit_time = 0;
+type_data mdata_limit;
 
 int in_array_pid_tracking(int pid, int arr[], int n)
 {
@@ -29,7 +30,7 @@ int main(int argc, char *argv[])
     node* root = NULL , *s;
     comparer int_comp = compare;
     callback f = display;
-    type_data _data_fake, mdata_limit;
+    type_data _data_fake;
     FILE *fp = NULL; 
     
     int *arr_p_tracking = NULL;
@@ -107,9 +108,10 @@ int main(int argc, char *argv[])
                 if(1 == check_is_pid(dir->d_name) )
                 {
                     pid = atoi(dir->d_name);
-                    fill_data(&_data_fake, pid);
+                    
                     if (FEATURE_2 == feature )
                     {
+                        fill_data(&_data_fake, pid);
                         if( 1 == process_is_overload(_data_fake, mdata_limit))
                         {   
                             s = search(root, _data_fake, int_comp);
@@ -163,6 +165,7 @@ int main(int argc, char *argv[])
                                     alert
                                     if process enought overload time 
                                 */
+                                fill_data(&_data_fake, pid);
                                 s = search(root, _data_fake, int_comp);
                                 if (NULL == s)
                                 {

@@ -147,11 +147,13 @@ int process_alert_overload(type_data mdata)
 	wait(NULL);
 	//printf("\nalert %s is overload ( mem = %f%%)\n", mdata.name, mdata.mem );
 	
-	
-	
 	return 0;
 }
 void write_tree_handler(int signo)
 {
 	puts("write tree to file ");
+	if (SIGUSR1 == signo)
+	{
+		
+	}
 }

@@ -6,6 +6,8 @@ int main(void)
 	int i = 0;
 	int j = 0;
 	int num = 10;	
+	
+	printf("pid = %d\n", getpid());
 
 	for (j =0 ; j< 1000; j ++)	
 	{

@@ -84,7 +84,7 @@ int update_state_stop_time(type_data *mdata)
     time_t t;
     time(&t);
     
-    if( ( 0 == mdata->alert ) && (1 == enough_time_overload(*mdata)))
+    if(( 0 == mdata->alert ) && (1 == enough_time_overload(*mdata)) && ( 1 == process_is_overload(*mdata, mdata_limit)))
     {
         process_alert_overload(*mdata);
         mdata->alert = 1;

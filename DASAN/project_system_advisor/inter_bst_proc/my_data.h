@@ -30,6 +30,8 @@ typedef struct _data{
 
 typedef m_data type_data;
 
+type_data mdata_limit;
+
 typedef struct node
 {
     type_data data;
