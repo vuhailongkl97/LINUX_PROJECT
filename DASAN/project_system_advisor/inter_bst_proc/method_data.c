@@ -56,11 +56,20 @@ int fill_data(type_data *mdata, int pid)
 {
     char *name = NULL;
     float mem, cpu;
+    sigset_t block_mask,old_set;
+    
+    sigfillset(&block_mask);
+
+    /*protect */
+    /*lock */
+    sigprocmask(SIG_BLOCK, &block_mask, &old_set);
 
     name = (char*)malloc(sizeof(char)*MAX_LENGTH_OF_NAME);
     fill_raw_data(mdata, pid, read_cpu(pid), read_mem(pid), \
         read_name(pid, name));
 
+    sigprocmask(SIG_SETMASK, &old_set, NULL);
+    /*unlock */
     free(name);
     
     return 0;

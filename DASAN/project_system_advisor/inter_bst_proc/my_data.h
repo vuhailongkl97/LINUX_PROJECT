@@ -10,7 +10,9 @@
 #include <stdlib.h>
 #include <time.h>
 #include <math.h>
+#include <signal.h>
 #include "my_lib_process.h"
+
 
 extern int feature;
 extern int limit_time;
