@@ -26,6 +26,33 @@ Skill :
 Note:
 > Log file certain name, cpu, mem, start/stop time of processes when they is overload
 
+Organization 
+	project locate "inter_bst_proc" directory
+
+How to run ?
+	go to "cd inter_bst_proc"
+	run "make"
+
+Test 2 feature:
+	Feature 1 : tracking specific PIDs
+		1.run : "./m 1"
+		2.enter number pids tracking 
+		3.enter each PID sequence 
+		4.enter RAM limit ( percent)
+		5.enter time out ( for alert, update node to tree)
+
+	
+	Feature 2 : tracking all processes on System
+		1.run : "./m 2"
+		2.enter RAM limit ( percent)
+		3.enter time out ( for alert, update node to tree)
+
+
+
+
+
+
+
 
 
 
