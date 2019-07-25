@@ -28,15 +28,21 @@ Note:
 
 Organization 
 
-	project locate "inter_bst_proc" directory
+	1. Project locate "main_project" directory
+	
+	2. Module test which are a part of main project
+		I create more small module look like then i intergrate them to bigger 
+	
+	3. Test case memory leak
 
 How to run ?
 
-	go to "cd inter_bst_proc"
+	1.Go to "cd main_project"
 	
-	run "make"
+	2.Run "make"
 
 Test 2 feature:
+
 	Feature 1 : tracking specific PIDs
 	
 		1.run : "./m 1"
@@ -51,17 +57,9 @@ Test 2 feature:
 
 	
 	Feature 2 : tracking all processes on System
+
 		1.run : "./m 2"
+
 		2.enter RAM limit ( percent)
+
 		3.enter time out ( for alert, update node to tree)
-
-
-
-
-
-
-
-
-
-
-
