@@ -31,6 +31,7 @@ Organization
 	project locate "inter_bst_proc" directory
 
 How to run ?
+
 	go to "cd inter_bst_proc"
 	
 	run "make"
