@@ -143,8 +143,9 @@ int main(int argc, char *argv[])
                             s->data.mem = _data_fake.mem;
                             s->data.cpu = _data_fake.cpu;
                             update_state_stop_time(&(s->data));
-                            if((0 == s->data.alert ) && (1 == enough_time_overload(_data_fake)))
+                            if((0 == s->data.alert ) && (1 == enough_time_overload(s->data)))
                             {
+
                                 process_alert_overload(s->data);
                                 //mdata->alert = 1;
                                 s->data.alert = 1;
@@ -203,7 +204,8 @@ int main(int argc, char *argv[])
                                     s->data.cpu = read_cpu(pid);
                                     update_state_stop_time(&(s->data));
 
-                                    if((0 == s->data.alert ) && (1 == process_is_overload(s->data,mdata_limit)))
+                                    if((0 == s->data.alert ) && (1 == process_is_overload(s->data,mdata_limit)) &&
+                                            (1 == enough_time_overload(s->data)))
                                     {
                                         process_alert_overload(s->data);
                                         //mdata->alert = 1;

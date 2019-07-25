@@ -79,8 +79,8 @@ int update_state_start_time(type_data *mdata)
     time_t t;
     time(&t);
     
+    memset(mdata->start_time, '\0', MAX_LENGTH_OF_NAME + 1);
     snprintf(mdata->start_time, MAX_LENGTH_OF_NAME, "%s", ctime(&t));
-    mdata->start_time[strlen(mdata->start_time) -1 ]= '\0'; 
     strcpy(mdata->stop_time , "None");
     strcpy(mdata->status, "Running");
     mdata->alert = 0;
@@ -108,6 +108,7 @@ int enough_time_overload(type_data mdata)
 
     /*get time at now */
     update_state_stop_time(&tmp);
+
     if(strcmp("None", mdata.stop_time) == 0)
     {
         time_overload = get_duration_time(mdata.start_time, tmp.stop_time);    
@@ -209,6 +210,8 @@ int get_duration_time(const char *start_time, const char *stop_time)
 {
 	char mtime1[20],mtime2[20];
 
+    memset(mtime1, '\0', 20);
+    memset(mtime2, '\0', 20);
 	sscanf(start_time, "%*s%*s%*d%s%*d", mtime1);
     sscanf(stop_time, "%*s%*s%*d%s%*d", mtime2);
 
