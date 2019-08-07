@@ -30,12 +30,12 @@ Organization
 
 	1. Project locate "main_project" directory
 	
-	2. Module test which are a part of main project
+	2. The "module_test" folder which are a part of main project
 		I create more small module look like then i intergrate them to bigger 
 	
-	3. Test case memory leak
+	3. the "test_case" directory contain code test( memory leak)
 
-How to run ?
+ How to run ?
 
 	1.Go to "cd main_project"
 	
