@@ -1,0 +1,17 @@
+	   	
+signal.h
+signal kill 
+SIGINT SIGCHLD SIGUSR1 SIGUSR2
+
+pthread.h  -lpthread
+pthread_join pthread_create pthread_detach
+
+stdio.h
+printf puts
+
+string.h
+strcpy strcmp strstr
+memset memcpy  
+
+math.h -m
+sqrt pow 

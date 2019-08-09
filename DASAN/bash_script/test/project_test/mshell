@@ -1,0 +1,70 @@
+#!/bin/bash
+declare -a data
+data=(0 0 0 0 0)
+error_type=(0 0 0 0 0)
+input_file_check=$1
+output_file_check=$2
+
+echo $input_file_check
+echo $output_file_check
+if [ -z "$input_file_check" ] | [ -z "$output_file_check" ]; then 
+	echo "failed"	
+	exit 0
+fi
+gcc $input_file_check >& ${output_file_check}
+
+func_handler()
+{
+		input="input.txt"
+		read line < "$input"
+        error_type[0]=$1;
+        error_type[1]=$2;
+        error_type[2]=$3;
+        #check key of error return 0 or 1
+        data[0]=$(echo $line|grep "${error_type[0]}"|wc -l)
+        data[1]=$(echo $line|grep "${error_type[1]}"|wc -l)
+        data[2]=$(echo $line|grep "${error_type[2]}"|wc -l)
+        sum=$(( ${data[0]} + ${data[1]} + ${data[2]} ))
+		if [ $sum == "0" ]; then 
+			echo "None None None None"
+			return 127
+		fi
+        case $sum in
+                ${data[0]})
+                        # unknown type name error
+                        er=$(echo $line|awk '{for ( i = 1; i <= NF; i++ )
+                        if ( $i=="name" ) print $(i+1)}')
+                        er=""
+                        er1=$(echo $line|awk '{for ( i = 1; i <= NF; i++ )
+                        if ( $i=="function" ) print $(i+1)}')
+                        ps=$(echo $line|awk '{print $0}'|cut -d':' -f2)
+                        fn=$(if [ -z $er1 ]
+                        then
+                                tuananh=10;
+                        else
+                                echo "function"
+                        fi)
+						echo "${error_type[0]} $fn $er $er1 $ps"
+                        ;;
+                ${data[1]})
+                        # expected character ";"
+                        er=$(echo $line|awk '{for ( i = 1; i <= NF; i++ )
+                        if ( $i=="before" ) print $(i+1)}')
+                        er1=$(echo $line|awk -v mvar=${error_type[1]} '{for ( i = 1; i <= NF; i++ )
+                        if ( $i==mvar ) print $(i+1)}')
+                        ps=$(echo $line|awk '{print $0}'|cut -d':' -f2)
+                        echo "${error_type[1]} $er1 $ps"
+                        ;;
+                ${data[2]})
+                        # undeclared MACRO or variable
+                        er=$(echo $line|awk -v mvar=${error_type[2]} '{for ( i = 1; i <= NF; i++ )
+                        if ( $i==mvar ) print $(i-1)}')
+                        ps=$(echo $line|awk '{print $0}'|cut -d':' -f2)
+                        echo "${error_type[2]} $er $ps"
+                        ;;
+             esac
+}
+
+
+awk '/error:/ {print NR,$0}' output.txt>input.txt
+func_handler unknown expected undeclared
