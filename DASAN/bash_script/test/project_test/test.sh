@@ -15,7 +15,7 @@ function test_get_lib_flag()
 function test_add_lib_flag()
 {
 	local ret 
-	add_lib_flag $1
+	add_lib_flag $1 $2
 	if [[ $? != 0 ]]; then 
 		echo "error at add_lib_flag for $1"
 		return 127
@@ -39,7 +39,7 @@ else
 	echo "complete get db.txt"
 fi
 
-test_add_lib_flag "pthread_join"
+test_add_lib_flag "main.c" "SIGINT"
 
 
 #test_add_semicolon  $1

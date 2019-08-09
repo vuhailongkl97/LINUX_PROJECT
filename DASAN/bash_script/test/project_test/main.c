@@ -1,6 +1,8 @@
 #include"stdio.h"
 #include <pthread.h>
 
+// A normal C function that is executed as a thread
+// when its name is specified in pthread_create()
 void *myThreadFun(void *vargp)
 {
         sleep(1);
@@ -8,17 +10,8 @@ void *myThreadFun(void *vargp)
         return NULL;
 }
 
-void handler(int signo)
-{
-	puts("ok");
-}
-
 int main()
 {
-	int x = 10;
-
-	signal(SIGINT, handler);
-
-	return 0;
+        exit(0);
 }
 

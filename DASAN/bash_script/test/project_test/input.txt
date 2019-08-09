@@ -1,3 +1,0 @@
-2 main.c:20: error: ‘SIGINT’ undeclared (first use in this function)
-3 main.c:20: error: (Each undeclared identifier is reported only once
-4 main.c:20: error: for each function it appears in.)
