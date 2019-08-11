@@ -13,6 +13,7 @@ void test_mouse(int x_src, int y_src,int x_des, int y_des, int speed)
 int main(int argc, char *argv[])
 {
          //Get system window
+	 int i = 0;
 
          dpy = XOpenDisplay(0);
          root_window = XRootWindow(dpy, 0);
@@ -20,11 +21,23 @@ int main(int argc, char *argv[])
 	
 	
 	 show_attribute(dpy, root_window);
-	 test_mouse(10,10,100, 70, 4);
-	 
-	 mouseClick(dpy, 1);
-	
 
+	 test_mouse(0,0,100, 100, 2);
+	 mouseClick(dpy,1);
+	 sleep(1);
+	 mouseClick(dpy,1);
+	 	
+	 mouseClick(dpy,1);
+	 for ( i = 0; i< 13; i++) 
+	 {
+		test_mouse(200,400,1300, 400, 4);
+		usleep(100000);
+	 	test_mouse(1300,400,200, 400, -4);
+		sleep(1);
+	 }
+	 
+	 mouseRelease(dpy, 1);
+	
          return 0;
 }
 

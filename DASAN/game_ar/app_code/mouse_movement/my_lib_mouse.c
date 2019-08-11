@@ -1,34 +1,39 @@
 #include "my_lib_mouse.h"
 
 
-void mouseClick(Display *dpy, int button)
+void mousePress(Display *dpy, int button)
 {
 
-    // press
     XTestFakeButtonEvent(dpy, button, True, 1);
     XFlush(dpy);
 
     usleep(10000);
 
-    // release 
     XTestFakeButtonEvent(dpy, button, False, 1);
     XFlush(dpy);
 
-    usleep(10000);
+}
+
+void mouseRelease(Display *dpy, int button)
+{
+
     XTestFakeButtonEvent(dpy, button, True, 1);
     XFlush(dpy);
-
-    //XCloseDisplay(dpy);
-
 }
+
+void mouseClick(Display *dpy, int button)
+{
+    mousePress(dpy, button);	
+    usleep(200000);
+    mouseRelease(dpy, button);	
+}
+
 void move_xy(Display *dpy, Window root_w,int x_src, int y_src,
 		 int x_des, int y_des, int jump_size, int speed)
 {
-	if ( speed < 0)		
-	{
-		speed = 0;
-	}
-	else if(speed >5) 
+	//printf("move from (%d,%d) -> (%d,%d)\n", x_src, y_src, x_des, y_des);
+	int x_dis, y_dis;
+	if(speed >5) 
 	{
 		speed = 5;
 	}
@@ -36,15 +41,21 @@ void move_xy(Display *dpy, Window root_w,int x_src, int y_src,
 	do	
 
         {                                                                          
-                XWarpPointer(dpy, None, root_w, 0, 0, 0, 0, x_src ,y_src );           
-                x_src += jump_size;                                             
-                y_src += jump_size;                                             
+        	XWarpPointer(dpy, None, root_w, 0, 0, 0, 0, x_src ,y_src );           
 
-                usleep((int)(5000/speed));                                             
+		x_dis = abs(x_src -x_des) ;	
+		y_dis = abs(y_src -y_des) ;	
+		if( x_dis >= jump_size)
+                	x_src += speed*jump_size;                                             
+	
+		if( y_dis >= jump_size)
+       	        	y_src += speed*jump_size;                                             
+
+                usleep((int)(5000/abs(speed)));                                             
 
                 XFlush(dpy);                                                    
         }   	
-	while(x_src < x_des || y_src < y_des);
+	while((x_dis  > jump_size) || (y_dis > jump_size));
 }
                                                                                 
 void show_attribute(Display *dpy, Window root_window)

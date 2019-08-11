@@ -3,6 +3,7 @@
 
 #include <stdio.h>
 #include <unistd.h>                                                               
+#include <stdlib.h>                                                               
 #include <X11/Xutil.h>  
 
 #include <X11/Xlib.h>
@@ -11,6 +12,8 @@
 
 
 void mouseClick(Display *dpy, int button);
+void mousePress(Display *dpy, int button);
+void mouseRelease(Display *dpy, int button);
 
 void move_xy(Display *dpy, Window root_w,int x_src, int y_src,                  
                     int x_des, int y_des, int jump_size, int speed);
