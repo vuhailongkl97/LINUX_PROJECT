@@ -1,7 +1,0 @@
-1. youtube : video game 
-	https://www.youtube.com/watch?v=CdWd8fUC71g
-
-target copy above ideal and intergrate with mpu6050, driver linux  knowleadge
-
-
-sudo apt install libxtst-dev

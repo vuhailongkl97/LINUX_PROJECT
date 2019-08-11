@@ -1,6 +1,0 @@
-#install libx11 for mouse movement
-
-sudo apt install libx11-dev
-
-note Makefiel need -lX11
-
