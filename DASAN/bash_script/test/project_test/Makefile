@@ -1,7 +1,8 @@
-override FLAGS +=-Wall
+override FLAGS +=
 FILE_IN=main.c
 all:
 	gcc -o t $(FLAGS) $(FILE_IN)
 
-clean:
-	rm -f t
+clean_trash:
+	rm -f output2.txt output2.c
+

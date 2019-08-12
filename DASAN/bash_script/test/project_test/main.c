@@ -1,9 +1,6 @@
 #include"stdio.h"
-#include <pthread.h>
 
-// A normal C function that is executed as a thread
-// when its name is specified in pthread_create()
-void *myThreadFun(void *vargp)
+void *func(void *vargp)
 {
         sleep(1);
         printf("Printing GeeksQuiz from Thread \n");
@@ -12,6 +9,12 @@ void *myThreadFun(void *vargp)
 
 int main()
 {
+		pthread_t t;
+
+		pthread_create(&t, NULL, func, NULL);
+		pthread_join(t, NULL);
+
+		puts("hello");
         exit(0);
 }
 

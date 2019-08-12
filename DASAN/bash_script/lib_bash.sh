@@ -4,7 +4,7 @@ db_file="db.txt"
 prefix_name="longkl_"
 prefix_flag="longkl_flag_"
 current_header="stdio.h"
-FLAGS="-Wall"
+oFLAGS="-Wall"
 OUTPUT_FILE="output.c"
 output_file_check="output.txt"
 
@@ -94,9 +94,9 @@ function add_header_to_source()
 function add_flag_to_make_file()
 {
 #	echo "adding option $1 to make file"
-	FLAGS="$FLAGS $1"
+	oFLAGS="$oFLAGS $1"
 
-	echo "$FLAGS"
+	echo "$oFLAGS"
 	return 0
 }
 
@@ -129,24 +129,23 @@ function add_lib_flag()
 	local func_name=$2
 	local file_repair=$1
 
-		echo "add lib flag failed"
 	tmp=$(get_library_flag_from_name $func_name)
 	if [[ $? != 0 ]]; then 
 		return 127
 	fi
-		echo "add lib flag failed"
 	IFS=' ' read -r -a array <<< "$tmp"
 #add_header_to_source $file_repair ${array[0]}
 	ret_header=$(add_header_to_source $file_repair ${array[0]})
 	ret_option=$(add_flag_to_make_file ${array[1]})
-	echo   $ret_header $ret_option
+	echo   "$ret_header $ret_option in add_lib_flag"
 
 	if [[ ret_header == "failed"  || ret_option == "failed" ]]; then 
 		echo "add lib flag failed"
 		return 127 
 	else 
-		echo "make FLAGS=$ret_option"
-		make FLAGS="\"$FLAGS $ret_option\"" FILE_IN=$OUTPUT_FILE &> "$output_file_check"
+		echo "make oFLAGS=$ret_option"
+		oFLAGS="$ret_option"
+		make FLAGS="$ret_option" FILE_IN=$OUTPUT_FILE &> "$output_file_check"
 	fi
 	return 0
 }
