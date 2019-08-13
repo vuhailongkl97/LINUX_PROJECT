@@ -1,4 +1,3 @@
-#include"stdio.h"
 
 void *func(void *vargp)
 {
@@ -13,7 +12,7 @@ int main()
 
 		pthread_create(&t, NULL, func, NULL);
 		pthread_join(t, NULL);
-
+		pthread_exit(NULL);
 		puts("hello");
         exit(0);
 }

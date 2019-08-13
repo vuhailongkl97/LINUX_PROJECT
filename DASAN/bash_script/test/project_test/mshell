@@ -17,9 +17,10 @@ fi
 func_handler()
 {
 		read line < "$output_file_check_after_find"
-        error_type[0]=$1;
-        error_type[1]=$2;
-        error_type[2]=$3;
+
+		error_type[0]=$(echo $1|sed 's/_/ /')
+		error_type[1]=$(echo $2|sed 's/_/ /')
+		error_type[2]=$(echo $3|sed 's/_/ /')
         #check key of error return 0 or 1
         data[0]=$(echo $line|grep "${error_type[0]}"|wc -l)
         data[1]=$(echo $line|grep "${error_type[1]}"|wc -l)
@@ -109,10 +110,21 @@ function test_add_semicolon()
 
 function check_un_ex_und()
 {
-	awk '/warning:/ {print NR,$0}' $output_file_check > "$output_file_check_after_find"
+	local ret ret2
+	if [[ $1 == "warning" ]]; then 
+		awk '/warning:/ {print NR,$0}' $output_file_check > "$output_file_check_after_find"
+		ret=$(func_handler implicit kkka kkkk)
+	elif [[ $1 == "error" ]]; then 
+		echo "this option is error"
+		awk '/error:/ {print NR,$0}' $output_file_check > "$output_file_check_after_find"
+#func_handler unknown expected undeclared
+		ret=$(func_handler unknown expected undeclared)
+	else 
 
-	local ret=$(func_handler implicit kkka kkkk)
-	local ret2
+		awk '/undefined reference/ {print NR,$0}' $output_file_check > "$output_file_check_after_find"
+		ret=$(func_handler undefined_reference anh_tuan anh)
+
+	fi
 
 	IFS=' ' read -r -a array <<< "$ret"
 	
@@ -151,23 +163,28 @@ function mloop()
 	local ret
 	rebuild "main.c"
 
-	while : ; do 
-	check_un_ex_und
-	ret=$?
-	echo "ret after check un_ex_und is $?"
-	if [[ $ret != 0 ]]; then 
-		echo "skip this warning, this warning have supported yet"		
-		break
-	fi
+	array=( "error" "warning" "handler" )
+	for i in "${array[@]}"
+	do
+		while : ; do 
+		check_un_ex_und "$i"
+		ret=$?
+		echo "ret after check un_ex_und is $?"
+		if [[ $ret != 0 ]]; then 
+			echo "skip this warning, this warning have supported yet"		
+			break
+		fi
 
-	head -n 6 output.c
-	cp output.c output2.c
-	rebuild "output2.c"
+		head -n 6 output.c
+		cp output.c output2.c
+		rebuild "output2.c"
 
-	done ;	
+		done ;	
+	done
 
 	make clean_trash
 
 }
+
 mloop
 
