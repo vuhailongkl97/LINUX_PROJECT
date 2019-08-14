@@ -12,15 +12,17 @@ pthread_t
 
 stdio.h
 printf puts
+NULL
 
 string.h
 strcpy strcmp strstr
 memset memcpy  
 
-math.h -m
+math.h
 sqrt pow 
 
 stdlib.h
 exit
+
 
 

@@ -1,3 +1,8 @@
+#include"stdlib.h"
+#include"math.h"
+#include"unistd.h"
+#include"pthread.h"
+#include"stdio.h"
 
 void *func(void *vargp)
 {
