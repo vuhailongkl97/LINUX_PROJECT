@@ -22,21 +22,20 @@ int main(int argc, char *argv[])
 	
 	 show_attribute(dpy, root_window);
 
-	 test_mouse(0,0,100, 100, 2);
-	 mouseClick(dpy,1);
+	 test_mouse(100,200,50, 30, 3);
+	
+	 mouse_click(dpy,1);
 	 sleep(1);
-	 mouseClick(dpy,1);
-	 	
-	 mouseClick(dpy,1);
-	 for ( i = 0; i< 13; i++) 
+	 mouse_double_click(dpy);
+	 for ( i = 0; i< 3; i++) 
 	 {
-		test_mouse(200,400,1300, 400, 4);
+		test_mouse(200,200,1000, 600, 4);
 		usleep(100000);
-	 	test_mouse(1300,400,200, 400, -4);
+	 	test_mouse(1000,600,200, 300, 4);
 		sleep(1);
 	 }
 	 
-	 mouseRelease(dpy, 1);
+	 mouse_release(dpy, 1);
 	
          return 0;
 }
