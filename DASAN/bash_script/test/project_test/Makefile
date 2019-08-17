@@ -4,5 +4,5 @@ all:
 	gcc -o t $(FLAGS) $(FILE_IN)
 
 clean_trash:
-	rm -f output2.txt output2.c
+	rm -f output2.txt 
 

@@ -1,3 +1,9 @@
+#include"lib.h"
+#include"stdlib.h"
+#include"math.h"
+#include"unistd.h"
+#include"pthread.h"
+#include"stdio.h"
 
 void *func(void *vargp)
 {
@@ -11,6 +17,7 @@ int main()
 {
 		pthread_t t;
 
+		kkk();
 		pthread_create(&t, NULL, func, NULL);
 		pthread_join(t, NULL);
 

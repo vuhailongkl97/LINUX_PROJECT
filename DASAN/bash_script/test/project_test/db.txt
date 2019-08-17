@@ -6,7 +6,7 @@ signal.h
 signal kill 
 SIGINT SIGCHLD SIGUSR1 SIGUSR2
 
-pthread.h  -lpthread
+pthread.h  -pthread
 pthread_join pthread_create pthread_detach
 pthread_t
 
@@ -24,5 +24,7 @@ sqrt pow
 stdlib.h
 exit
 
+lib.h
+kkk
 
 

@@ -28,7 +28,6 @@ function_search()
       	done
 
 	#handler_err
-   	
 	while read line;
 	do
 		local check_turn
@@ -117,19 +116,19 @@ function_handler_input()
      local leg=$(echo $@|wc -w)
      leg=$(($leg-2))
 
-     
-
     if [ $1 == "error:" ];
     then
 	    	#echo "error handling"
 
 		local check_line=0;
 		check_line=$(grep "undefined reference" output.txt|wc -l)
+			
+		#[ -f $output_file_check ] && echo " file is not exist"  && exit 1
 		if [ $check_line -ge 1 ];
 		then
-			awk '/undefined reference/ {print NR,$0}' $output_file_check > $ouput_file_check_after_find 
+			awk '/undefined reference/ {print NR,$0}' $output_file_check &> $output_file_check_after_find
 		else
-			awk '/error:/ {print NR,$0}' $output_file_check > $output_file_check_after_find 
+			awk '/error:/ {print NR,$0}' $output_file_check &> $output_file_check_after_find
 		fi
 
      		for (( i=0;i<=$leg;i++ ))
@@ -167,6 +166,7 @@ function test_get_lib_flag()
 function test_add_lib_flag()
 {
 	local ret 
+
 	add_lib_flag $1 $2
 	if [[ $? != 0 ]]; then 
 		echo "error at add_lib_flag for $1"
@@ -197,22 +197,31 @@ function check_un_ex_und()
 	
 	fi
 #cat "$output_file_check_after_find"
-	echo checking this $ret
+	#echo checking this $ret
 
-	IFS=' ' read -r -a array <<< "$ret"
-	
-	local length=${#array[2]} 
-	(( length -=2 ))	
-	local tmp_var=$(echo ${array[2]:1:$length})
+	if [[ $ret != "None None None None" ]]; then 
 
-	test_add_lib_flag "${array[0]}" $tmp_var
-	ret2=$?
-#echo "ret from test_add_lib_flag is $?"
+		IFS=' ' read -r -a array <<< "$ret"
+		
+		local length=${#array[2]} 
+		(( length -=2 ))	
+		local tmp_var=$(echo ${array[2]:1:$length})
 
-	if [[ $ret2 != 0 ]]; then 
-#echo "failed in check un ex und"
-		return 127	
+		test_add_lib_flag "${array[0]}" $tmp_var
+		ret2=$?
+		echo $ret is 
+#echo "r	et from test_add_lib_flag is $?"
+
+		if [[ $ret2 != 0 ]]; then 
+#echo "f	ailed in check un ex und"
+			return 127	
+		else 
+			return 0;
+		fi
+	else 
+		return 127;
 	fi
+
 }
 
 function rebuild()
@@ -233,7 +242,6 @@ function mloop()
 {
 	local ret
 	rebuild "$input_file_check"
-
 	array=( "error"  "warning" "handler" )
 	for i in "${array[@]}"
 	do
@@ -243,14 +251,12 @@ function mloop()
 		ret=$?
 #echo "ret after check un_ex_und is $?"
 		if [[ $ret != 0 ]]; then 
-			echo "skip this warning, this warning have supported yet"		
+	#		echo "skip this warning, this warning have supported yet"		
 			break
 		fi
 
 #head -n 3 output.c
-		cp output.c output2.c
-		rebuild "output2.c"
-
+		rebuild "$input_file_check"
 		done ;	
 	done
 
@@ -259,8 +265,6 @@ function mloop()
 
 }
 mloop
-
-#local array_issue_error=("unknown" "expected" "undeclared" "undefined_reference" )
-#local array_issue_warning=("implicit")
+cat $input_file_check 
+#array_issue_error=("unknown" "expected" "undeclared" "undefined_reference" )
 #function_handler_input error: ${array_issue_error[@]}
-#function_handler_input warning: ${array_issue_warning[@]}

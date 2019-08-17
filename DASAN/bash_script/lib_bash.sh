@@ -5,7 +5,6 @@ prefix_name="longkl_"
 prefix_flag="longkl_flag_"
 current_header="stdio.h"
 oFLAGS="-Wall"
-OUTPUT_FILE="output.c"
 output_file_check="output.txt"
 
 echo $PWD
@@ -87,7 +86,8 @@ function add_header_to_source()
 	local file_repair=$1
 	local library=$2
 #echo "adding library $1 to make file"
-	sed -e "1i\\$2" $file_repair  >& $OUTPUT_FILE
+	#sed -e "1i\\$2" $file_repair  >& $OUTPUT_FILE
+	sed -i -e "1i\\$2" $file_repair  
 	return $? 
 }
 
@@ -123,20 +123,29 @@ function add_semicolon()
 }
 function add_lib_flag()
 {
-
 	local ret_header ret_option
 	local tmp array
 	local func_name=$2
 	local file_repair=$1
 
 	tmp=$(get_library_flag_from_name $func_name)
+
 	if [[ $? != 0 ]]; then 
 		return 127
 	fi
 	IFS=' ' read -r -a array <<< "$tmp"
 #add_header_to_source $file_repair ${array[0]}
-	ret_header=$(add_header_to_source $file_repair ${array[0]})
-	ret_option=$(add_flag_to_make_file ${array[1]})
+	if [ -z $(grep "${array[0]}" $file_repair) ]; then 
+		ret_header=$(add_header_to_source $file_repair ${array[0]})
+	else 
+		ret_header="done"
+	fi
+	if [ -z $(echo $ret_option | grep "\\${array[1]}" ) ]; then 
+		ret_option=$(add_flag_to_make_file ${array[1]})
+	else 
+		ret_option="done"
+	fi
+
 	echo   "$ret_header $ret_option in add_lib_flag"
 
 	if [[ ret_header == "failed"  || ret_option == "failed" ]]; then 
@@ -145,7 +154,7 @@ function add_lib_flag()
 	else 
 		echo "make oFLAGS=$ret_option"
 		oFLAGS="$ret_option"
-		make FLAGS="$ret_option" FILE_IN=$OUTPUT_FILE &> "$output_file_check"
+		make FLAGS="$ret_option" FILE_IN=$file_repair &> "$output_file_check"
 	fi
 	return 0
 }

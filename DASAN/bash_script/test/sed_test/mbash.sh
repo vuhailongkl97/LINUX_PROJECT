@@ -4,9 +4,11 @@ function mfunction()
 	
 #echo $tmp_val
 	
-	sed -e "1i\\$1" main.c 
+	sed  -i -e "1i\\$1" main.c 
 
 	return 0
 }
 
 mfunction $1
+
+cat main.c
