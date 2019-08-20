@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source ../../lib_bash.sh
+source ./lib_bash.sh
 
 declare -a data
 data=(0 0 0 0 0)
@@ -206,11 +206,10 @@ function check_un_ex_und()
 		local length=${#array[2]} 
 		(( length -=2 ))	
 		local tmp_var=$(echo ${array[2]:1:$length})
-
 		test_add_lib_flag "${array[0]}" $tmp_var
 		ret2=$?
-		echo $ret is 
-#echo "r	et from test_add_lib_flag is $?"
+	#	echo $ret is 
+#echo "ret from test_add_lib_flag is $?"
 
 		if [[ $ret2 != 0 ]]; then 
 #echo "f	ailed in check un ex und"
@@ -228,7 +227,9 @@ function rebuild()
 {   
 	local input_file=$1
 #echo "$oFLAG"
-	make FLAGS="$oFLAGS" FILE_IN="$input_file" &> "$output_file_check"
+	#make FLAGS="$oFLAGS" FILE_IN="$input_file" &> "$output_file_check"
+	make clean_trash
+	make FLAGS="$oFLAGS" all  &> "$output_file_check"
 }
 
 prepare_header $db_file
@@ -241,7 +242,9 @@ fi
 function mloop()
 {
 	local ret
-	rebuild "$input_file_check"
+	#rebuild "$input_file_check"
+	rebuild 
+
 	array=( "error"  "warning" "handler" )
 	for i in "${array[@]}"
 	do
@@ -256,11 +259,12 @@ function mloop()
 		fi
 
 #head -n 3 output.c
-		rebuild "$input_file_check"
+		#rebuild "$input_file_check"
+		rebuild
 		done ;	
 	done
 
-	rm  -f $output_file_check_after_find 
+	rm  -f $output_file_check_after_find  *.o 
 	make clean_trash
 
 }
