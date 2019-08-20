@@ -76,7 +76,24 @@ function_search()
 				er=$(echo $line|awk -v mvar=$err_input '{for ( i = 1; i <= NF; i++ )
 				if ( $i==mvar ) print $(i+1)}')
 				fi
-
+				##############################
+				local length=$(echo ${#er})
+				(( length-=2 ))
+				local tmp_er=$(echo ${er:1:length})
+				local counter=$(awk -v mvar=$tmp_er '{for ( i=0; i<$
+				local length1=$(echo ${#er1})
+				(( length1-=2 ))
+				local tmp_er1=$(echo ${er1:1:length1})
+				local counter1=$(awk -v mvar=$tmp_er1 '{for ( i=0; $
+				local length2=$(echo ${#er2})
+				(( length2-=2 ))
+				local tmp_er2=$(echo ${er2:1:length2})
+				local counter2=$(awk -v mvar=$tmp_er2 '{for ( i=0; $
+				if (( ( $counter < 1)  || ($counter1 < 1) || ($coun$
+				then
+				continue
+				fi
+				##############################
                         	# output > 4 fields return
 
                         	out_data=$(echo "$header $err_input $er $er1 $er2 $ps"|wc -w)
