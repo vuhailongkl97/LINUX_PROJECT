@@ -1,8 +1,8 @@
 PROJDIR  := .
-LIBDIR   :=./lib
+LIBDIR   :=~/working/linux_project/DASAN/game_ar/app_code/mouse_movement/lib
 BUILD_TARGET  := t
 SRCFILES := $(shell find $(LIBDIR) -type f -name "*.c" )
-SRCFILES +=main.c
+SRCFILES +=t_movement.c
 OBJFILES := $(patsubst %.c,%.o,$(SRCFILES))
 CFLAGS   := -lXtst -lX11 -lm -g
 CC 	 := gcc
