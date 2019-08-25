@@ -4,8 +4,6 @@
 #include"unistd.h"
 #include"pthread.h"
 #include"stdio.h"
-
-
 void *func(void *vargp)
 {
         sleep(1);

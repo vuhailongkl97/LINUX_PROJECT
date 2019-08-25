@@ -1,0 +1,10 @@
+gcc -c -Wall main.c -o main.o
+gcc -c -Wall lib.c -o lib.o
+lib.c: In function ‘kkk’:
+lib.c:7:10: warning: initialization makes integer from pointer without a cast [-Wint-conversion]
+  int a = NULL;
+          ^~~~
+lib.c:7:6: warning: unused variable ‘a’ [-Wunused-variable]
+  int a = NULL;
+      ^
+gcc -o t -Wall  -pthread     -Wall main.o lib.o
