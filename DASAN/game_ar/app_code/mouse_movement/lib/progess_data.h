@@ -18,6 +18,6 @@ int get_target(int x1, int y1, float vx, float vy, int *dx, int *dy);
 
 int get_data(char *dev_path, float *pitch, float *yaw);
 
-void caculator_velociry(float *vx , float *vy);
+void caculator_velocity(const char *dev_path, float *vx , float *vy);
 
 #endif

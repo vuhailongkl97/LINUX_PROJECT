@@ -49,8 +49,21 @@ int get_data(char *dev_path, float *pitch, float *yaw)
 	close(fd);
 	return 0;
 }
-void caculator_velociry(float *vx , float *vy)
+void caculator_velocity(const char *dev_path, float *vx , float *vy)
 {
 	int ret = 0;
-	get_data()	
+	float pitch1, yaw1, pitch2, yaw2;
+
+
+	get_data(dev_path, &pitch1, &yaw2);
+
+	usleep(1000);
+	get_data(dev_path, &pitch2, &yaw2);
+
+	*vx = pitch2 -pitch1;
+
+	*vy = yaw2 - yaw1;
+
+	printf("vx , vy : %f %f \n", *vx , *vy);	
+
 }
