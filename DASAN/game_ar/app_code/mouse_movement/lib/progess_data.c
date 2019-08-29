@@ -49,3 +49,8 @@ int get_data(char *dev_path, float *pitch, float *yaw)
 	close(fd);
 	return 0;
 }
+void caculator_velociry(float *vx , float *vy)
+{
+	int ret = 0;
+	get_data()	
+}

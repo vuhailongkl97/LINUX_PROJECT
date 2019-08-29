@@ -81,7 +81,10 @@ void move_xy(void *_self, int x_des, int y_des, int jump_size, int speed)
     	x_dis = abs(self->x_current -x_des);
     	y_dis = abs(self->y_current -y_des);	
 
-
+		#ifdef DEBUG
+			printf("x_dis ydis = %d %d  \n", x_dis, y_dis);
+		#endif 
+		
     	if( !over_x )
     	{
         	x_src_tmp += speed*heso_x;
@@ -89,7 +92,7 @@ void move_xy(void *_self, int x_des, int y_des, int jump_size, int speed)
 
     		int x_dis2 = abs(self->x_current -x_des);
 	
-		if ( x_dis2 > x_dis )
+		if ( x_dis2 >= x_dis )
 		{
 			over_x = 1;	
 		}
@@ -102,7 +105,7 @@ void move_xy(void *_self, int x_des, int y_des, int jump_size, int speed)
     		self->y_current = (int)y_src_tmp;
     		int y_dis2 = abs(self->y_current -y_des);
 
-		if ( y_dis2 > y_dis)
+		if ( y_dis2 >= y_dis)
 		{
 			over_y = 1;
 		}
