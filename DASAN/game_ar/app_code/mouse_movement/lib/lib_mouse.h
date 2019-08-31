@@ -11,6 +11,7 @@
 #include <X11/Xutil.h>
 #include <X11/extensions/XTest.h>
 #include "lib_types.h"
+#include "device_info.h"
 
 
 void mouse_click(void *self, int button);

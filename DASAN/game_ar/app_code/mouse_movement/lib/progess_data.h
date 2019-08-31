@@ -14,10 +14,12 @@ enum command {
 
 
 /* get target (dx, dy) from (x1,y1) and velocity vx, vy  */
+int device_init(const char *file);
+int device_release(int fd);
 int get_target(int x1, int y1, float vx, float vy, int *dx, int *dy);
 
-int get_data(char *dev_path, float *pitch, float *yaw);
+int get_data(const int fd, float *pitch, float *yaw);
 
-void caculator_velocity(const char *dev_path, float *vx , float *vy);
+void caculator_velocity(const int fd, float *vx , float *vy);
 
 #endif

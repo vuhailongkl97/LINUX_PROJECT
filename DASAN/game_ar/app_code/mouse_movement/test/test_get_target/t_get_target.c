@@ -38,7 +38,8 @@ int main(int argc, char *argv[])
 		printf("enter vx, vy ");
 		scanf("%f%f", &vx, &vy);
 		get_target(x->x_current,x->y_current,vx,vy,&retx, &rety);
-		x->move(x, retx, rety, 1, 1);
+		printf("retx rety = %d %d\n", retx , rety);
+		x->move(x, retx, rety, 1, 5);
 		printf("retx, rety %d %d\n", retx, rety);
 		printf("enter choice > 0 to continue ");
 		scanf("%d", &choice);

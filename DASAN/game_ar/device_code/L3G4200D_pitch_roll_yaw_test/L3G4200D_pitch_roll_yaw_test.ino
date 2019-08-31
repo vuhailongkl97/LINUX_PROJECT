@@ -80,7 +80,7 @@ void loop()
      tmp = Serial.read()-'0';
     // str_tmp = Serial.readString();
       //Serial.println(str_tmp);
-      //tmp = COMMAND_REQUEST_PITCH_YAW;
+    //  tmp = COMMAND_REQUEST_PITCH_YAW;
       switch (tmp) 
       {
         case COMMAND_REQUEST_PITCH_YAW:

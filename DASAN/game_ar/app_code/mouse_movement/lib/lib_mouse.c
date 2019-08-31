@@ -61,6 +61,11 @@ void move_xy(void *_self, int x_des, int y_des, int jump_size, int speed)
     bigger = number_step_move_x > number_step_move_y ? 
     		number_step_move_x : number_step_move_y;
     
+	if (0 == bigger)
+	{
+		//printf("bigger");
+		return ;
+	}
     heso_x = 1.0*number_step_move_x/bigger;
     heso_y = 1.0*number_step_move_y/bigger;
     
