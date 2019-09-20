@@ -6,15 +6,15 @@
 
 #IncludeRegexTransform: 
 
-/home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test/test9.c
+/home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/test/test9.c
 MQTTAsync.h
-/home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test/MQTTAsync.h
+/home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/test/MQTTAsync.h
 string.h
 -
 stdlib.h
 -
 Thread.h
-/home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test/Thread.h
+/home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/test/Thread.h
 sys/time.h
 -
 sys/socket.h

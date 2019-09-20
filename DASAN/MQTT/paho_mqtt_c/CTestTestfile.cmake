@@ -1,6 +1,6 @@
 # CMake generated Testfile for 
-# Source directory: /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c
-# Build directory: /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c
+# Source directory: /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c
+# Build directory: /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c
 # 
 # This file includes the relevant testing commands required for 
 # testing this directory and lists subdirectories to be tested as well.

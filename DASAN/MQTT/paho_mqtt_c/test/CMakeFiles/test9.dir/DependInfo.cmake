@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test/test9.c" "/home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test/CMakeFiles/test9.dir/test9.c.o"
+  "/home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/test/test9.c" "/home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/test/CMakeFiles/test9.dir/test9.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 
@@ -16,7 +16,7 @@ set(CMAKE_C_TARGET_INCLUDE_PATH
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/src/CMakeFiles/paho-mqtt3a.dir/DependInfo.cmake"
+  "/home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/src/CMakeFiles/paho-mqtt3a.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

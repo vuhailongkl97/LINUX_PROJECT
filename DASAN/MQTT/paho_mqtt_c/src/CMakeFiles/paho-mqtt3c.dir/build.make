@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c
+CMAKE_SOURCE_DIR = /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c
+CMAKE_BINARY_DIR = /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c
 
 # Include any dependencies generated for this target.
 include src/CMakeFiles/paho-mqtt3c.dir/depend.make
@@ -59,16 +59,16 @@ include src/CMakeFiles/paho-mqtt3c.dir/flags.make
 
 src/CMakeFiles/paho-mqtt3c.dir/MQTTClient.c.o: src/CMakeFiles/paho-mqtt3c.dir/flags.make
 src/CMakeFiles/paho-mqtt3c.dir/MQTTClient.c.o: src/MQTTClient.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object src/CMakeFiles/paho-mqtt3c.dir/MQTTClient.c.o"
-	cd /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/paho-mqtt3c.dir/MQTTClient.c.o   -c /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/src/MQTTClient.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object src/CMakeFiles/paho-mqtt3c.dir/MQTTClient.c.o"
+	cd /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/paho-mqtt3c.dir/MQTTClient.c.o   -c /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/src/MQTTClient.c
 
 src/CMakeFiles/paho-mqtt3c.dir/MQTTClient.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/paho-mqtt3c.dir/MQTTClient.c.i"
-	cd /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/src/MQTTClient.c > CMakeFiles/paho-mqtt3c.dir/MQTTClient.c.i
+	cd /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/src/MQTTClient.c > CMakeFiles/paho-mqtt3c.dir/MQTTClient.c.i
 
 src/CMakeFiles/paho-mqtt3c.dir/MQTTClient.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/paho-mqtt3c.dir/MQTTClient.c.s"
-	cd /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/src/MQTTClient.c -o CMakeFiles/paho-mqtt3c.dir/MQTTClient.c.s
+	cd /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/src/MQTTClient.c -o CMakeFiles/paho-mqtt3c.dir/MQTTClient.c.s
 
 src/CMakeFiles/paho-mqtt3c.dir/MQTTClient.c.o.requires:
 
@@ -87,28 +87,28 @@ paho__mqtt3c_OBJECTS = \
 
 # External object files for target paho-mqtt3c
 paho__mqtt3c_EXTERNAL_OBJECTS = \
-"/home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/src/CMakeFiles/common_obj.dir/MQTTProtocolClient.c.o" \
-"/home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/src/CMakeFiles/common_obj.dir/Clients.c.o" \
-"/home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/src/CMakeFiles/common_obj.dir/utf-8.c.o" \
-"/home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/src/CMakeFiles/common_obj.dir/StackTrace.c.o" \
-"/home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/src/CMakeFiles/common_obj.dir/MQTTPacket.c.o" \
-"/home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/src/CMakeFiles/common_obj.dir/MQTTPacketOut.c.o" \
-"/home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/src/CMakeFiles/common_obj.dir/Messages.c.o" \
-"/home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/src/CMakeFiles/common_obj.dir/Tree.c.o" \
-"/home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/src/CMakeFiles/common_obj.dir/Socket.c.o" \
-"/home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/src/CMakeFiles/common_obj.dir/Log.c.o" \
-"/home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/src/CMakeFiles/common_obj.dir/MQTTPersistence.c.o" \
-"/home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/src/CMakeFiles/common_obj.dir/Thread.c.o" \
-"/home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/src/CMakeFiles/common_obj.dir/MQTTProtocolOut.c.o" \
-"/home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/src/CMakeFiles/common_obj.dir/MQTTPersistenceDefault.c.o" \
-"/home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/src/CMakeFiles/common_obj.dir/SocketBuffer.c.o" \
-"/home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/src/CMakeFiles/common_obj.dir/Heap.c.o" \
-"/home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/src/CMakeFiles/common_obj.dir/LinkedList.c.o" \
-"/home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/src/CMakeFiles/common_obj.dir/MQTTProperties.c.o" \
-"/home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/src/CMakeFiles/common_obj.dir/MQTTReasonCodes.c.o" \
-"/home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/src/CMakeFiles/common_obj.dir/Base64.c.o" \
-"/home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/src/CMakeFiles/common_obj.dir/SHA1.c.o" \
-"/home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/src/CMakeFiles/common_obj.dir/WebSocket.c.o"
+"/home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/src/CMakeFiles/common_obj.dir/MQTTProtocolClient.c.o" \
+"/home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/src/CMakeFiles/common_obj.dir/Clients.c.o" \
+"/home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/src/CMakeFiles/common_obj.dir/utf-8.c.o" \
+"/home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/src/CMakeFiles/common_obj.dir/StackTrace.c.o" \
+"/home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/src/CMakeFiles/common_obj.dir/MQTTPacket.c.o" \
+"/home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/src/CMakeFiles/common_obj.dir/MQTTPacketOut.c.o" \
+"/home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/src/CMakeFiles/common_obj.dir/Messages.c.o" \
+"/home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/src/CMakeFiles/common_obj.dir/Tree.c.o" \
+"/home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/src/CMakeFiles/common_obj.dir/Socket.c.o" \
+"/home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/src/CMakeFiles/common_obj.dir/Log.c.o" \
+"/home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/src/CMakeFiles/common_obj.dir/MQTTPersistence.c.o" \
+"/home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/src/CMakeFiles/common_obj.dir/Thread.c.o" \
+"/home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/src/CMakeFiles/common_obj.dir/MQTTProtocolOut.c.o" \
+"/home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/src/CMakeFiles/common_obj.dir/MQTTPersistenceDefault.c.o" \
+"/home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/src/CMakeFiles/common_obj.dir/SocketBuffer.c.o" \
+"/home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/src/CMakeFiles/common_obj.dir/Heap.c.o" \
+"/home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/src/CMakeFiles/common_obj.dir/LinkedList.c.o" \
+"/home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/src/CMakeFiles/common_obj.dir/MQTTProperties.c.o" \
+"/home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/src/CMakeFiles/common_obj.dir/MQTTReasonCodes.c.o" \
+"/home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/src/CMakeFiles/common_obj.dir/Base64.c.o" \
+"/home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/src/CMakeFiles/common_obj.dir/SHA1.c.o" \
+"/home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/src/CMakeFiles/common_obj.dir/WebSocket.c.o"
 
 src/libpaho-mqtt3c.so.1.3.1: src/CMakeFiles/paho-mqtt3c.dir/MQTTClient.c.o
 src/libpaho-mqtt3c.so.1.3.1: src/CMakeFiles/common_obj.dir/MQTTProtocolClient.c.o
@@ -135,9 +135,9 @@ src/libpaho-mqtt3c.so.1.3.1: src/CMakeFiles/common_obj.dir/SHA1.c.o
 src/libpaho-mqtt3c.so.1.3.1: src/CMakeFiles/common_obj.dir/WebSocket.c.o
 src/libpaho-mqtt3c.so.1.3.1: src/CMakeFiles/paho-mqtt3c.dir/build.make
 src/libpaho-mqtt3c.so.1.3.1: src/CMakeFiles/paho-mqtt3c.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C shared library libpaho-mqtt3c.so"
-	cd /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/src && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/paho-mqtt3c.dir/link.txt --verbose=$(VERBOSE)
-	cd /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/src && $(CMAKE_COMMAND) -E cmake_symlink_library libpaho-mqtt3c.so.1.3.1 libpaho-mqtt3c.so.1 libpaho-mqtt3c.so
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C shared library libpaho-mqtt3c.so"
+	cd /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/src && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/paho-mqtt3c.dir/link.txt --verbose=$(VERBOSE)
+	cd /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/src && $(CMAKE_COMMAND) -E cmake_symlink_library libpaho-mqtt3c.so.1.3.1 libpaho-mqtt3c.so.1 libpaho-mqtt3c.so
 
 src/libpaho-mqtt3c.so.1: src/libpaho-mqtt3c.so.1.3.1
 	@$(CMAKE_COMMAND) -E touch_nocreate src/libpaho-mqtt3c.so.1
@@ -155,10 +155,10 @@ src/CMakeFiles/paho-mqtt3c.dir/requires: src/CMakeFiles/paho-mqtt3c.dir/MQTTClie
 .PHONY : src/CMakeFiles/paho-mqtt3c.dir/requires
 
 src/CMakeFiles/paho-mqtt3c.dir/clean:
-	cd /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/src && $(CMAKE_COMMAND) -P CMakeFiles/paho-mqtt3c.dir/cmake_clean.cmake
+	cd /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/src && $(CMAKE_COMMAND) -P CMakeFiles/paho-mqtt3c.dir/cmake_clean.cmake
 .PHONY : src/CMakeFiles/paho-mqtt3c.dir/clean
 
 src/CMakeFiles/paho-mqtt3c.dir/depend:
-	cd /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/src /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/src /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/src/CMakeFiles/paho-mqtt3c.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/src /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/src /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/src/CMakeFiles/paho-mqtt3c.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : src/CMakeFiles/paho-mqtt3c.dir/depend
 

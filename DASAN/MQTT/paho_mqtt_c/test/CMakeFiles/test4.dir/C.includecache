@@ -6,9 +6,9 @@
 
 #IncludeRegexTransform: 
 
-/home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test/test4.c
+/home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/test/test4.c
 MQTTAsync.h
-/home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test/MQTTAsync.h
+/home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/test/MQTTAsync.h
 string.h
 -
 stdlib.h

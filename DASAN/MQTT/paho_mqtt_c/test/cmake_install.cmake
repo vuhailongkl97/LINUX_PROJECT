@@ -1,4 +1,4 @@
-# Install script for directory: /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test
+# Install script for directory: /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/test
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

@@ -6,5 +6,5 @@ C_FLAGS =
 
 C_DEFINES = -DBASE64_TEST
 
-C_INCLUDES = -I/home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/src/. -I/home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c 
+C_INCLUDES = -I/home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/src/. -I/home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c 
 

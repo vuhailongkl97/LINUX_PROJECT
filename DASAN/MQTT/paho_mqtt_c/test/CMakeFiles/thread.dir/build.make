@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c
+CMAKE_SOURCE_DIR = /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c
+CMAKE_BINARY_DIR = /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c
 
 # Include any dependencies generated for this target.
 include test/CMakeFiles/thread.dir/depend.make
@@ -59,16 +59,16 @@ include test/CMakeFiles/thread.dir/flags.make
 
 test/CMakeFiles/thread.dir/thread.c.o: test/CMakeFiles/thread.dir/flags.make
 test/CMakeFiles/thread.dir/thread.c.o: test/thread.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object test/CMakeFiles/thread.dir/thread.c.o"
-	cd /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/thread.dir/thread.c.o   -c /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test/thread.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object test/CMakeFiles/thread.dir/thread.c.o"
+	cd /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/test && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/thread.dir/thread.c.o   -c /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/test/thread.c
 
 test/CMakeFiles/thread.dir/thread.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/thread.dir/thread.c.i"
-	cd /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test/thread.c > CMakeFiles/thread.dir/thread.c.i
+	cd /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/test && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/test/thread.c > CMakeFiles/thread.dir/thread.c.i
 
 test/CMakeFiles/thread.dir/thread.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/thread.dir/thread.c.s"
-	cd /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test/thread.c -o CMakeFiles/thread.dir/thread.c.s
+	cd /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/test && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/test/thread.c -o CMakeFiles/thread.dir/thread.c.s
 
 test/CMakeFiles/thread.dir/thread.c.o.requires:
 
@@ -83,16 +83,16 @@ test/CMakeFiles/thread.dir/thread.c.o.provides.build: test/CMakeFiles/thread.dir
 
 test/CMakeFiles/thread.dir/__/src/Thread.c.o: test/CMakeFiles/thread.dir/flags.make
 test/CMakeFiles/thread.dir/__/src/Thread.c.o: src/Thread.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object test/CMakeFiles/thread.dir/__/src/Thread.c.o"
-	cd /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/thread.dir/__/src/Thread.c.o   -c /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/src/Thread.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object test/CMakeFiles/thread.dir/__/src/Thread.c.o"
+	cd /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/test && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/thread.dir/__/src/Thread.c.o   -c /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/src/Thread.c
 
 test/CMakeFiles/thread.dir/__/src/Thread.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/thread.dir/__/src/Thread.c.i"
-	cd /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/src/Thread.c > CMakeFiles/thread.dir/__/src/Thread.c.i
+	cd /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/test && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/src/Thread.c > CMakeFiles/thread.dir/__/src/Thread.c.i
 
 test/CMakeFiles/thread.dir/__/src/Thread.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/thread.dir/__/src/Thread.c.s"
-	cd /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/src/Thread.c -o CMakeFiles/thread.dir/__/src/Thread.c.s
+	cd /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/test && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/src/Thread.c -o CMakeFiles/thread.dir/__/src/Thread.c.s
 
 test/CMakeFiles/thread.dir/__/src/Thread.c.o.requires:
 
@@ -117,8 +117,8 @@ test/thread: test/CMakeFiles/thread.dir/thread.c.o
 test/thread: test/CMakeFiles/thread.dir/__/src/Thread.c.o
 test/thread: test/CMakeFiles/thread.dir/build.make
 test/thread: test/CMakeFiles/thread.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking C executable thread"
-	cd /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/thread.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking C executable thread"
+	cd /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/test && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/thread.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 test/CMakeFiles/thread.dir/build: test/thread
@@ -131,10 +131,10 @@ test/CMakeFiles/thread.dir/requires: test/CMakeFiles/thread.dir/__/src/Thread.c.
 .PHONY : test/CMakeFiles/thread.dir/requires
 
 test/CMakeFiles/thread.dir/clean:
-	cd /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test && $(CMAKE_COMMAND) -P CMakeFiles/thread.dir/cmake_clean.cmake
+	cd /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/test && $(CMAKE_COMMAND) -P CMakeFiles/thread.dir/cmake_clean.cmake
 .PHONY : test/CMakeFiles/thread.dir/clean
 
 test/CMakeFiles/thread.dir/depend:
-	cd /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test/CMakeFiles/thread.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/test /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/test /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/test/CMakeFiles/thread.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : test/CMakeFiles/thread.dir/depend
 

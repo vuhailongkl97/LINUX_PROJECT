@@ -6,11 +6,11 @@
 
 #IncludeRegexTransform: 
 
-/home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test/test2.c
+/home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/test/test2.c
 MQTTClient.h
-/home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test/MQTTClient.h
+/home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/test/MQTTClient.h
 Thread.h
-/home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test/Thread.h
+/home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/test/Thread.h
 string.h
 -
 stdlib.h

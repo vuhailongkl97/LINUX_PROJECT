@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c
+CMAKE_SOURCE_DIR = /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c
+CMAKE_BINARY_DIR = /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -83,7 +83,7 @@ install/fast: preinstall/fast
 # Special rule for the target package_source
 package_source:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Run CPack packaging tool for source..."
-	/usr/bin/cpack --config ./CPackSourceConfig.cmake /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/CPackSourceConfig.cmake
+	/usr/bin/cpack --config ./CPackSourceConfig.cmake /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/CPackSourceConfig.cmake
 .PHONY : package_source
 
 # Special rule for the target package_source
@@ -137,8 +137,8 @@ list_install_components/fast: list_install_components
 
 # Special rule for the target edit_cache
 edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
-	/usr/bin/ccmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
+	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -159,9 +159,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/CMakeFiles /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/CMakeFiles /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/CMakeFiles 0
 .PHONY : all
 
 # The main clean target

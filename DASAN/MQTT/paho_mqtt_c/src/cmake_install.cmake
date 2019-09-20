@@ -1,4 +1,4 @@
-# Install script for directory: /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/src
+# Install script for directory: /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/src
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -51,9 +51,9 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
     endif()
   endforeach()
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY FILES
-    "/home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/src/libpaho-mqtt3c.so.1.3.1"
-    "/home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/src/libpaho-mqtt3c.so.1"
-    "/home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/src/libpaho-mqtt3c.so"
+    "/home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/src/libpaho-mqtt3c.so.1.3.1"
+    "/home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/src/libpaho-mqtt3c.so.1"
+    "/home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/src/libpaho-mqtt3c.so"
     )
   foreach(file
       "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libpaho-mqtt3c.so.1.3.1"
@@ -83,9 +83,9 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
     endif()
   endforeach()
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY FILES
-    "/home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/src/libpaho-mqtt3a.so.1.3.1"
-    "/home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/src/libpaho-mqtt3a.so.1"
-    "/home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/src/libpaho-mqtt3a.so"
+    "/home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/src/libpaho-mqtt3a.so.1.3.1"
+    "/home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/src/libpaho-mqtt3a.so.1"
+    "/home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/src/libpaho-mqtt3a.so"
     )
   foreach(file
       "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libpaho-mqtt3a.so.1.3.1"
@@ -108,12 +108,12 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/MQTTVersion"
          RPATH "")
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "/home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/src/MQTTVersion")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "/home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/src/MQTTVersion")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/MQTTVersion" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/MQTTVersion")
     file(RPATH_CHANGE
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/MQTTVersion"
-         OLD_RPATH "/home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/src:"
+         OLD_RPATH "/home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/src:"
          NEW_RPATH "")
     if(CMAKE_INSTALL_DO_STRIP)
       execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/MQTTVersion")
@@ -123,12 +123,12 @@ endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE FILE FILES
-    "/home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/src/MQTTAsync.h"
-    "/home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/src/MQTTClient.h"
-    "/home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/src/MQTTClientPersistence.h"
-    "/home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/src/MQTTProperties.h"
-    "/home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/src/MQTTReasonCodes.h"
-    "/home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/src/MQTTSubscribeOpts.h"
+    "/home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/src/MQTTAsync.h"
+    "/home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/src/MQTTClient.h"
+    "/home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/src/MQTTClientPersistence.h"
+    "/home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/src/MQTTProperties.h"
+    "/home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/src/MQTTReasonCodes.h"
+    "/home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/src/MQTTSubscribeOpts.h"
     )
 endif()
 
