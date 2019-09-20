@@ -3,8 +3,7 @@
 
 #include <X11/Xutil.h>
 
-#define RATIO  (100)
-#define VELOCITY_TO_PIXEL(v) (RATIO*v)
+#define RATIO  (35)
 
 typedef struct {
 	int x_current, y_current;	

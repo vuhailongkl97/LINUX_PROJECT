@@ -42,6 +42,11 @@ printf("kkk\n");
 
 	assert(x);
 	show_attribute(x);
+	x->move(x, 609, 336, 1, 10);
+	x->click(x,1);
+	sleep(1);
+	x->dclick(x);
+
 	do {
 		//printf("enter vx, vy ");
 		//scanf("%f%f", &vx, &vy);
@@ -53,14 +58,15 @@ printf("kkk\n");
 		//rety = rety < 0 ? 0: rety;
 	
 		x->move(x, retx, rety, 1, 10);
-		printf("retx, rety %d %d\n", retx, rety);
+		//printf("retx, rety %d %d\n", retx, rety);
 		//printf("enter choice > 0 to continue ");
 
-		scanf("%d", &choice);
+//		scanf("%d", &choice);
 	}
 	while(0 != choice);
 
    		device_release(fd);
+		x->click(x,1);
 		x->dstor(x);
 
         //get_data(fd, &pitch, &yaw);
