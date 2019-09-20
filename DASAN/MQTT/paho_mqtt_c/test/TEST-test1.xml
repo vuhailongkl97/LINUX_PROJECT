@@ -1,0 +1,18 @@
+<testsuite name="test1" tests="7">
+<testcase classname="test1" name="single threaded client using receive" time="135.955" >
+</testcase>
+<testcase classname="test1" name="multi-threaded client using callbacks" time="142.535" >
+</testcase>
+<testcase classname="test1" name="connack return codes" time="0.805" >
+</testcase>
+<testcase classname="test1" name="persistence" time="7" >
+</testcase>
+<testcase classname="test1" name="disconnect with quiesce timeout should allow exchanges to complete" time="1.883" >
+</testcase>
+<testcase classname="test1" name="connectionLost and will messages" time="0.111" >
+<failure type="good rc from connect">file /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test/test1.c, line 979 </failure>
+</testcase>
+<testcase classname="test1" name="connectionLost and binary will messages" time="0.010" >
+<failure type="good rc from connect">file /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test/test1.c, line 1087 </failure>
+</testcase>
+</testsuite>

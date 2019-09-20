@@ -1,0 +1,18 @@
+<testsuite name="test4" tests="8">
+<testcase classname="test4" name="asynchronous connect" time="4.144" >
+</testcase>
+<testcase classname="test4" name="connect timeout" time="12.113" >
+</testcase>
+<testcase classname="test4" name="multiple connections" time="4.409" >
+</testcase>
+<testcase classname="test4" name="big messages" time="4.425" >
+</testcase>
+<testcase classname="test4" name="connack return codes" time="1.816" >
+</testcase>
+<testcase classname="test4" name="HA connections" time="1.428" >
+</testcase>
+<testcase classname="test4" name="pending tokens" time="8.416" >
+</testcase>
+<testcase classname="test4" name="incomplete commands" time="2.307" >
+</testcase>
+</testsuite>

@@ -3,7 +3,7 @@ PUB_SRC := $(wildcard pub.c)
 SUB_SRC := $(wildcard sub.c)
 PUB_OBJ := $(patsubst %.c, %.o, $(PUB_SRC)) 
 SUB_OBJ := $(patsubst %.c, %.o, $(SUB_SRC)) 
-LIB_DIR := /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/build/output/
+LIB_DIR := /home/longvh/linux_project/DASAN/MQTT/paho_mqtt_c/build/output/
 FLAGS   := -lpaho-mqtt3c
 
 all: sub pub

@@ -1,0 +1,665 @@
+Start testing: Sep 20 09:23 +07
+----------------------------------------------------------
+1/70 Testing: test1-1-single-thread-client
+1/70 Test: test1-1-single-thread-client
+Command: "/home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test/test1" "--test_no" "1" "--connection" "tcp://localhost:1883"
+Directory: /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test
+"test1-1-single-thread-client" start time: Sep 20 09:23 +07
+Output:
+----------------------------------------------------------
+
+Setting connection to tcp://localhost:1883
+20190920 092353.464 Starting test 1 - single threaded client using receive
+=========================================================
+                   Trace Output
+Product name: Eclipse Paho Synchronous MQTT C Client Library
+Version: 1.3.1
+Build level: 2019-09-20T02:08:54Z
+/proc/version: Linux version 5.2.9 (root@longvh-virtual-machine) (gcc version 7.4.0 (Ubuntu 7.4.0-1ubuntu1~18.04.1)) #11 SMP Wed Aug 28 23:06:07 +07 2019
+
+=========================================================
+20190920 092353.465 Assertion failed, file /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test/test1.c, line 389, description: Good rc from connect
+
+rc was -120190920 092353.465 TEST1: test failed. 2 tests run, 1 failures.
+20190920 092353.465 verdict fail
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Failed.
+"test1-1-single-thread-client" end time: Sep 20 09:23 +07
+"test1-1-single-thread-client" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/70 Testing: test1-2-multithread-callbacks
+2/70 Test: test1-2-multithread-callbacks
+Command: "/home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test/test1" "--test_no" "2" "--connection" "tcp://localhost:1883"
+Directory: /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test
+"test1-2-multithread-callbacks" start time: Sep 20 09:23 +07
+Output:
+----------------------------------------------------------
+
+Setting connection to tcp://localhost:1883
+20190920 092353.467 Starting test 2 - multi-threaded client using callbacks
+=========================================================
+                   Trace Output
+Product name: Eclipse Paho Synchronous MQTT C Client Library
+Version: 1.3.1
+Build level: 2019-09-20T02:08:54Z
+/proc/version: Linux version 5.2.9 (root@longvh-virtual-machine) (gcc version 7.4.0 (Ubuntu 7.4.0-1ubuntu1~18.04.1)) #11 SMP Wed Aug 28 23:06:07 +07 2019
+
+=========================================================
+Posting connect semaphore for client multi_threaded_sample rc 111Posting connect semaphore for client multi_threaded_sample rc 11120190920 092353.691 Assertion failed, file /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test/test1.c, line 555, description: Good rc from connect
+
+rc was -120190920 092353.691 failed: test test2. 2 tests run, 1 failures.
+20190920 092353.691 verdict fail
+<end of output>
+Test time =   0.23 sec
+----------------------------------------------------------
+Test Failed.
+"test1-2-multithread-callbacks" end time: Sep 20 09:23 +07
+"test1-2-multithread-callbacks" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/70 Testing: test1-3-connack-return-codes
+3/70 Test: test1-3-connack-return-codes
+Command: "/home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test/test1" "--test_no" "3" "--connection" "tcp://localhost:1883"
+Directory: /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test
+"test1-3-connack-return-codes" start time: Sep 20 09:23 +07
+Output:
+----------------------------------------------------------
+
+Setting connection to tcp://localhost:1883
+20190920 092353.693 Starting test 3 - connack return codes
+=========================================================
+                   Trace Output
+Product name: Eclipse Paho Synchronous MQTT C Client Library
+Version: 1.3.1
+Build level: 2019-09-20T02:08:54Z
+/proc/version: Linux version 5.2.9 (root@longvh-virtual-machine) (gcc version 7.4.0 (Ubuntu 7.4.0-1ubuntu1~18.04.1)) #11 SMP Wed Aug 28 23:06:07 +07 2019
+
+=========================================================
+20190920 092353.693 passed: test test3. 1 tests run, 0 failures.
+20190920 092353.693 verdict pass
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"test1-3-connack-return-codes" end time: Sep 20 09:23 +07
+"test1-3-connack-return-codes" time elapsed: 00:00:00
+----------------------------------------------------------
+
+4/70 Testing: test1-4-client-persistence
+4/70 Test: test1-4-client-persistence
+Command: "/home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test/test1" "--test_no" "4" "--connection" "tcp://localhost:1883"
+Directory: /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test
+"test1-4-client-persistence" start time: Sep 20 09:23 +07
+Output:
+----------------------------------------------------------
+
+Setting connection to tcp://localhost:1883
+20190920 092353.695 Starting test 4 - persistence, qos 1
+=========================================================
+                   Trace Output
+Product name: Eclipse Paho Synchronous MQTT C Client Library
+Version: 1.3.1
+Build level: 2019-09-20T02:08:54Z
+/proc/version: Linux version 5.2.9 (root@longvh-virtual-machine) (gcc version 7.4.0 (Ubuntu 7.4.0-1ubuntu1~18.04.1)) #11 SMP Wed Aug 28 23:06:07 +07 2019
+
+=========================================================
+20190920 092353.695 Assertion failed, file /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test/test1.c, line 703, description: Good rc from connect
+
+rc was -120190920 092353.695 Starting test 4 - persistence, qos 2
+20190920 092353.696 Assertion failed, file /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test/test1.c, line 703, description: Good rc from connect
+
+rc was -120190920 092353.696 verdict fail
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Failed.
+"test1-4-client-persistence" end time: Sep 20 09:23 +07
+"test1-4-client-persistence" time elapsed: 00:00:00
+----------------------------------------------------------
+
+5/70 Testing: test1-5-disconnect-with-quiesce
+5/70 Test: test1-5-disconnect-with-quiesce
+Command: "/home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test/test1" "--test_no" "5" "--connection" "tcp://localhost:1883"
+Directory: /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test
+"test1-5-disconnect-with-quiesce" start time: Sep 20 09:23 +07
+Output:
+----------------------------------------------------------
+
+Setting connection to tcp://localhost:1883
+20190920 092353.697 Starting test 5 - disconnect with quiesce timeout should allow exchanges to complete
+=========================================================
+                   Trace Output
+Product name: Eclipse Paho Synchronous MQTT C Client Library
+Version: 1.3.1
+Build level: 2019-09-20T02:08:54Z
+/proc/version: Linux version 5.2.9 (root@longvh-virtual-machine) (gcc version 7.4.0 (Ubuntu 7.4.0-1ubuntu1~18.04.1)) #11 SMP Wed Aug 28 23:06:07 +07 2019
+
+=========================================================
+20190920 092353.698 Assertion failed, file /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test/test1.c, line 868, description: Good rc from connect
+
+rc was -120190920 092353.698 failed: test test 5. 1 tests run, 1 failures.
+20190920 092353.698 verdict fail
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Failed.
+"test1-5-disconnect-with-quiesce" end time: Sep 20 09:23 +07
+"test1-5-disconnect-with-quiesce" time elapsed: 00:00:00
+----------------------------------------------------------
+
+6/70 Testing: test1-6-connlost-will-message
+6/70 Test: test1-6-connlost-will-message
+Command: "/home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test/test1" "--test_no" "6" "--connection" "tcp://localhost:1883" "--proxy_connection" "tcp://localhost:1884"
+Directory: /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test
+"test1-6-connlost-will-message" start time: Sep 20 09:23 +07
+Output:
+----------------------------------------------------------
+
+Setting connection to tcp://localhost:1883
+20190920 092353.699 Starting test 6 - connectionLost and will messages
+=========================================================
+                   Trace Output
+Product name: Eclipse Paho Synchronous MQTT C Client Library
+Version: 1.3.1
+Build level: 2019-09-20T02:08:54Z
+/proc/version: Linux version 5.2.9 (root@longvh-virtual-machine) (gcc version 7.4.0 (Ubuntu 7.4.0-1ubuntu1~18.04.1)) #11 SMP Wed Aug 28 23:06:07 +07 2019
+
+=========================================================
+Posting connect semaphore for client Client_1 rc 020190920 092353.822 waitfor unexpectedly is NULL for client Client_1, packet_type 2, timeout 29889
+20190920 092353.822 Assertion failed, file /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test/test1.c, line 979, description: good rc from connect
+
+rc was -1
+20190920 092353.822 failed: test test6. 3 tests run, 1 failures.
+
+20190920 092353.822 verdict fail
+<end of output>
+Test time =   0.12 sec
+----------------------------------------------------------
+Test Failed.
+"test1-6-connlost-will-message" end time: Sep 20 09:23 +07
+"test1-6-connlost-will-message" time elapsed: 00:00:00
+----------------------------------------------------------
+
+7/70 Testing: test1-7-connlost-binary-will-message
+7/70 Test: test1-7-connlost-binary-will-message
+Command: "/home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test/test1" "--test_no" "7" "--connection" "tcp://localhost:1883" "--proxy_connection" "tcp://localhost:1884"
+Directory: /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test
+"test1-7-connlost-binary-will-message" start time: Sep 20 09:23 +07
+Output:
+----------------------------------------------------------
+
+Setting connection to tcp://localhost:1883
+20190920 092353.825 Starting test 6 - connectionLost and binary will messages
+=========================================================
+                   Trace Output
+Product name: Eclipse Paho Synchronous MQTT C Client Library
+Version: 1.3.1
+Build level: 2019-09-20T02:08:54Z
+/proc/version: Linux version 5.2.9 (root@longvh-virtual-machine) (gcc version 7.4.0 (Ubuntu 7.4.0-1ubuntu1~18.04.1)) #11 SMP Wed Aug 28 23:06:07 +07 2019
+
+=========================================================
+Posting connect semaphore for client Client_1 rc 020190920 092353.947 waitfor unexpectedly is NULL for client Client_1, packet_type 2, timeout 29889
+20190920 092353.948 Assertion failed, file /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test/test1.c, line 1087, description: good rc from connect
+
+rc was -1
+20190920 092353.948 failed: test test6a. 3 tests run, 1 failures.
+
+20190920 092353.948 verdict fail
+<end of output>
+Test time =   0.12 sec
+----------------------------------------------------------
+Test Failed.
+"test1-7-connlost-binary-will-message" end time: Sep 20 09:23 +07
+"test1-7-connlost-binary-will-message" time elapsed: 00:00:00
+----------------------------------------------------------
+
+8/70 Testing: test15-1-single-thread-client
+8/70 Test: test15-1-single-thread-client
+Command: "/home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test/test15" "--test_no" "1" "--connection" "tcp://localhost:1883" "--proxy_connection" "tcp://localhost:1884"
+Directory: /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test
+"test15-1-single-thread-client" start time: Sep 20 09:23 +07
+Output:
+----------------------------------------------------------
+
+Setting connection to tcp://localhost:1883
+20190920 092353.950 Starting test 1 - single threaded client using receive
+=========================================================
+                   Trace Output
+Product name: Eclipse Paho Synchronous MQTT C Client Library
+Version: 1.3.1
+Build level: 2019-09-20T02:08:54Z
+/proc/version: Linux version 5.2.9 (root@longvh-virtual-machine) (gcc version 7.4.0 (Ubuntu 7.4.0-1ubuntu1~18.04.1)) #11 SMP Wed Aug 28 23:06:07 +07 2019
+
+=========================================================
+test MQTT version 5
+20190920 092353.950 Assertion failed, file /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test/test15.c, line 459, description: Good rc from connect
+
+rc was -120190920 092353.950 TEST1: test failed. 2 tests run, 1 failures.
+20190920 092353.950 verdict fail
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Failed.
+"test15-1-single-thread-client" end time: Sep 20 09:23 +07
+"test15-1-single-thread-client" time elapsed: 00:00:00
+----------------------------------------------------------
+
+9/70 Testing: test15-2-multithread-callbacks
+9/70 Test: test15-2-multithread-callbacks
+Command: "/home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test/test15" "--test_no" "2" "--connection" "tcp://localhost:1883" "--proxy_connection" "tcp://localhost:1884"
+Directory: /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test
+"test15-2-multithread-callbacks" start time: Sep 20 09:23 +07
+Output:
+----------------------------------------------------------
+
+Setting connection to tcp://localhost:1883
+20190920 092353.952 Starting test 2 - multi-threaded client using callbacks
+=========================================================
+                   Trace Output
+Product name: Eclipse Paho Synchronous MQTT C Client Library
+Version: 1.3.1
+Build level: 2019-09-20T02:08:54Z
+/proc/version: Linux version 5.2.9 (root@longvh-virtual-machine) (gcc version 7.4.0 (Ubuntu 7.4.0-1ubuntu1~18.04.1)) #11 SMP Wed Aug 28 23:06:07 +07 2019
+
+=========================================================
+Posting connect semaphore for client multi_threaded_sample rc 11120190920 092354.064 Assertion failed, file /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test/test15.c, line 681, description: Good rc from connect
+
+rc was -120190920 092354.064 Assertion failed, file /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test/test15.c, line 687, description: Good rc from subscribe
+
+rc was 020190920 092354.064 50 messages at QoS 0
+20190920 092354.064 Assertion failed, file /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test/test15.c, line 595, description: Good rc from publish
+
+rc was -320190920 092404.168 Assertion failed, file /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test/test15.c, line 614, description: Message Arrived
+
+Time out waiting for message 1
+20190920 092404.168 Assertion failed, file /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test/test15.c, line 595, description: Good rc from publish
+
+rc was -320190920 092414.272 Assertion failed, file /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test/test15.c, line 614, description: Message Arrived
+
+Time out waiting for message 2
+20190920 092414.272 Assertion failed, file /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test/test15.c, line 595, description: Good rc from publish
+
+rc was -320190920 092424.376 Assertion failed, file /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test/test15.c, line 614, description: Message Arrived
+
+Time out waiting for message 3
+20190920 092424.376 Assertion failed, file /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test/test15.c, line 595, description: Good rc from publish
+
+rc was -320190920 092434.480 Assertion failed, file /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test/test15.c, line 614, description: Message Arrived
+
+Time out waiting for message 4
+20190920 092434.480 Assertion failed, file /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test/test15.c, line 595, description: Good rc from publish
+
+rc was -320190920 092444.584 Assertion failed, file /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test/test15.c, line 614, description: Message Arrived
+
+Time out waiting for message 5
+20190920 092444.584 Assertion failed, file /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test/test15.c, line 595, description: Good rc from publish
+
+rc was -320190920 092454.688 Assertion failed, file /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test/test15.c, line 614, description: Message Arrived
+
+Time out waiting for message 6
+20190920 092454.688 Assertion failed, file /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test/test15.c, line 595, description: Good rc from publish
+
+rc was -320190920 092504.792 Assertion failed, file /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test/test15.c, line 614, description: Message Arrived
+
+Time out waiting for message 7
+20190920 092504.792 Assertion failed, file /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test/test15.c, line 595, description: Good rc from publish
+
+rc was -320190920 092514.896 Assertion failed, file /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test/test15.c, line 614, description: Message Arrived
+
+Time out waiting for message 8
+20190920 092514.896 Assertion failed, file /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test/test15.c, line 595, description: Good rc from publish
+
+rc was -320190920 092525.000 Assertion failed, file /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test/test15.c, line 614, description: Message Arrived
+
+Time out waiting for message 9
+20190920 092525.000 Assertion failed, file /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test/test15.c, line 595, description: Good rc from publish
+
+rc was -320190920 092535.104 Assertion failed, file /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test/test15.c, line 614, description: Message Arrived
+
+Time out waiting for message 10
+20190920 092535.104 Assertion failed, file /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test/test15.c, line 595, description: Good rc from publish
+
+rc was -320190920 092545.208 Assertion failed, file /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test/test15.c, line 614, description: Message Arrived
+
+Time out waiting for message 11
+20190920 092545.208 Assertion failed, file /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test/test15.c, line 595, description: Good rc from publish
+
+rc was -320190920 092555.312 Assertion failed, file /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test/test15.c, line 614, description: Message Arrived
+
+Time out waiting for message 12
+20190920 092555.312 Assertion failed, file /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test/test15.c, line 595, description: Good rc from publish
+
+rc was -320190920 092605.416 Assertion failed, file /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test/test15.c, line 614, description: Message Arrived
+
+Time out waiting for message 13
+20190920 092605.416 Assertion failed, file /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test/test15.c, line 595, description: Good rc from publish
+
+<end of output>
+Test time = 131.58 sec
+----------------------------------------------------------
+Test Failed.
+"test15-2-multithread-callbacks" end time: Sep 20 09:26 +07
+"test15-2-multithread-callbacks" time elapsed: 00:02:11
+----------------------------------------------------------
+
+10/70 Testing: test15-3-connack-return-codes
+10/70 Test: test15-3-connack-return-codes
+Command: "/home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test/test15" "--test_no" "3" "--connection" "tcp://localhost:1883" "--proxy_connection" "tcp://localhost:1884"
+Directory: /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test
+"test15-3-connack-return-codes" start time: Sep 20 09:26 +07
+Output:
+----------------------------------------------------------
+
+Setting connection to tcp://localhost:1883
+20190920 092605.533 Starting test 3 - connack return codes
+=========================================================
+                   Trace Output
+Product name: Eclipse Paho Synchronous MQTT C Client Library
+Version: 1.3.1
+Build level: 2019-09-20T02:08:54Z
+/proc/version: Linux version 5.2.9 (root@longvh-virtual-machine) (gcc version 7.4.0 (Ubuntu 7.4.0-1ubuntu1~18.04.1)) #11 SMP Wed Aug 28 23:06:07 +07 2019
+
+=========================================================
+20190920 092605.533 passed: test test3. 1 tests run, 0 failures.
+20190920 092605.533 verdict pass
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"test15-3-connack-return-codes" end time: Sep 20 09:26 +07
+"test15-3-connack-return-codes" time elapsed: 00:00:00
+----------------------------------------------------------
+
+11/70 Testing: test15-4-client-persistence
+11/70 Test: test15-4-client-persistence
+Command: "/home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test/test15" "--test_no" "4" "--connection" "tcp://localhost:1883" "--proxy_connection" "tcp://localhost:1884"
+Directory: /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test
+"test15-4-client-persistence" start time: Sep 20 09:26 +07
+Output:
+----------------------------------------------------------
+
+Setting connection to tcp://localhost:1883
+20190920 092605.535 Starting test 4 - persistence, qos 1, MQTT versions: 5 then 5
+=========================================================
+                   Trace Output
+Product name: Eclipse Paho Synchronous MQTT C Client Library
+Version: 1.3.1
+Build level: 2019-09-20T02:08:54Z
+/proc/version: Linux version 5.2.9 (root@longvh-virtual-machine) (gcc version 7.4.0 (Ubuntu 7.4.0-1ubuntu1~18.04.1)) #11 SMP Wed Aug 28 23:06:07 +07 2019
+
+=========================================================
+20190920 092605.535 Assertion failed, file /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test/test15.c, line 859, description: Good rc from connect
+
+rc was -120190920 092605.535 Starting test 4 - persistence, qos 2, MQTT versions: 5 then 5
+20190920 092605.535 Assertion failed, file /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test/test15.c, line 859, description: Good rc from connect
+
+rc was -120190920 092605.535 Starting test 4 - persistence, qos 2, MQTT versions: 3.1.1 then 5
+20190920 092605.536 Assertion failed, file /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test/test15.c, line 870, description: Good rc from connect
+
+rc was -120190920 092605.536 Assertion failed, file /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test/test15.c, line 872, description: Good rc from disconnect
+
+rc was -320190920 092605.536 Assertion failed, file /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test/test15.c, line 875, description: Good rc from connect
+
+rc was -120190920 092605.536 Starting test 4 - persistence, qos 2, MQTT versions: 5 then 3.1.1
+20190920 092605.536 Assertion failed, file /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test/test15.c, line 859, description: Good rc from connect
+
+rc was -120190920 092605.536 verdict fail
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Failed.
+"test15-4-client-persistence" end time: Sep 20 09:26 +07
+"test15-4-client-persistence" time elapsed: 00:00:00
+----------------------------------------------------------
+
+12/70 Testing: test15-5-disconnect-with-quiesce
+12/70 Test: test15-5-disconnect-with-quiesce
+Command: "/home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test/test15" "--test_no" "5" "--connection" "tcp://localhost:1883" "--proxy_connection" "tcp://localhost:1884"
+Directory: /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test
+"test15-5-disconnect-with-quiesce" start time: Sep 20 09:26 +07
+Output:
+----------------------------------------------------------
+
+Setting connection to tcp://localhost:1883
+20190920 092605.537 Starting test 5 - disconnect with quiesce timeout should allow exchanges to complete
+=========================================================
+                   Trace Output
+Product name: Eclipse Paho Synchronous MQTT C Client Library
+Version: 1.3.1
+Build level: 2019-09-20T02:08:54Z
+/proc/version: Linux version 5.2.9 (root@longvh-virtual-machine) (gcc version 7.4.0 (Ubuntu 7.4.0-1ubuntu1~18.04.1)) #11 SMP Wed Aug 28 23:06:07 +07 2019
+
+=========================================================
+20190920 092605.538 Assertion failed, file /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test/test15.c, line 1094, description: Good rc from connect
+
+rc was -120190920 092605.537 Some memory not freed at shutdown, possible memory leak
+20190920 092605.537 Heap scan start, total 400 bytes
+20190920 092605.537 Heap element size 400, line 108, file /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/src/MQTTProperties.c, ptr 0x55ff980ad410
+20190920 092605.537   Content 
+20190920 092605.537 Heap scan end
+20190920 092605.538 failed: test test 5. 1 tests run, 1 failures.
+20190920 092605.538 verdict fail
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Failed.
+"test15-5-disconnect-with-quiesce" end time: Sep 20 09:26 +07
+"test15-5-disconnect-with-quiesce" time elapsed: 00:00:00
+----------------------------------------------------------
+
+13/70 Testing: test15-6-connlost-will-message
+13/70 Test: test15-6-connlost-will-message
+Command: "/home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test/test15" "--test_no" "6" "--connection" "tcp://localhost:1883" "--proxy_connection" "tcp://localhost:1884"
+Directory: /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test
+"test15-6-connlost-will-message" start time: Sep 20 09:26 +07
+Output:
+----------------------------------------------------------
+
+Setting connection to tcp://localhost:1883
+20190920 092605.540 Starting test 6 - connectionLost and will messages
+=========================================================
+                   Trace Output
+Product name: Eclipse Paho Synchronous MQTT C Client Library
+Version: 1.3.1
+Build level: 2019-09-20T02:08:54Z
+/proc/version: Linux version 5.2.9 (root@longvh-virtual-machine) (gcc version 7.4.0 (Ubuntu 7.4.0-1ubuntu1~18.04.1)) #11 SMP Wed Aug 28 23:06:07 +07 2019
+
+=========================================================
+Posting connect semaphore for client Client_1 rc 020190920 092605.662 waitfor unexpectedly is NULL for client Client_1, packet_type 2, timeout 29889
+20190920 092605.663 Connecting Client_2 ...
+Posting connect semaphore for client Client_2 rc 11120190920 092605.673 Assertion failed, file /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test/test15.c, line 1233, description: Good rc from connect
+
+rc was -1
+20190920 092605.673 Assertion failed, file /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test/test15.c, line 1236, description: Good rc from subscribe
+
+rc was -3
+20190920 092605.673 Assertion failed, file /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test/test15.c, line 1240, description: Good rc from publish
+
+rc was -3
+20190920 092605.674 Waiting to receive the will message
+20190920 092644.687 Assertion failed, file /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test/test15.c, line 1255, description: will message arrived
+
+will_message_arrived was 0
+20190920 092644.687 Assertion failed, file /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test/test15.c, line 1257, description: connection lost called
+
+connection_lost_called 0
+20190920 092644.687 Assertion failed, file /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test/test15.c, line 1260, description: Good rc from unsubscribe
+
+rc was -320190920 092644.687 Assertion failed, file /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test/test15.c, line 1263, description: Client-2 still connected
+
+isconnected is 020190920 092644.788 Assertion failed, file /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test/test15.c, line 1269, description: Good rc from disconnect
+
+rc was -320190920 092644.788 failed: test test6. 14 tests run, 8 failures.
+
+20190920 092644.788 verdict fail
+<end of output>
+Test time =  39.25 sec
+----------------------------------------------------------
+Test Failed.
+"test15-6-connlost-will-message" end time: Sep 20 09:26 +07
+"test15-6-connlost-will-message" time elapsed: 00:00:39
+----------------------------------------------------------
+
+14/70 Testing: test15-7-connlost-binary-will-message
+14/70 Test: test15-7-connlost-binary-will-message
+Command: "/home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test/test15" "--test_no" "7" "--connection" "tcp://localhost:1883" "--proxy_connection" "tcp://localhost:1884"
+Directory: /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test
+"test15-7-connlost-binary-will-message" start time: Sep 20 09:26 +07
+Output:
+----------------------------------------------------------
+
+Setting connection to tcp://localhost:1883
+20190920 092644.790 Starting test 6 - connectionLost and binary will messages
+=========================================================
+                   Trace Output
+Product name: Eclipse Paho Synchronous MQTT C Client Library
+Version: 1.3.1
+Build level: 2019-09-20T02:08:54Z
+/proc/version: Linux version 5.2.9 (root@longvh-virtual-machine) (gcc version 7.4.0 (Ubuntu 7.4.0-1ubuntu1~18.04.1)) #11 SMP Wed Aug 28 23:06:07 +07 2019
+
+=========================================================
+Posting connect semaphore for client Client_1 rc 020190920 092644.912 waitfor unexpectedly is NULL for client Client_1, packet_type 2, timeout 29889
+20190920 092644.913 Assertion failed, file /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test/test15.c, line 1329, description: good rc from connect
+
+rc was -1
+20190920 092644.913 failed: test test6a. 3 tests run, 1 failures.
+
+20190920 092644.913 verdict fail
+<end of output>
+Test time =   0.12 sec
+----------------------------------------------------------
+Test Failed.
+"test15-7-connlost-binary-will-message" end time: Sep 20 09:26 +07
+"test15-7-connlost-binary-will-message" time elapsed: 00:00:00
+----------------------------------------------------------
+
+15/70 Testing: test2-1-multiple-threads-single-client
+15/70 Test: test2-1-multiple-threads-single-client
+Command: "/home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test/test2" "--connection" "tcp://localhost:1883"
+Directory: /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test
+"test2-1-multiple-threads-single-client" start time: Sep 20 09:26 +07
+Output:
+----------------------------------------------------------
+
+Setting connection to tcp://localhost:1883
+20190920 092644.915 Starting test 1 - multiple threads using same client object
+=========================================================
+                   Trace Output
+Product name: Eclipse Paho Synchronous MQTT C Client Library
+Version: 1.3.1
+Build level: 2019-09-20T02:08:54Z
+/proc/version: Linux version 5.2.9 (root@longvh-virtual-machine) (gcc version 7.4.0 (Ubuntu 7.4.0-1ubuntu1~18.04.1)) #11 SMP Wed Aug 28 23:06:07 +07 2019
+
+=========================================================
+Posting connect semaphore for client single_object, multiple threads rc 111Posting connect semaphore for client single_object, multiple threads rc 11120190920 092645.138 Assertion failed, file /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test/test2.c, line 444, description: Good rc from connect
+
+rc was -120190920 092645.138 TEST1: test failed. 3 tests run, 1 failures.
+20190920 092645.138 verdict fail
+<end of output>
+Test time =   0.22 sec
+----------------------------------------------------------
+Test Failed.
+"test2-1-multiple-threads-single-client" end time: Sep 20 09:26 +07
+"test2-1-multiple-threads-single-client" time elapsed: 00:00:00
+----------------------------------------------------------
+
+16/70 Testing: test4-1-basic-connect-subscribe-receive
+16/70 Test: test4-1-basic-connect-subscribe-receive
+Command: "/home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test/test4" "--test_no" "1" "--connection" "tcp://localhost:1883"
+Directory: /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test
+"test4-1-basic-connect-subscribe-receive" start time: Sep 20 09:26 +07
+Output:
+----------------------------------------------------------
+20190920 092645.140 Product name: Eclipse Paho Asynchronous MQTT C Client Library
+20190920 092645.140 Version: 1.3.1
+20190920 092645.140 Build level: 2019-09-20T02:08:54Z
+20190920 092645.140 Starting test 1 - asynchronous connect
+<end of output>
+Test time = 540.01 sec
+----------------------------------------------------------
+Test Failed.
+"test4-1-basic-connect-subscribe-receive" end time: Sep 20 09:35 +07
+"test4-1-basic-connect-subscribe-receive" time elapsed: 00:09:00
+----------------------------------------------------------
+
+17/70 Testing: test4-2-connect-timeout
+17/70 Test: test4-2-connect-timeout
+Command: "/home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test/test4" "--test_no" "2" "--connection" "tcp://localhost:1883"
+Directory: /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test
+"test4-2-connect-timeout" start time: Sep 20 09:35 +07
+Output:
+----------------------------------------------------------
+20190920 093545.146 Product name: Eclipse Paho Asynchronous MQTT C Client Library
+20190920 093545.146 Version: 1.3.1
+20190920 093545.146 Build level: 2019-09-20T02:08:54Z
+20190920 093545.146 Starting test 2 - connect timeout
+Trace : 3, =========================================================
+Trace : 3,                    Trace Output
+Trace : 3, Product name: Eclipse Paho Asynchronous MQTT C Client Library
+Trace : 3, Version: 1.3.1
+Trace : 3, Build level: 2019-09-20T02:08:54Z
+Trace : 3, /proc/version: Linux version 5.2.9 (root@longvh-virtual-machine) (gcc version 7.4.0 (Ubuntu 7.4.0-1ubuntu1~18.04.1)) #11 SMP Wed Aug 28 23:06:07 +07 2019
+
+Trace : 3, =========================================================
+20190920 093558.263 TEST2: test passed. 4 tests run, 0 failures.
+20190920 093558.263 verdict pass
+<end of output>
+Test time =  13.12 sec
+----------------------------------------------------------
+Test Passed.
+"test4-2-connect-timeout" end time: Sep 20 09:35 +07
+"test4-2-connect-timeout" time elapsed: 00:00:13
+----------------------------------------------------------
+
+18/70 Testing: test4-3-multiple-client-objs-simultaneous-working
+18/70 Test: test4-3-multiple-client-objs-simultaneous-working
+Command: "/home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test/test4" "--test_no" "3" "--connection" "tcp://localhost:1883"
+Directory: /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test
+"test4-3-multiple-client-objs-simultaneous-working" start time: Sep 20 09:35 +07
+Output:
+----------------------------------------------------------
+20190920 093558.265 Product name: Eclipse Paho Asynchronous MQTT C Client Library
+20190920 093558.265 Version: 1.3.1
+20190920 093558.265 Build level: 2019-09-20T02:08:54Z
+20190920 093558.265 Starting test 3 - multiple connections
+Trace : 3, =========================================================
+Trace : 3,                    Trace Output
+Trace : 3, Product name: Eclipse Paho Asynchronous MQTT C Client Library
+Trace : 3, Version: 1.3.1
+Trace : 3, Build level: 2019-09-20T02:08:54Z
+Trace : 3, /proc/version: Linux version 5.2.9 (root@longvh-virtual-machine) (gcc version 7.4.0 (Ubuntu 7.4.0-1ubuntu1~18.04.1)) #11 SMP Wed Aug 28 23:06:07 +07 2019
+
+Trace : 3, =========================================================
+Assertion failed, file /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test/test4.c, line 642, description: Should have connected
+async_test3_num_0 failed to connect
+Assertion failed, file /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test/test4.c, line 642, description: Should have connected
+async_test3_num_1 failed to connect
+Assertion failed, file /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test/test4.c, line 642, description: Should have connected
+async_test3_num_2 failed to connect
+Assertion failed, file /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test/test4.c, line 642, description: Should have connected
+async_test3_num_9 failed to connect
+Assertion failed, file /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test/test4.c, line 642, description: Should have connected
+async_test3_num_3 failed to connect
+Assertion failed, file /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test/test4.c, line 642, description: Should have connected
+async_test3_num_4 failed to connect
+Assertion failed, file /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test/test4.c, line 642, description: Should have connected
+async_test3_num_5 failed to connect
+Assertion failed, file /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test/test4.c, line 642, description: Should have connected
+async_test3_num_6 failed to connect
+Assertion failed, file /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test/test4.c, line 642, description: Should have connected
+async_test3_num_7 failed to connect
+Assertion failed, file /home/longvh/linux_project/DASAN/MQTT/paho.mqtt.c/test/test4.c, line 642, description: Should have connected
+async_test3_num_8 failed to connect
+20190920 093558.574 TEST3: test failed. 40 tests run, 10 failures.
+20190920 093558.574 verdict fail
+<end of output>
+Test time =   0.31 sec
+----------------------------------------------------------
+Test Failed.
+"test4-3-multiple-client-objs-simultaneous-working" end time: Sep 20 09:35 +07
+"test4-3-multiple-client-objs-simultaneous-working" time elapsed: 00:00:00
+----------------------------------------------------------
+
