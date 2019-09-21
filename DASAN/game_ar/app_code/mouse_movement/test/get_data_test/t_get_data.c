@@ -32,7 +32,7 @@ int main(int argc, char *argv[])
 
 	assert(fd > 0);
 
-printf("kkk\n");
+	printf("kkk\n");
 	dpy = XOpenDisplay(0);
 	root_window = XRootWindow(dpy, 0);
 	XSelectInput(dpy, root_window, KeyReleaseMask);

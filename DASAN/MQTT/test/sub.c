@@ -2,18 +2,21 @@
 #include <stdlib.h>
 #include <string.h>
 #include "MQTTClient.h"
-#define ADDRESS     "tcp://localhost:1883"
+#define ADDRESS     "tcp://192.168.0.104:1883"
 #define CLIENTID    "ExampleClientSub"
-#define TOPIC       "MQTT Examples"
+#define TOPIC       "outTopic"
 #define PAYLOAD     "Hello World!"
 #define QOS         1
 #define TIMEOUT     10000L
+MQTTClient client;
+
 volatile MQTTClient_deliveryToken deliveredtoken;
 void delivered(void *context, MQTTClient_deliveryToken dt)
 {
     printf("Message with token value %d delivery confirmed\n", dt);
     deliveredtoken = dt;
 }
+
 int msgarrvd(void *context, char *topicName, int topicLen, MQTTClient_message *message)
 {
     int i;
@@ -36,12 +39,10 @@ void connlost(void *context, char *cause)
     printf("\nConnection lost\n");
     printf("     cause: %s\n", cause);
 }
-int main(int argc, char* argv[])
+void mqtt_init()
 {
-    MQTTClient client;
     MQTTClient_connectOptions conn_opts = MQTTClient_connectOptions_initializer;
     int rc;
-    int ch;
     MQTTClient_create(&client, ADDRESS, CLIENTID,
         MQTTCLIENT_PERSISTENCE_NONE, NULL);
     conn_opts.keepAliveInterval = 20;
@@ -55,12 +56,21 @@ int main(int argc, char* argv[])
     printf("Subscribing to topic %s\nfor client %s using QoS%d\n\n"
            "Press Q<Enter> to quit\n\n", TOPIC, CLIENTID, QOS);
     MQTTClient_subscribe(client, TOPIC, QOS);
+
+}
+int main(int argc, char* argv[])
+{
+    int ch;
+
+    mqtt_init();
     do
     {
         ch = getchar();
     } while(ch!='Q' && ch != 'q');
+
     MQTTClient_disconnect(client, 10000);
     MQTTClient_destroy(&client);
-    return rc;
+
+    return 0;
 }
 

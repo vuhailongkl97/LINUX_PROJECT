@@ -2,9 +2,9 @@
 #include <stdlib.h>
 #include <string.h>
 #include "MQTTClient.h"
-#define ADDRESS     "tcp://localhost:1883"
+#define ADDRESS     "tcp://192.168.0.104:1883"
 #define CLIENTID    "ExampleClientPub"
-#define TOPIC       "MQTT Examples"
+#define TOPIC       "inTopic"
 #define PAYLOAD     "Hello World! kkkk"
 #define QOS         1
 #define TIMEOUT     10000L
@@ -63,6 +63,7 @@ int main(int argc, char* argv[])
             "on topic %s for client with ClientID: %s\n",
             PAYLOAD, TOPIC, CLIENTID);
     while(deliveredtoken != token);
+
     MQTTClient_disconnect(client, 10000);
     MQTTClient_destroy(&client);
     return rc;
