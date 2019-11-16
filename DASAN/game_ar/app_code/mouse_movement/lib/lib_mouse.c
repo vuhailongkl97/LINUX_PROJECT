@@ -1,42 +1,116 @@
 #include "lib_mouse.h"
 
-void mouse_press(void *_self, int button)
+extern int fd_mouse ;
+
+void move_mouse_n_pixel(enum DIRECTION  d, int times)
 {
-    mouse *self = _self;
+  struct input_event event, event_end;
 
-    XTestFakeButtonEvent(self->dpy, button, True, 1);
-    XFlush(self->dpy);
+  memset(&event, 0, sizeof(event));
+  memset(&event_end, 0, sizeof(event_end));
 
-    usleep(10000);
+  gettimeofday(&event.time, NULL);
+  switch(d)
+  {
+	case M_LEFT:
+		event.type = EV_REL;
+  		event.code = REL_X;
+  		event.value = -1;
+		break;
+	case M_RIGHT:
+		event.type = EV_REL;
+  		event.code = REL_X;
+  		event.value = 1;
+		break;
+	case M_UP:
+		event.type = EV_REL;
+  		event.code = REL_Y;
+  		event.value = -1;
+		break;
+	case M_DOWN:
+		event.type = EV_REL;
+  		event.code = REL_Y;
+  		event.value = 1;
+		break;
+	default:
+		puts("incorrect direction");
+  }
 
-    XTestFakeButtonEvent(self->dpy, button, False, 1);
-    XFlush(self->dpy);
+  /*stop move signal*/
+  gettimeofday(&event_end.time, NULL);
+  event_end.type = EV_SYN;
+  event_end.code = SYN_REPORT;
+  event_end.value = 0;
+
+  /*move mouse*/
+  for (int i=0; i<abs(times); i++) {
+    write(fd_mouse, &event, sizeof(event));// Move the mouse
+    write(fd_mouse, &event_end, sizeof(event_end));// Show move
+    usleep(500);
+  }
 
 }
-void mouse_release(void *_self, int button)
+void press_mouse(enum MOUSE_CLICK code) 
 {
-    mouse *self = _self;
+  struct input_event event, event_end;
 
-    XTestFakeButtonEvent(self->dpy, button, True, 1);
-    XFlush(self->dpy);
+  memset(&event, 0, sizeof(event));
+  memset(&event_end, 0, sizeof(event_end));
+
+  gettimeofday(&event.time, NULL);
+  event.type = EV_KEY;
+  event.code = BTN_LEFT;
+  event.value = code;
+
+  /*stop move signal*/
+  gettimeofday(&event_end.time, NULL);
+  event_end.type = EV_SYN;
+  event_end.code = SYN_REPORT;
+  event_end.value = 0;
+
+  write(fd_mouse, &event, sizeof(event));// Move the mouse
+  write(fd_mouse, &event_end, sizeof(event_end));// Show move
+
+}
+void press_key(int key, int cmd)
+{
+  struct input_event event, event_end;
+
+  memset(&event, 0, sizeof(event));
+  memset(&event_end, 0, sizeof(event_end));
+
+  gettimeofday(&event.time, NULL);
+  event.type = EV_KEY;
+  event.code = key;
+  event.value = cmd;
+
+  /*stop move signal*/
+  gettimeofday(&event_end.time, NULL);
+  event_end.type = EV_SYN;
+  event_end.code = SYN_REPORT;
+  event_end.value = 0;
+
+  write(fd_mouse, &event, sizeof(event));// Move the mouse
+  write(fd_mouse, &event_end, sizeof(event_end));// Show move
+
+}
+//left mouse
+static void mouse_press()
+{
+    press_mouse(M_PRESS);
+
+}
+static void mouse_release()
+{
+    press_mouse(M_RELEASE);
 }
 
 void mouse_click(void *_self, int button)
 {
-    mouse *self = _self;
-
-    self->btn_press(self, button);	
-    usleep(200000);
-    self->btn_release(self, button);	
+   mouse_press();
+   mouse_release();
 }
 
-void mouse_double_click(void *_self)
-{
-    mouse *self = _self;
-    self->click(self,1);
-    sleep(1);
-    self->click(self,1);
-}
 
 /*
 	movement really
@@ -52,9 +126,6 @@ void move_xy(void *_self, int x_des, int y_des, int jump_size, int speed)
     int over_x = 0, over_y = 0;
     mouse *self = _self;
     
-    x_des = x_des > self->width_max ? self->width_max : abs(x_des);
-    y_des = y_des > self->height_max ? self->height_max : abs(y_des);
-
     number_step_move_x = abs(self->x_current -x_des) ;	
     number_step_move_y = abs(self->y_current -y_des) ;	
     
@@ -80,24 +151,32 @@ void move_xy(void *_self, int x_des, int y_des, int jump_size, int speed)
     
     do	
     {                                                                          
-    	XWarpPointer(self->dpy, None, self->root, 0, 0, 0, 0, self->x_current
-			 ,self->y_current );           
     
     	x_dis = abs(self->x_current -x_des);
     	y_dis = abs(self->y_current -y_des);	
 
-		#ifdef DEBUG
+		#if 0
 			printf("x_dis ydis = %d %d  \n", x_dis, y_dis);
 		#endif 
 		
     	if( !over_x )
     	{
+		//move -----------------------------------------------
+		if ( speed* heso_x > 0)
+		{
+			move_mouse_n_pixel(M_RIGHT, round(speed*heso_x));
+		}
+		else 
+		{
+			move_mouse_n_pixel(M_LEFT, round(speed*heso_x));
+		}
         	x_src_tmp += speed*heso_x;
+	
     		self->x_current = (int)x_src_tmp;
 
     		int x_dis2 = abs(self->x_current -x_des);
 	
-		if ( x_dis2 >= x_dis )
+		if ( x_dis2 > x_dis )
 		{
 			over_x = 1;	
 		}
@@ -106,6 +185,15 @@ void move_xy(void *_self, int x_des, int y_des, int jump_size, int speed)
     
     	if( !over_y )
     	{
+		//move -------------------------------------------
+		if ( speed* heso_y > 0)
+		{
+			move_mouse_n_pixel(M_UP, round(speed*heso_y));
+		}
+		else 
+		{
+			move_mouse_n_pixel(M_DOWN, round(speed*heso_y));
+		}
         	y_src_tmp += speed*heso_y;
     		self->y_current = (int)y_src_tmp;
     		int y_dis2 = abs(self->y_current -y_des);
@@ -116,42 +204,14 @@ void move_xy(void *_self, int x_des, int y_des, int jump_size, int speed)
 		}
     	}
     
-            usleep((int)(10000/abs(speed)));                                             
-    
-            XFlush(self->dpy);                                                    
+            usleep(500);                                             
     }   	
     while( !over_x || !over_y);
     }
                                                                                 
-void show_attribute(void *_self)
-{
-	mouse *self = _self;
-        printf("windows information\n");                                        
-        printf("width = %d, height = %d\n", self->width_max, self->height_max);
 
-}
-
-int get_attribute(void *_self, int *width, int *height)
-{
-        XWindowAttributes window_attr;                                          
-	mouse *self = _self;
-                                                                                
-        if ( 0 <  XGetWindowAttributes(self->dpy, self->root, &window_attr) )
-	{
-        	*width = window_attr.width;
-        	*height = window_attr.height;    	
-		return 0;
-	}
-	else 
-	{
-		*width = *height= 0;
-		return -1;
-	}
-}
-
-void *New(int x_c, int y_c, Display *dpy, Window root, void (*cstor), 
-	void (*dstor), void (*click), void (*dclick), void (*btn_release), 
-		void (*move), void (*get_attr), void (*press) )
+void *New(int x_c, int y_c, void (*cstor), 
+	void (*dstor), void (*click),  void (*move), void (*press) )
 {
 	mouse *self = calloc(1, sizeof(mouse));
 
@@ -159,22 +219,16 @@ void *New(int x_c, int y_c, Display *dpy, Window root, void (*cstor),
 	self->dstor  = dstor;
 	self->move = move;
 	self->click = click;
-	self->dclick = dclick;
-	self->btn_release = btn_release;
-	self->get_attr = get_attr;
 	self->btn_press = press;
-	self->cstor(self, x_c, y_c, dpy, root);
+	self->cstor(self, x_c, y_c);
 
 	return  self;
 }
-void constructor(void *_self, int x_c , int y_c , Display *dpy, Window root)
+void constructor(void *_self, int x_c , int y_c)
 {
 	mouse *self = _self;	
 	self->x_current = x_c;		
 	self->y_current = y_c;		
-	self->dpy = dpy;
-	self->root = root;
-	self->get_attr(self, &(self->width_max), &(self->height_max));
 }
 void destructor(void *_self)
 {
