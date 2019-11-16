@@ -1,8 +1,9 @@
 #include <stdio.h>
 #include <time.h>
-#include <X11/Xutil.h>
 #include <assert.h>
+#include <math.h>
 #include "lib_mouse.h"
+int fd_mouse = 0;
 
 void test_mouse(void *_self,int x_des, int y_des, int speed)
 {
@@ -13,33 +14,39 @@ void test_mouse(void *_self,int x_des, int y_des, int speed)
 int main(int argc, char *argv[])
 {
 	int i = 0;
-	Display *dpy;
-	Window root_window;
+	int event_n = 0;
+	char path_device[30] = {0};
 
-    	dpy = XOpenDisplay(0);
-    	root_window = XRootWindow(dpy, 0);
-    	XSelectInput(dpy, root_window, KeyReleaseMask);
-	mouse *x = New(0, 0, dpy, root_window, constructor, destructor,
-		mouse_click, mouse_double_click, mouse_release, move_xy
-		, get_attribute, mouse_press);
+
+	mouse *x = New(0, 0, constructor, destructor, mouse_click, move_xy, NULL);
 
 	assert(x);
-	show_attribute(x);
 
-	test_mouse(x, 50, 20, 4);
-	x->click(x,1);
-	sleep(1);
-	x->dclick(x);
-	 for ( i = 0; i< 2; i++) 
-	 {
-		test_mouse(x,800, 6000, 4);
-		usleep(100000);
-	 	test_mouse(x,100, 20, 4);
-		sleep(1);
-	 }
-	 x->click(x,1);
+        if ( argc > 1)
+        {
+            event_n = atoi(argv[1]);
+        }
+
+        snprintf(path_device, sizeof(path_device), "/dev/input/event%d",event_n);
+        puts(path_device);
+
+        fd_mouse = open(path_device, O_RDWR);
+        if (fd_mouse < 0) {
+            printf("Errro open mouse:%s\n", strerror(errno));
+            return -1;
+        }
+	x->btn_press(x,1);
+	test_mouse(x, 150, 220, 1);
+	printf("self .x.y = %d %d", x->x_current, x->y_current);
+	sleep(4);
+	test_mouse(x, 0, 0, 1);
+	printf("self .x.y = %d %d", x->x_current, x->y_current);
+	sleep(3);
+	test_mouse(x, -40, -70, 1);
+	x->btn_release(x,1);
 	x->dstor(x);
+	close(fd_mouse);
 	
-    return 0;
+        return 0;
 }
 
