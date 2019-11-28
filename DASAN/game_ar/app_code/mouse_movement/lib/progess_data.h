@@ -7,11 +7,17 @@
 #include <string.h>
 #include <fcntl.h>
 #include "lib_types.h"
-
+#define DATA_FORMAT "%f %f %f %d %d"
 
 enum command {
     COMMAND_REQUEST_PITCH_YAW = 0
 };
+typedef struct {
+   float pitch, yaw, roll;
+   int mouse_state;
+   int movement_state;
+
+}pdata;
 
 
 /* get target (dx, dy) from (x1,y1) and velocity vx, vy  */
@@ -19,7 +25,7 @@ FILE* device_init(const char *file);
 int device_release(FILE *fp);
 int get_target(int x1, int y1, float vx, float vy, int *dx, int *dy);
 
-int get_data(FILE *fp, float *pitch, float *yaw, float *roll);
+int get_data(FILE *fp, pdata *p);
 
 void caculator_velocity(FILE *fp, mouse *self);
 

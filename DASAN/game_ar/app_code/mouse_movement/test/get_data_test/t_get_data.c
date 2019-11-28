@@ -42,20 +42,58 @@ void test_get_target(int x1, int y1, float vx, float vy)
 	printf("ok move from (%d,%d) -> (%d, %d) vx = %f, \
 			vy = %f\n", x1, y1, retx, rety, vx , vy);
 }
-void control(mouse *x,game_obj *go)
+void control(FILE *fp, mouse *x,game_obj *go)
 {
 	int opt = 0;
 	static int change_dev = 0 ;
-
-	if ( change_dev == 1 )
+	pdata p;
+	get_data(fp,&p);
+	switch (p.mouse_state)
 	{
-
-	}
-	switch (opt)
-	{
+		case LEFT_CLICK:
+			x->click(x);			
+			break;
+		case RIGHT_CLICK:
+		case STOP_MOVE:
 		default:
 			break;
-        		//test_mouse(x,retx,rety,3);
+	}
+	
+	if (p.mouse_state != STOP_MOVE)
+	{
+		int retx, rety;
+		caculator_velocity(fp, x);
+		get_target(x->x_current,x->y_current,x->current_vx, x-> current_vy, &retx, &rety);
+	        //printf("xret = %d , yret = %d vx %f vy %f\n", retx, rety,x->current_vx, x->current_vy);
+		retx = retx > 400 ? 400 : retx;
+		retx = retx < -400 ? -400 : retx;
+		rety = rety > 400 ? 400 : rety;
+		rety = rety < -400 ? -400: rety;
+
+		x->move(x, retx, rety, 1, 5);	
+	        	
+		switch (p.movement_state)
+		{
+			case  LEFT :
+				press_key(go, KEY_A,1); 
+				press_key(go, KEY_A,0); 
+				break;
+			case  RIGHT :
+				press_key(go, KEY_D,1); 
+				press_key(go, KEY_D,0); 
+				break;
+			case  GO_AHEAD :
+				press_key(go, KEY_W,1); 
+				press_key(go, KEY_W,0); 
+				break;
+			case  BACK :
+				press_key(go, KEY_S,1); 
+				press_key(go, KEY_S,0); 
+				break;
+			default:
+				//fprintf(stderr, "movement incorrect %s %d ", __FUNCTION__, __LINE__);
+				break;
+		}
 	}
 
 }
@@ -63,7 +101,7 @@ int main(int argc, char *argv[])
 {
 
 	int choice = 1;
-	int x1 , y1, retx, rety;
+	int x1 , y1;
 	float vx, vy, vz = 0;
 	x1 = 10;
 	y1 = 10;
@@ -121,15 +159,8 @@ int main(int argc, char *argv[])
 		//get_data(fp,&vx, &vy, &vz);
 		//printf("enter vx, vy ");
 		//scanf("%f%f", &vx, &vy);
-		caculator_velocity(fp, x);
-		get_target(x->x_current,x->y_current,x->current_vx, x-> current_vy, &retx, &rety);
-	        //printf("xret = %d , yret = %d vx %f vy %f\n", retx, rety,x->current_vx, x->current_vy);
-		retx = retx > 400 ? 400 : retx;
-		retx = retx < -400 ? -400 : retx;
-		rety = rety > 400 ? 400 : rety;
-		rety = rety < -400 ? -400: rety;
 	
-		control(x,go);
+		control(fp,x,go);
 		//usleep(100000);
 		//printf("retx, rety %d %d\n", retx, rety);
 		//printf("enter choice > 0 to continue ");

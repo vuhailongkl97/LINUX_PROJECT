@@ -16,19 +16,23 @@ void move_mouse_n_pixel(mouse *self, enum DIRECTION  d, int times)
   {
 	case M_LEFT:
   		event.code = REL_X;
-  		event.value = -3;
+  		event.value = -2;
+		times = (int)(times*1.5);
 		break;
 	case M_RIGHT:
   		event.code = REL_X;
-  		event.value = 3;
+  		event.value = 2;
+		times = (int)(times*1.5);
 		break;
 	case M_UP:
   		event.code = REL_Y;
-  		event.value = -2;
+  		event.value = -1;
+		times = (int)(times*2);
 		break;
 	case M_DOWN:
   		event.code = REL_Y;
-  		event.value = 2;
+  		event.value = 1;
+		times = (int)(times*2);
 		break;
 	default:
 		puts("incorrect direction");
@@ -44,7 +48,7 @@ void move_mouse_n_pixel(mouse *self, enum DIRECTION  d, int times)
   for (int i=0; i<abs(times); i++) {
     write(fd, &event, sizeof(event));// Move the mouse
     write(fd, &event_end, sizeof(event_end));// Show move
-    usleep(200);
+    usleep(1500);
   }
 
 }
