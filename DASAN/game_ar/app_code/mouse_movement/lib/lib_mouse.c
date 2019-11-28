@@ -1,36 +1,34 @@
 #include "lib_mouse.h"
 
-extern int fd_mouse ;
 
-void move_mouse_n_pixel(enum DIRECTION  d, int times)
+void move_mouse_n_pixel(mouse *self, enum DIRECTION  d, int times)
 {
   struct input_event event, event_end;
+  int fd = self->fd_mouse;
 
   memset(&event, 0, sizeof(event));
   memset(&event_end, 0, sizeof(event_end));
 
   gettimeofday(&event.time, NULL);
+  /*when vy > vx*5 then value x dimention is 3 else is 1   */
+  event.type = EV_REL;
   switch(d)
   {
 	case M_LEFT:
-		event.type = EV_REL;
   		event.code = REL_X;
-  		event.value = -1;
+  		event.value = -3;
 		break;
 	case M_RIGHT:
-		event.type = EV_REL;
   		event.code = REL_X;
-  		event.value = 1;
+  		event.value = 3;
 		break;
 	case M_UP:
-		event.type = EV_REL;
   		event.code = REL_Y;
-  		event.value = -1;
+  		event.value = -2;
 		break;
 	case M_DOWN:
-		event.type = EV_REL;
   		event.code = REL_Y;
-  		event.value = 1;
+  		event.value = 2;
 		break;
 	default:
 		puts("incorrect direction");
@@ -44,13 +42,13 @@ void move_mouse_n_pixel(enum DIRECTION  d, int times)
 
   /*move mouse*/
   for (int i=0; i<abs(times); i++) {
-    write(fd_mouse, &event, sizeof(event));// Move the mouse
-    write(fd_mouse, &event_end, sizeof(event_end));// Show move
-    usleep(500);
+    write(fd, &event, sizeof(event));// Move the mouse
+    write(fd, &event_end, sizeof(event_end));// Show move
+    usleep(200);
   }
 
 }
-void press_mouse(enum MOUSE_CLICK code) 
+void press_mouse(mouse *self, enum MOUSE_CLICK code) 
 {
   struct input_event event, event_end;
 
@@ -68,47 +66,26 @@ void press_mouse(enum MOUSE_CLICK code)
   event_end.code = SYN_REPORT;
   event_end.value = 0;
 
-  write(fd_mouse, &event, sizeof(event));// Move the mouse
-  write(fd_mouse, &event_end, sizeof(event_end));// Show move
-
-}
-void press_key(int key, int cmd)
-{
-  struct input_event event, event_end;
-
-  memset(&event, 0, sizeof(event));
-  memset(&event_end, 0, sizeof(event_end));
-
-  gettimeofday(&event.time, NULL);
-  event.type = EV_KEY;
-  event.code = key;
-  event.value = cmd;
-
-  /*stop move signal*/
-  gettimeofday(&event_end.time, NULL);
-  event_end.type = EV_SYN;
-  event_end.code = SYN_REPORT;
-  event_end.value = 0;
-
-  write(fd_mouse, &event, sizeof(event));// Move the mouse
-  write(fd_mouse, &event_end, sizeof(event_end));// Show move
+  write(self->fd_mouse, &event, sizeof(event));// Move the mouse
+  write(self->fd_mouse, &event_end, sizeof(event_end));// Show move
 
 }
 //left mouse
-static void mouse_press()
+static void mouse_press(mouse *self)
 {
-    press_mouse(M_PRESS);
+    press_mouse(self, M_PRESS);
 
 }
-static void mouse_release()
+static void mouse_release(mouse *self)
 {
-    press_mouse(M_RELEASE);
+    press_mouse(self, M_RELEASE);
 }
 
-void mouse_click(void *_self, int button)
+void mouse_click(mouse *self)
 {
-   mouse_press();
-   mouse_release();
+   mouse_press(self);
+   mouse_release(self);
+   usleep(10000);
 }
 
 
@@ -126,8 +103,8 @@ void move_xy(void *_self, int x_des, int y_des, int jump_size, int speed)
     int over_x = 0, over_y = 0;
     mouse *self = _self;
     
-    number_step_move_x = abs(self->x_current -x_des) ;	
-    number_step_move_y = abs(self->y_current -y_des) ;	
+    number_step_move_x = abs(self->x_current -x_des)/speed ;	
+    number_step_move_y = abs(self->y_current -y_des)/speed ;	
     
     bigger = number_step_move_x > number_step_move_y ? 
     		number_step_move_x : number_step_move_y;
@@ -157,6 +134,7 @@ void move_xy(void *_self, int x_des, int y_des, int jump_size, int speed)
 
 		#if 0
 			printf("x_dis ydis = %d %d  \n", x_dis, y_dis);
+			//printf("x_src_tmp y_src_tmp = %f %f  \n",x_src_tmp ,y_src_tmp );
 		#endif 
 		
     	if( !over_x )
@@ -164,11 +142,11 @@ void move_xy(void *_self, int x_des, int y_des, int jump_size, int speed)
 		//move -----------------------------------------------
 		if ( speed* heso_x > 0)
 		{
-			move_mouse_n_pixel(M_RIGHT, round(speed*heso_x));
+			move_mouse_n_pixel(self, M_RIGHT, round(speed*heso_x));
 		}
 		else 
 		{
-			move_mouse_n_pixel(M_LEFT, round(speed*heso_x));
+			move_mouse_n_pixel(self, M_LEFT, round(speed*heso_x));
 		}
         	x_src_tmp += speed*heso_x;
 	
@@ -176,7 +154,7 @@ void move_xy(void *_self, int x_des, int y_des, int jump_size, int speed)
 
     		int x_dis2 = abs(self->x_current -x_des);
 	
-		if ( x_dis2 > x_dis )
+		if (  x_dis  <= speed)
 		{
 			over_x = 1;	
 		}
@@ -188,30 +166,32 @@ void move_xy(void *_self, int x_des, int y_des, int jump_size, int speed)
 		//move -------------------------------------------
 		if ( speed* heso_y > 0)
 		{
-			move_mouse_n_pixel(M_UP, round(speed*heso_y));
+			move_mouse_n_pixel(self, M_UP, round(speed*heso_y));
 		}
 		else 
 		{
-			move_mouse_n_pixel(M_DOWN, round(speed*heso_y));
+			move_mouse_n_pixel(self, M_DOWN, round(speed*heso_y));
 		}
         	y_src_tmp += speed*heso_y;
     		self->y_current = (int)y_src_tmp;
     		int y_dis2 = abs(self->y_current -y_des);
+		//printf("y_src_tmp = %f, y_dis2 %d\n", y_src_tmp, y_dis2);
+		//sleep(1);
 
-		if ( y_dis2 >= y_dis)
+		if (  y_dis <= speed )
 		{
 			over_y = 1;
 		}
     	}
     
-            usleep(500);                                             
     }   	
     while( !over_x || !over_y);
-    }
+    self->x_current = self->y_current = 0;
+}
                                                                                 
 
-void *New(int x_c, int y_c, void (*cstor), 
-	void (*dstor), void (*click),  void (*move), void (*press) )
+void *New(int x_c, int y_c, void (*cstor),void (*dstor),int fd_mouse,
+	void (*click),  void (*move) )
 {
 	mouse *self = calloc(1, sizeof(mouse));
 
@@ -219,7 +199,7 @@ void *New(int x_c, int y_c, void (*cstor),
 	self->dstor  = dstor;
 	self->move = move;
 	self->click = click;
-	self->btn_press = press;
+	self->fd_mouse = fd_mouse;
 	self->cstor(self, x_c, y_c);
 
 	return  self;
@@ -233,5 +213,6 @@ void constructor(void *_self, int x_c , int y_c)
 void destructor(void *_self)
 {
 	mouse *self = _self;
+	close(self->fd_mouse);
 	free(self);
 }
