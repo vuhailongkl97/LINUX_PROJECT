@@ -30,16 +30,16 @@ enum MOUSE_CLICK {
 	M_PRESS
 };
 
-void mouse_click(void *self, int button);
-static void mouse_press();
-static void mouse_release();
-void move_mouse_n_pixel(enum DIRECTION  d, int times);
+void mouse_click(mouse *self);
+static void mouse_press(mouse *self);
+static void mouse_release(mouse *self);
+void move_mouse_n_pixel(mouse *self, enum DIRECTION  d, int times);
 
 
 void move_xy(void *self, int x_des, int y_des, int jump_size, int speed);
 
-void *New(int x_c, int y_c, void (*cstor), 
-	void (*dstor), void (*click),void (*move), void (*btn_press) );
+void *New(int x_c, int y_c, void (*cstor), void (*dstor), int fd_mouse, \
+	     void (*click),void (*move) );
 
 void constructor(void *_self, int x_c , int y_c );
 
