@@ -54,7 +54,7 @@ int get_target(int x1, int y1, float vx, float vy, int *dx, int *dy)
 
 	return 0;	
 }
-int get_data(FILE *fp, float *pitch, float *yaw, float *roll)
+int get_data(FILE *fp,pdata *p)
 {
 	char rely[200];
 	
@@ -62,7 +62,8 @@ int get_data(FILE *fp, float *pitch, float *yaw, float *roll)
 	fprintf(fp, "%d", COMMAND_REQUEST_PITCH_YAW);
 	usleep(20000);
 	fgets(rely, 200, fp);
-	sscanf(rely,"%f%f%f",pitch, roll, yaw);
+	sscanf(rely,"%f  %f %f %d %d",&(p->pitch),&(p->roll),&(p->yaw), &(p->mouse_state), \
+			&(p->movement_state));
 	#if 0
 		printf("string rely :  %s\n", rely);
 		printf("%f  %f %f\n", *pitch, *yaw, *roll);
@@ -74,20 +75,21 @@ void caculator_velocity(FILE *fp, mouse *self)
 {
 	int ret = 0;
 	float pitch1, yaw1,roll1, pitch2, yaw2, roll2;
+	pdata p1, p2;
 
 
-	get_data(fp, &pitch1, &yaw1, &roll1);
+	get_data(fp, &p1);
 
 	usleep(20000);
-	get_data(fp, &pitch2, &yaw2, &roll2);
+	get_data(fp, &p2);
 
-	self->current_vx = pitch2 -pitch1;
+	self->current_vx = p2.pitch -p1.pitch;
 
-	self->current_vy = yaw2 - yaw1;
+	self->current_vy = p2.yaw - p1.yaw;
 
-        //printf("detail : pitch1 %f pitch2 %f yaw1 %f yaw2 %f\n", \
-			 pitch1, pitch2, yaw1, yaw2);
-	//printf("detail roll %f %f\n", roll1, roll2);
+        //printf("detail : pitch1 %f pitch2 %f yaw1 %f yaw2 %f", \
+			 p1.pitch, p2.pitch, p1.yaw, p2.yaw);
+	//printf("detail roll %f %f\n", p1.roll, p2.roll);
 	#if 0
 			 printf("detail : pitch1 %f pitch2 %f\n", pitch1, pitch2);
 			 printf("detail : yaw1 %f yaw2 %f\n", yaw1, yaw2);

@@ -12,6 +12,8 @@ enum option_game
 	g_DEV_NEXT,
 	g_DEV_BACK
 } ;
+enum mouse_ev { mIDLE = 0, LEFT_CLICK  = 1, RIGHT_CLICK = 2 , STOP_MOVE = 3};
+enum orientation_character {oIDLE = 0, LEFT = 1 , GO_AHEAD = 2 , RIGHT = 4, BACK = 8};
 
 void g_change_dev(void *g_obj,int );
 
