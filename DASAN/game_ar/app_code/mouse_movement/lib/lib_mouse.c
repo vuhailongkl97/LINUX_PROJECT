@@ -16,23 +16,23 @@ void move_mouse_n_pixel(mouse *self, enum DIRECTION  d, int times)
   {
 	case M_LEFT:
   		event.code = REL_X;
-  		event.value = -2;
-		times = (int)(times*1.5);
+  		event.value = -1;
+		//times = (int)(times*1.5);
 		break;
 	case M_RIGHT:
   		event.code = REL_X;
-  		event.value = 2;
-		times = (int)(times*1.5);
+  		event.value = 1;
+		//times = (int)(times*1.5);
 		break;
 	case M_UP:
   		event.code = REL_Y;
   		event.value = -1;
-		times = (int)(times*2);
+		//times = (int)(times*2);
 		break;
 	case M_DOWN:
   		event.code = REL_Y;
   		event.value = 1;
-		times = (int)(times*2);
+		//times = (int)(times*2);
 		break;
 	default:
 		puts("incorrect direction");
@@ -45,10 +45,17 @@ void move_mouse_n_pixel(mouse *self, enum DIRECTION  d, int times)
   event_end.value = 0;
 
   /*move mouse*/
-  for (int i=0; i<abs(times); i++) {
+  for (int i=0; i<abs(times)*1; i++) {
     write(fd, &event, sizeof(event));// Move the mouse
     write(fd, &event_end, sizeof(event_end));// Show move
-    usleep(1500);
+    if (d == M_LEFT || d == M_RIGHT)
+    {
+        usleep(150);
+    }
+    else if (d == M_UP || d == M_DOWN)
+    {
+	    usleep(170);
+    }
   }
 
 }
@@ -190,7 +197,6 @@ void move_xy(void *_self, int x_des, int y_des, int jump_size, int speed)
     
     }   	
     while( !over_x || !over_y);
-    self->x_current = self->y_current = 0;
 }
                                                                                 
 

@@ -73,19 +73,12 @@ int get_data(FILE *fp,pdata *p)
 }
 void caculator_velocity(FILE *fp, mouse *self)
 {
-	int ret = 0;
-	float pitch1, yaw1,roll1, pitch2, yaw2, roll2;
-	pdata p1, p2;
-
-
+	pdata p1;
 	get_data(fp, &p1);
 
-	usleep(20000);
-	get_data(fp, &p2);
+	self->current_vx = p1.pitch;
 
-	self->current_vx = p2.pitch -p1.pitch;
-
-	self->current_vy = p2.yaw - p1.yaw;
+	self->current_vy = p1.yaw;
 
         //printf("detail : pitch1 %f pitch2 %f yaw1 %f yaw2 %f", \
 			 p1.pitch, p2.pitch, p1.yaw, p2.yaw);

@@ -18,11 +18,12 @@ void g_change_dev(void *_g_obj,int option)
 			printf("error option %s %d", __FUNCTION__, __LINE__);
 	}
 	if (current_dev > KEY_4 ) 
-		current_dev = 2;
+		current_dev = KEY_4;
 	else if (current_dev < KEY_1)
-		current_dev = 0;
+		current_dev = KEY_1;
 	press_key(g_obj, current_dev, 1);
 	press_key(g_obj, current_dev, 0);
+
 }
 
 void g_movement(void *_g_obj, int option)
