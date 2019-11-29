@@ -6,6 +6,7 @@
 #include "progess_data.h"
 
 #include "lib_game_obj.h"
+#include "milis.h"
 
 
 void test_mouse(void *_self,int x_des, int y_des, int speed)
@@ -34,20 +35,16 @@ void gtest(game_obj *x)
 	ktest(x, g_DEV_BACK);
 	
 }
-void test_get_target(int x1, int y1, float vx, float vy)
-{
-	int retx, rety;
-
-	get_target(x1,y1,vx, vy, &retx, &rety);
-	printf("ok move from (%d,%d) -> (%d, %d) vx = %f, \
-			vy = %f\n", x1, y1, retx, rety, vx , vy);
-}
 void control(FILE *fp, mouse *x,game_obj *go)
 {
 	int opt = 0;
+	static int timeout = 0;
 	static int change_dev = 0 ;
 	pdata p;
 	get_data(fp,&p);
+	static int ready_change_dev = 1;
+	//printf("pitch %f yaw %f roll %f\n",p.pitch, p.yaw, p.roll);
+
 	switch (p.mouse_state)
 	{
 		case LEFT_CLICK:
@@ -64,14 +61,44 @@ void control(FILE *fp, mouse *x,game_obj *go)
 		int retx, rety;
 		caculator_velocity(fp, x);
 		get_target(x->x_current,x->y_current,x->current_vx, x-> current_vy, &retx, &rety);
+		
 	        //printf("xret = %d , yret = %d vx %f vy %f\n", retx, rety,x->current_vx, x->current_vy);
-		retx = retx > 400 ? 400 : retx;
-		retx = retx < -400 ? -400 : retx;
-		rety = rety > 400 ? 400 : rety;
-		rety = rety < -400 ? -400: rety;
+		//retx = retx > 400 ? 400 : retx;
+		//retx = retx < -400 ? -400 : retx;
+		//rety = rety > 400 ? 400 : rety;
+		//rety = rety < -400 ? -400: rety;
+		
+		printf("p.roll %f\n" , p.roll);
+		/*check change but*/
+		
+		if ( abs(p.roll) < 3)
+		{
+			ready_change_dev = 1;
+		}
 
-		x->move(x, retx, rety, 1, 5);	
+		if ( (1 == ready_change_dev ) && (mili_second() > timeout))
+		{
+		    if (p.roll > 20)
+		    {
+		       go->change_dev(go, g_DEV_BACK);
+		       usleep(1000);
+		       timeout = mili_second() + 500; //ms
+		       ready_change_dev = 0;
+		       goto dont_move;
+		    }
+		    else if(p.roll < -20)
+		    {
+		       go->change_dev(go, g_DEV_NEXT);
+		       usleep(1000);
+		       timeout = mili_second() + 500; //ms
+		       ready_change_dev = 0;
+		       goto dont_move;
+		    }
+		}
+
+		x->move(x, retx, rety, 1, 1);	
 	        	
+		dont_move:
 		switch (p.movement_state)
 		{
 			case  LEFT :
@@ -156,15 +183,7 @@ int main(int argc, char *argv[])
 	puts(tmp);
 
 	do {
-		//get_data(fp,&vx, &vy, &vz);
-		//printf("enter vx, vy ");
-		//scanf("%f%f", &vx, &vy);
-	
 		control(fp,x,go);
-		//usleep(100000);
-		//printf("retx, rety %d %d\n", retx, rety);
-		//printf("enter choice > 0 to continue ");
-                //scanf("%d", &choice);
 	}
 	while(0 != choice);
        device_release(fp);
