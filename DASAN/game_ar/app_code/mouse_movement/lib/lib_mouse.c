@@ -16,12 +16,12 @@ void move_mouse_n_pixel(mouse *self, enum DIRECTION  d, int times)
   {
 	case M_LEFT:
   		event.code = REL_X;
-  		event.value = -1;
+  		event.value = -2;
 		//times = (int)(times*1.5);
 		break;
 	case M_RIGHT:
   		event.code = REL_X;
-  		event.value = 1;
+  		event.value = 2;
 		//times = (int)(times*1.5);
 		break;
 	case M_UP:
@@ -50,7 +50,7 @@ void move_mouse_n_pixel(mouse *self, enum DIRECTION  d, int times)
     write(fd, &event_end, sizeof(event_end));// Show move
     if (d == M_LEFT || d == M_RIGHT)
     {
-        usleep(150);
+        usleep(200);
     }
     else if (d == M_UP || d == M_DOWN)
     {
