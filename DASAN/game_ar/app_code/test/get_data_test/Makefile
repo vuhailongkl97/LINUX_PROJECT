@@ -1,5 +1,5 @@
 PROJDIR  := .
-LIBDIR   :=/home/longkl/working/linux_project/DASAN/game_ar/app_code/mouse_movement/lib
+LIBDIR   :=/home/longkl/working/linux_project/DASAN/game_ar/app_code/lib
 BUILD_TARGET  := t
 SRCFILES := $(shell find $(LIBDIR) -type f -name "*.c" )
 SRCFILES +=t_get_data.c
