@@ -1,0 +1,17 @@
+Function : 
+   build a device control in game on Linux PC .
+   use MPU6050 , knowleadge about device driver ,  electriction, linux 
+
+How to use ?
+0) go to appcode/fake_mouse/ directory
+
+   1. make ( for insmode fake mouse module)
+   2. ./pre.sh ( run this script for get infor about IP mqtt broker , device file mouse , keyboard)
+
+I) mode SERIAL
+   1. make ( at appcode/test/get_data_test directory)
+   2. sudo ./t 
+II) mode MQTT ( at appcode/test/get_data_test directory)
+   1. make FLAG=MQTT
+   2. sudo ./t
+
