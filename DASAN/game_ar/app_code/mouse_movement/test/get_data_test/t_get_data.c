@@ -7,7 +7,9 @@
 
 #include "lib_game_obj.h"
 #include "milis.h"
-
+#ifdef MQTT 
+#include "mqtt_lib.h"
+#endif
 
 void test_mouse(void *_self,int x_des, int y_des, int speed)
 {
@@ -35,7 +37,11 @@ void gtest(game_obj *x)
 	ktest(x, g_DEV_BACK);
 	
 }
+#ifdef SERIAL
 void control(FILE *fp, mouse *x,game_obj *go)
+#elif defined(MQTT)
+void control(MQTTClient_message *mess, mouse *x,game_obj *go)
+#endif
 {
 	int opt = 0;
 	static int timeout = 0;
@@ -45,7 +51,11 @@ void control(FILE *fp, mouse *x,game_obj *go)
 	static int x_old_pos , y_old_pos;
 	static int old_movement_state = 0;
 	pdata p;
+#ifdef SERIAL
 	get_data(fp,&p);
+#elif defined(MQTT)
+	get_data(mess,&p);
+#endif
 
 	/*variable switch enable shot*/
 	static int ready_change_dev = 1;
@@ -92,17 +102,26 @@ void control(FILE *fp, mouse *x,game_obj *go)
 		int retx, rety;
 
 		is_sp_mouse = 0;
+#ifdef SERIAL
 		caculator_velocity(fp, x);
+#elif defined(MQTT)
+		caculator_velocity(mess, x);
+#endif
 		get_target(x->x_current,x->y_current,x->current_vx, x-> current_vy, &retx, &rety);
 		
-	        //printf("xret = %d , yret = %d vx %f vy %f\n", retx, rety,x->current_vx, x->current_vy);
-	        //printf("currentx = %d , currenty = %d \n",x->x_current, x->y_current);
-		//retx = retx > 400 ? 400 : retx;
-		//retx = retx < -400 ? -400 : retx;
-		//rety = rety > 400 ? 400 : rety;
-		//rety = rety < -400 ? -400: rety;
+#ifdef DEBUG
+	        printf("xret = %d , yret = %d vx %f vy %f\n", retx, rety,x->current_vx, x->current_vy);
+	        printf("currentx = %d , currenty = %d \n",x->x_current, x->y_current);
+#endif
+
+#if 0
+		retx = retx > 400 ? 400 : retx;
+		retx = retx < -400 ? -400 : retx;
+		rety = rety > 400 ? 400 : rety;
+		rety = rety < -400 ? -400: rety;
+#endif
 		
-		//printf("p.roll %f\n" , p.roll);
+
 		/*check change but*/
 		
 		if ( abs(p.roll) < 3)
@@ -164,8 +183,8 @@ void control(FILE *fp, mouse *x,game_obj *go)
 }
 int main(int argc, char *argv[])
 {
-
 	int choice = 1;
+	char ch = 0;
 	int x1 , y1;
 	float vx, vy, vz = 0;
 	x1 = 10;
@@ -212,19 +231,33 @@ int main(int argc, char *argv[])
 
 	assert(go);
 
+#ifdef SERIAL
 	fp = device_init(dev_file);
-
 	assert(fp);
 	sleep(6);
 	char tmp[200];
 	fgets(tmp, sizeof(tmp), fp);
 	puts(tmp);
+#elif defined(MQTT)
+	mqtt_init(x, go);
+	sleep(1);
+	mqtt_kick_start_get_data();
+#endif
 
 	do {
+#ifdef SERIAL
 		control(fp,x,go);
+#elif defined(MQTT)
+		ch = getchar();
+#endif
 	}
-	while(0 != choice);
+	while('q' != ch);
+#ifdef SERIAL
        device_release(fp);
+#elif defined(MQTT)
+	mqtt_kick_stop_get_data();
+	mqtt_free();
+#endif
     x->dstor(x);
     gameobj_des(go);
 	

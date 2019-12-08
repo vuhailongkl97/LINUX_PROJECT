@@ -54,6 +54,7 @@ int get_target(int x1, int y1, float vx, float vy, int *dx, int *dy)
 
 	return 0;	
 }
+#ifdef SERIAL
 int get_data(FILE *fp,pdata *p)
 {
 	char rely[200];
@@ -62,19 +63,37 @@ int get_data(FILE *fp,pdata *p)
 	fprintf(fp, "%d", COMMAND_REQUEST_PITCH_YAW);
 	usleep(20000);
 	fgets(rely, 200, fp);
-	sscanf(rely,"%f  %f %f %d %d",&(p->pitch),&(p->roll),&(p->yaw), &(p->mouse_state), \
+	sscanf(rely,"%*c %f  %f %f %d %d %*c",&(p->pitch),&(p->roll),&(p->yaw), &(p->mouse_state), \
 			&(p->movement_state));
-	#if 0
-		printf("string rely :  %s\n", rely);
-		printf("%f  %f %f\n", *pitch, *yaw, *roll);
-	#endif
 
 	return 0;
 }
+#elif defined(MQTT)
+int get_data(MQTTClient_message *message, pdata*p)
+{
+        char tmp[30];
+        char *payloadptr = message->payload;
+        memset(tmp, 0, sizeof(tmp));
+
+        memcpy(tmp, payloadptr,sizeof(tmp));
+        sscanf(tmp,"%*c %f  %f %f %d %d %*c",&(p->pitch),&(p->roll),&(p->yaw), &(p->mouse_state), \
+                        &(p->movement_state));
+	return 0;
+}
+#endif
+
+#ifdef SERIAL
 void caculator_velocity(FILE *fp, mouse *self)
+#elif defined(MQTT)
+void caculator_velocity(MQTTClient_message *message, mouse *self)
+#endif
 {
 	pdata p1;
+#ifdef SERIAL
 	get_data(fp, &p1);
+#elif defined(MQTT)
+	get_data(message,&p1);
+#endif
 
 	self->current_vx = p1.pitch;
 

@@ -379,6 +379,7 @@ void loop() {
            * movement : control character movement left right , go ahead , back 
           
           */
+            Serial.print("^");
             Serial.print(ypr[0] * 180/M_PI);
             Serial.print(" ");
             Serial.print(ypr[1] * 180/M_PI);
@@ -387,7 +388,8 @@ void loop() {
             Serial.print(" ");
             Serial.print(mouse_click_state);
             Serial.print(" ");
-            Serial.println(orientation);
+            Serial.print(orientation);
+            Serial.println("$");
            
           //Serial.println("request pitch yaw");
           break;

@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c
+CMAKE_SOURCE_DIR = /home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c
+CMAKE_BINARY_DIR = /home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c
 
 # Include any dependencies generated for this target.
 include test/CMakeFiles/test_sync_session_present.dir/depend.make
@@ -59,16 +59,16 @@ include test/CMakeFiles/test_sync_session_present.dir/flags.make
 
 test/CMakeFiles/test_sync_session_present.dir/test_sync_session_present.c.o: test/CMakeFiles/test_sync_session_present.dir/flags.make
 test/CMakeFiles/test_sync_session_present.dir/test_sync_session_present.c.o: test/test_sync_session_present.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object test/CMakeFiles/test_sync_session_present.dir/test_sync_session_present.c.o"
-	cd /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/test && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/test_sync_session_present.dir/test_sync_session_present.c.o   -c /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/test/test_sync_session_present.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object test/CMakeFiles/test_sync_session_present.dir/test_sync_session_present.c.o"
+	cd /home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/test && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/test_sync_session_present.dir/test_sync_session_present.c.o   -c /home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/test/test_sync_session_present.c
 
 test/CMakeFiles/test_sync_session_present.dir/test_sync_session_present.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/test_sync_session_present.dir/test_sync_session_present.c.i"
-	cd /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/test && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/test/test_sync_session_present.c > CMakeFiles/test_sync_session_present.dir/test_sync_session_present.c.i
+	cd /home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/test && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/test/test_sync_session_present.c > CMakeFiles/test_sync_session_present.dir/test_sync_session_present.c.i
 
 test/CMakeFiles/test_sync_session_present.dir/test_sync_session_present.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/test_sync_session_present.dir/test_sync_session_present.c.s"
-	cd /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/test && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/test/test_sync_session_present.c -o CMakeFiles/test_sync_session_present.dir/test_sync_session_present.c.s
+	cd /home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/test && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/test/test_sync_session_present.c -o CMakeFiles/test_sync_session_present.dir/test_sync_session_present.c.s
 
 test/CMakeFiles/test_sync_session_present.dir/test_sync_session_present.c.o.requires:
 
@@ -92,8 +92,8 @@ test/test_sync_session_present: test/CMakeFiles/test_sync_session_present.dir/te
 test/test_sync_session_present: test/CMakeFiles/test_sync_session_present.dir/build.make
 test/test_sync_session_present: src/libpaho-mqtt3c.so.1.3.1
 test/test_sync_session_present: test/CMakeFiles/test_sync_session_present.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C executable test_sync_session_present"
-	cd /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/test && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/test_sync_session_present.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C executable test_sync_session_present"
+	cd /home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/test && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/test_sync_session_present.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 test/CMakeFiles/test_sync_session_present.dir/build: test/test_sync_session_present
@@ -105,10 +105,10 @@ test/CMakeFiles/test_sync_session_present.dir/requires: test/CMakeFiles/test_syn
 .PHONY : test/CMakeFiles/test_sync_session_present.dir/requires
 
 test/CMakeFiles/test_sync_session_present.dir/clean:
-	cd /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/test && $(CMAKE_COMMAND) -P CMakeFiles/test_sync_session_present.dir/cmake_clean.cmake
+	cd /home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/test && $(CMAKE_COMMAND) -P CMakeFiles/test_sync_session_present.dir/cmake_clean.cmake
 .PHONY : test/CMakeFiles/test_sync_session_present.dir/clean
 
 test/CMakeFiles/test_sync_session_present.dir/depend:
-	cd /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/test /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/test /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/test/CMakeFiles/test_sync_session_present.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c /home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/test /home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c /home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/test /home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/test/CMakeFiles/test_sync_session_present.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : test/CMakeFiles/test_sync_session_present.dir/depend
 
