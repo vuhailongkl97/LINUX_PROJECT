@@ -1,8 +1,0 @@
-#install libx11 for mouse movement
-
-sudo apt install libx11-dev
-sudo apt install libxtst-dev  
-
-note :
-	Makefile need -lX11 -lXtst to use library control mouse
-
