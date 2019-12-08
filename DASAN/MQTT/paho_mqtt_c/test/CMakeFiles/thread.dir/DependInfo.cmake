@@ -4,8 +4,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/src/Thread.c" "/home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/test/CMakeFiles/thread.dir/__/src/Thread.c.o"
-  "/home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/test/thread.c" "/home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/test/CMakeFiles/thread.dir/thread.c.o"
+  "/home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/src/Thread.c" "/home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/test/CMakeFiles/thread.dir/__/src/Thread.c.o"
+  "/home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/test/thread.c" "/home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/test/CMakeFiles/thread.dir/thread.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 

@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c
+CMAKE_SOURCE_DIR = /home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c
+CMAKE_BINARY_DIR = /home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -83,7 +83,7 @@ install/fast: preinstall/fast
 # Special rule for the target package_source
 package_source:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Run CPack packaging tool for source..."
-	/usr/bin/cpack --config ./CPackSourceConfig.cmake /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/CPackSourceConfig.cmake
+	/usr/bin/cpack --config ./CPackSourceConfig.cmake /home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/CPackSourceConfig.cmake
 .PHONY : package_source
 
 # Special rule for the target package_source
@@ -159,9 +159,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/CMakeFiles /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/CMakeFiles /home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/CMakeFiles 0
 .PHONY : all
 
 # The main clean target

@@ -1,11 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "MQTTClient.h"
-#define ADDRESS     "tcp://192.168.0.104:1883"
+#include <MQTTClient.h>
+#define ADDRESS     "tcp://localhost:1883"
 #define CLIENTID    "ExampleClientPub"
-#define TOPIC       "inTopic"
-#define PAYLOAD     "Hello World! kkkk"
+#define TOPIC       "trigger_event"
+#define PAYLOAD     "1"
 #define QOS         1
 #define TIMEOUT     10000L
 volatile MQTTClient_deliveryToken deliveredtoken;
@@ -58,11 +58,15 @@ int main(int argc, char* argv[])
     pubmsg.qos = QOS;
     pubmsg.retained = 0;
     deliveredtoken = 0;
+ //   while(1)
+    {
     MQTTClient_publishMessage(client, TOPIC, &pubmsg, &token);
     printf("Waiting for publication of %s\n"
             "on topic %s for client with ClientID: %s\n",
             PAYLOAD, TOPIC, CLIENTID);
     while(deliveredtoken != token);
+//    usleep(50000);
+    }
 
     MQTTClient_disconnect(client, 10000);
     MQTTClient_destroy(&client);

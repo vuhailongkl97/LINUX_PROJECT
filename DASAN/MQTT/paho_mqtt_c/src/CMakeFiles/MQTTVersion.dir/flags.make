@@ -6,5 +6,5 @@ C_FLAGS =
 
 C_DEFINES = 
 
-C_INCLUDES = -I/home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/src/. -I/home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c 
+C_INCLUDES = -I/home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/src/. -I/home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c 
 

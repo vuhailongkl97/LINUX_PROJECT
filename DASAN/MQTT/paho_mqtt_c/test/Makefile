@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c
+CMAKE_SOURCE_DIR = /home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c
+CMAKE_BINARY_DIR = /home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -138,7 +138,7 @@ test/fast: test
 # Special rule for the target package
 package: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Run CPack packaging tool..."
-	cd /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && /usr/bin/cpack --config ./CPackConfig.cmake
+	cd /home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && /usr/bin/cpack --config ./CPackConfig.cmake
 .PHONY : package
 
 # Special rule for the target package
@@ -149,7 +149,7 @@ package/fast: package
 # Special rule for the target package_source
 package_source:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Run CPack packaging tool for source..."
-	cd /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && /usr/bin/cpack --config ./CPackSourceConfig.cmake /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/CPackSourceConfig.cmake
+	cd /home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && /usr/bin/cpack --config ./CPackSourceConfig.cmake /home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/CPackSourceConfig.cmake
 .PHONY : package_source
 
 # Special rule for the target package_source
@@ -159,14 +159,14 @@ package_source/fast: package_source
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(CMAKE_COMMAND) -E cmake_progress_start /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/CMakeFiles /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/test/CMakeFiles/progress.marks
-	cd /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f CMakeFiles/Makefile2 test/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/CMakeFiles 0
+	cd /home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(CMAKE_COMMAND) -E cmake_progress_start /home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/CMakeFiles /home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/test/CMakeFiles/progress.marks
+	cd /home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f CMakeFiles/Makefile2 test/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f CMakeFiles/Makefile2 test/clean
+	cd /home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f CMakeFiles/Makefile2 test/clean
 .PHONY : clean
 
 # The main clean target
@@ -176,22 +176,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f CMakeFiles/Makefile2 test/preinstall
+	cd /home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f CMakeFiles/Makefile2 test/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f CMakeFiles/Makefile2 test/preinstall
+	cd /home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f CMakeFiles/Makefile2 test/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 test/CMakeFiles/test4.dir/rule:
-	cd /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test4.dir/rule
+	cd /home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test4.dir/rule
 .PHONY : test/CMakeFiles/test4.dir/rule
 
 # Convenience name for target.
@@ -201,12 +201,12 @@ test4: test/CMakeFiles/test4.dir/rule
 
 # fast build rule for target.
 test4/fast:
-	cd /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/test4.dir/build.make test/CMakeFiles/test4.dir/build
+	cd /home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/test4.dir/build.make test/CMakeFiles/test4.dir/build
 .PHONY : test4/fast
 
 # Convenience name for target.
 test/CMakeFiles/test2.dir/rule:
-	cd /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test2.dir/rule
+	cd /home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test2.dir/rule
 .PHONY : test/CMakeFiles/test2.dir/rule
 
 # Convenience name for target.
@@ -216,12 +216,12 @@ test2: test/CMakeFiles/test2.dir/rule
 
 # fast build rule for target.
 test2/fast:
-	cd /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/test2.dir/build.make test/CMakeFiles/test2.dir/build
+	cd /home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/test2.dir/build.make test/CMakeFiles/test2.dir/build
 .PHONY : test2/fast
 
 # Convenience name for target.
 test/CMakeFiles/test11.dir/rule:
-	cd /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test11.dir/rule
+	cd /home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test11.dir/rule
 .PHONY : test/CMakeFiles/test11.dir/rule
 
 # Convenience name for target.
@@ -231,12 +231,12 @@ test11: test/CMakeFiles/test11.dir/rule
 
 # fast build rule for target.
 test11/fast:
-	cd /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/test11.dir/build.make test/CMakeFiles/test11.dir/build
+	cd /home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/test11.dir/build.make test/CMakeFiles/test11.dir/build
 .PHONY : test11/fast
 
 # Convenience name for target.
 test/CMakeFiles/test15.dir/rule:
-	cd /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test15.dir/rule
+	cd /home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test15.dir/rule
 .PHONY : test/CMakeFiles/test15.dir/rule
 
 # Convenience name for target.
@@ -246,12 +246,12 @@ test15: test/CMakeFiles/test15.dir/rule
 
 # fast build rule for target.
 test15/fast:
-	cd /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/test15.dir/build.make test/CMakeFiles/test15.dir/build
+	cd /home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/test15.dir/build.make test/CMakeFiles/test15.dir/build
 .PHONY : test15/fast
 
 # Convenience name for target.
 test/CMakeFiles/test45.dir/rule:
-	cd /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test45.dir/rule
+	cd /home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test45.dir/rule
 .PHONY : test/CMakeFiles/test45.dir/rule
 
 # Convenience name for target.
@@ -261,12 +261,12 @@ test45: test/CMakeFiles/test45.dir/rule
 
 # fast build rule for target.
 test45/fast:
-	cd /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/test45.dir/build.make test/CMakeFiles/test45.dir/build
+	cd /home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/test45.dir/build.make test/CMakeFiles/test45.dir/build
 .PHONY : test45/fast
 
 # Convenience name for target.
 test/CMakeFiles/thread.dir/rule:
-	cd /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/thread.dir/rule
+	cd /home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/thread.dir/rule
 .PHONY : test/CMakeFiles/thread.dir/rule
 
 # Convenience name for target.
@@ -276,12 +276,12 @@ thread: test/CMakeFiles/thread.dir/rule
 
 # fast build rule for target.
 thread/fast:
-	cd /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/thread.dir/build.make test/CMakeFiles/thread.dir/build
+	cd /home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/thread.dir/build.make test/CMakeFiles/thread.dir/build
 .PHONY : thread/fast
 
 # Convenience name for target.
 test/CMakeFiles/test1.dir/rule:
-	cd /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test1.dir/rule
+	cd /home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test1.dir/rule
 .PHONY : test/CMakeFiles/test1.dir/rule
 
 # Convenience name for target.
@@ -291,12 +291,12 @@ test1: test/CMakeFiles/test1.dir/rule
 
 # fast build rule for target.
 test1/fast:
-	cd /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/test1.dir/build.make test/CMakeFiles/test1.dir/build
+	cd /home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/test1.dir/build.make test/CMakeFiles/test1.dir/build
 .PHONY : test1/fast
 
 # Convenience name for target.
 test/CMakeFiles/test6.dir/rule:
-	cd /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test6.dir/rule
+	cd /home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test6.dir/rule
 .PHONY : test/CMakeFiles/test6.dir/rule
 
 # Convenience name for target.
@@ -306,12 +306,12 @@ test6: test/CMakeFiles/test6.dir/rule
 
 # fast build rule for target.
 test6/fast:
-	cd /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/test6.dir/build.make test/CMakeFiles/test6.dir/build
+	cd /home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/test6.dir/build.make test/CMakeFiles/test6.dir/build
 .PHONY : test6/fast
 
 # Convenience name for target.
 test/CMakeFiles/test8.dir/rule:
-	cd /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test8.dir/rule
+	cd /home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test8.dir/rule
 .PHONY : test/CMakeFiles/test8.dir/rule
 
 # Convenience name for target.
@@ -321,12 +321,12 @@ test8: test/CMakeFiles/test8.dir/rule
 
 # fast build rule for target.
 test8/fast:
-	cd /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/test8.dir/build.make test/CMakeFiles/test8.dir/build
+	cd /home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/test8.dir/build.make test/CMakeFiles/test8.dir/build
 .PHONY : test8/fast
 
 # Convenience name for target.
 test/CMakeFiles/test9.dir/rule:
-	cd /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test9.dir/rule
+	cd /home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test9.dir/rule
 .PHONY : test/CMakeFiles/test9.dir/rule
 
 # Convenience name for target.
@@ -336,12 +336,12 @@ test9: test/CMakeFiles/test9.dir/rule
 
 # fast build rule for target.
 test9/fast:
-	cd /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/test9.dir/build.make test/CMakeFiles/test9.dir/build
+	cd /home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/test9.dir/build.make test/CMakeFiles/test9.dir/build
 .PHONY : test9/fast
 
 # Convenience name for target.
 test/CMakeFiles/test_sync_session_present.dir/rule:
-	cd /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test_sync_session_present.dir/rule
+	cd /home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test_sync_session_present.dir/rule
 .PHONY : test/CMakeFiles/test_sync_session_present.dir/rule
 
 # Convenience name for target.
@@ -351,12 +351,12 @@ test_sync_session_present: test/CMakeFiles/test_sync_session_present.dir/rule
 
 # fast build rule for target.
 test_sync_session_present/fast:
-	cd /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/test_sync_session_present.dir/build.make test/CMakeFiles/test_sync_session_present.dir/build
+	cd /home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/test_sync_session_present.dir/build.make test/CMakeFiles/test_sync_session_present.dir/build
 .PHONY : test_sync_session_present/fast
 
 # Convenience name for target.
 test/CMakeFiles/test95.dir/rule:
-	cd /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test95.dir/rule
+	cd /home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test95.dir/rule
 .PHONY : test/CMakeFiles/test95.dir/rule
 
 # Convenience name for target.
@@ -366,12 +366,12 @@ test95: test/CMakeFiles/test95.dir/rule
 
 # fast build rule for target.
 test95/fast:
-	cd /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/test95.dir/build.make test/CMakeFiles/test95.dir/build
+	cd /home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/test95.dir/build.make test/CMakeFiles/test95.dir/build
 .PHONY : test95/fast
 
 # Convenience name for target.
 test/CMakeFiles/test10.dir/rule:
-	cd /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test10.dir/rule
+	cd /home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test10.dir/rule
 .PHONY : test/CMakeFiles/test10.dir/rule
 
 # Convenience name for target.
@@ -381,12 +381,12 @@ test10: test/CMakeFiles/test10.dir/rule
 
 # fast build rule for target.
 test10/fast:
-	cd /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/test10.dir/build.make test/CMakeFiles/test10.dir/build
+	cd /home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/test10.dir/build.make test/CMakeFiles/test10.dir/build
 .PHONY : test10/fast
 
 # Convenience name for target.
 test/CMakeFiles/test_issue373.dir/rule:
-	cd /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test_issue373.dir/rule
+	cd /home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test_issue373.dir/rule
 .PHONY : test/CMakeFiles/test_issue373.dir/rule
 
 # Convenience name for target.
@@ -396,7 +396,7 @@ test_issue373: test/CMakeFiles/test_issue373.dir/rule
 
 # fast build rule for target.
 test_issue373/fast:
-	cd /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/test_issue373.dir/build.make test/CMakeFiles/test_issue373.dir/build
+	cd /home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/test_issue373.dir/build.make test/CMakeFiles/test_issue373.dir/build
 .PHONY : test_issue373/fast
 
 __/src/Thread.o: __/src/Thread.c.o
@@ -405,7 +405,7 @@ __/src/Thread.o: __/src/Thread.c.o
 
 # target to build an object file
 __/src/Thread.c.o:
-	cd /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/thread.dir/build.make test/CMakeFiles/thread.dir/__/src/Thread.c.o
+	cd /home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/thread.dir/build.make test/CMakeFiles/thread.dir/__/src/Thread.c.o
 .PHONY : __/src/Thread.c.o
 
 __/src/Thread.i: __/src/Thread.c.i
@@ -414,7 +414,7 @@ __/src/Thread.i: __/src/Thread.c.i
 
 # target to preprocess a source file
 __/src/Thread.c.i:
-	cd /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/thread.dir/build.make test/CMakeFiles/thread.dir/__/src/Thread.c.i
+	cd /home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/thread.dir/build.make test/CMakeFiles/thread.dir/__/src/Thread.c.i
 .PHONY : __/src/Thread.c.i
 
 __/src/Thread.s: __/src/Thread.c.s
@@ -423,7 +423,7 @@ __/src/Thread.s: __/src/Thread.c.s
 
 # target to generate assembly for a file
 __/src/Thread.c.s:
-	cd /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/thread.dir/build.make test/CMakeFiles/thread.dir/__/src/Thread.c.s
+	cd /home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/thread.dir/build.make test/CMakeFiles/thread.dir/__/src/Thread.c.s
 .PHONY : __/src/Thread.c.s
 
 test1.o: test1.c.o
@@ -432,7 +432,7 @@ test1.o: test1.c.o
 
 # target to build an object file
 test1.c.o:
-	cd /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/test1.dir/build.make test/CMakeFiles/test1.dir/test1.c.o
+	cd /home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/test1.dir/build.make test/CMakeFiles/test1.dir/test1.c.o
 .PHONY : test1.c.o
 
 test1.i: test1.c.i
@@ -441,7 +441,7 @@ test1.i: test1.c.i
 
 # target to preprocess a source file
 test1.c.i:
-	cd /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/test1.dir/build.make test/CMakeFiles/test1.dir/test1.c.i
+	cd /home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/test1.dir/build.make test/CMakeFiles/test1.dir/test1.c.i
 .PHONY : test1.c.i
 
 test1.s: test1.c.s
@@ -450,7 +450,7 @@ test1.s: test1.c.s
 
 # target to generate assembly for a file
 test1.c.s:
-	cd /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/test1.dir/build.make test/CMakeFiles/test1.dir/test1.c.s
+	cd /home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/test1.dir/build.make test/CMakeFiles/test1.dir/test1.c.s
 .PHONY : test1.c.s
 
 test10.o: test10.c.o
@@ -459,7 +459,7 @@ test10.o: test10.c.o
 
 # target to build an object file
 test10.c.o:
-	cd /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/test10.dir/build.make test/CMakeFiles/test10.dir/test10.c.o
+	cd /home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/test10.dir/build.make test/CMakeFiles/test10.dir/test10.c.o
 .PHONY : test10.c.o
 
 test10.i: test10.c.i
@@ -468,7 +468,7 @@ test10.i: test10.c.i
 
 # target to preprocess a source file
 test10.c.i:
-	cd /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/test10.dir/build.make test/CMakeFiles/test10.dir/test10.c.i
+	cd /home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/test10.dir/build.make test/CMakeFiles/test10.dir/test10.c.i
 .PHONY : test10.c.i
 
 test10.s: test10.c.s
@@ -477,7 +477,7 @@ test10.s: test10.c.s
 
 # target to generate assembly for a file
 test10.c.s:
-	cd /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/test10.dir/build.make test/CMakeFiles/test10.dir/test10.c.s
+	cd /home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/test10.dir/build.make test/CMakeFiles/test10.dir/test10.c.s
 .PHONY : test10.c.s
 
 test11.o: test11.c.o
@@ -486,7 +486,7 @@ test11.o: test11.c.o
 
 # target to build an object file
 test11.c.o:
-	cd /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/test11.dir/build.make test/CMakeFiles/test11.dir/test11.c.o
+	cd /home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/test11.dir/build.make test/CMakeFiles/test11.dir/test11.c.o
 .PHONY : test11.c.o
 
 test11.i: test11.c.i
@@ -495,7 +495,7 @@ test11.i: test11.c.i
 
 # target to preprocess a source file
 test11.c.i:
-	cd /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/test11.dir/build.make test/CMakeFiles/test11.dir/test11.c.i
+	cd /home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/test11.dir/build.make test/CMakeFiles/test11.dir/test11.c.i
 .PHONY : test11.c.i
 
 test11.s: test11.c.s
@@ -504,7 +504,7 @@ test11.s: test11.c.s
 
 # target to generate assembly for a file
 test11.c.s:
-	cd /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/test11.dir/build.make test/CMakeFiles/test11.dir/test11.c.s
+	cd /home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/test11.dir/build.make test/CMakeFiles/test11.dir/test11.c.s
 .PHONY : test11.c.s
 
 test15.o: test15.c.o
@@ -513,7 +513,7 @@ test15.o: test15.c.o
 
 # target to build an object file
 test15.c.o:
-	cd /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/test15.dir/build.make test/CMakeFiles/test15.dir/test15.c.o
+	cd /home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/test15.dir/build.make test/CMakeFiles/test15.dir/test15.c.o
 .PHONY : test15.c.o
 
 test15.i: test15.c.i
@@ -522,7 +522,7 @@ test15.i: test15.c.i
 
 # target to preprocess a source file
 test15.c.i:
-	cd /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/test15.dir/build.make test/CMakeFiles/test15.dir/test15.c.i
+	cd /home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/test15.dir/build.make test/CMakeFiles/test15.dir/test15.c.i
 .PHONY : test15.c.i
 
 test15.s: test15.c.s
@@ -531,7 +531,7 @@ test15.s: test15.c.s
 
 # target to generate assembly for a file
 test15.c.s:
-	cd /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/test15.dir/build.make test/CMakeFiles/test15.dir/test15.c.s
+	cd /home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/test15.dir/build.make test/CMakeFiles/test15.dir/test15.c.s
 .PHONY : test15.c.s
 
 test2.o: test2.c.o
@@ -540,7 +540,7 @@ test2.o: test2.c.o
 
 # target to build an object file
 test2.c.o:
-	cd /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/test2.dir/build.make test/CMakeFiles/test2.dir/test2.c.o
+	cd /home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/test2.dir/build.make test/CMakeFiles/test2.dir/test2.c.o
 .PHONY : test2.c.o
 
 test2.i: test2.c.i
@@ -549,7 +549,7 @@ test2.i: test2.c.i
 
 # target to preprocess a source file
 test2.c.i:
-	cd /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/test2.dir/build.make test/CMakeFiles/test2.dir/test2.c.i
+	cd /home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/test2.dir/build.make test/CMakeFiles/test2.dir/test2.c.i
 .PHONY : test2.c.i
 
 test2.s: test2.c.s
@@ -558,7 +558,7 @@ test2.s: test2.c.s
 
 # target to generate assembly for a file
 test2.c.s:
-	cd /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/test2.dir/build.make test/CMakeFiles/test2.dir/test2.c.s
+	cd /home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/test2.dir/build.make test/CMakeFiles/test2.dir/test2.c.s
 .PHONY : test2.c.s
 
 test4.o: test4.c.o
@@ -567,7 +567,7 @@ test4.o: test4.c.o
 
 # target to build an object file
 test4.c.o:
-	cd /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/test4.dir/build.make test/CMakeFiles/test4.dir/test4.c.o
+	cd /home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/test4.dir/build.make test/CMakeFiles/test4.dir/test4.c.o
 .PHONY : test4.c.o
 
 test4.i: test4.c.i
@@ -576,7 +576,7 @@ test4.i: test4.c.i
 
 # target to preprocess a source file
 test4.c.i:
-	cd /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/test4.dir/build.make test/CMakeFiles/test4.dir/test4.c.i
+	cd /home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/test4.dir/build.make test/CMakeFiles/test4.dir/test4.c.i
 .PHONY : test4.c.i
 
 test4.s: test4.c.s
@@ -585,7 +585,7 @@ test4.s: test4.c.s
 
 # target to generate assembly for a file
 test4.c.s:
-	cd /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/test4.dir/build.make test/CMakeFiles/test4.dir/test4.c.s
+	cd /home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/test4.dir/build.make test/CMakeFiles/test4.dir/test4.c.s
 .PHONY : test4.c.s
 
 test45.o: test45.c.o
@@ -594,7 +594,7 @@ test45.o: test45.c.o
 
 # target to build an object file
 test45.c.o:
-	cd /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/test45.dir/build.make test/CMakeFiles/test45.dir/test45.c.o
+	cd /home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/test45.dir/build.make test/CMakeFiles/test45.dir/test45.c.o
 .PHONY : test45.c.o
 
 test45.i: test45.c.i
@@ -603,7 +603,7 @@ test45.i: test45.c.i
 
 # target to preprocess a source file
 test45.c.i:
-	cd /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/test45.dir/build.make test/CMakeFiles/test45.dir/test45.c.i
+	cd /home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/test45.dir/build.make test/CMakeFiles/test45.dir/test45.c.i
 .PHONY : test45.c.i
 
 test45.s: test45.c.s
@@ -612,7 +612,7 @@ test45.s: test45.c.s
 
 # target to generate assembly for a file
 test45.c.s:
-	cd /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/test45.dir/build.make test/CMakeFiles/test45.dir/test45.c.s
+	cd /home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/test45.dir/build.make test/CMakeFiles/test45.dir/test45.c.s
 .PHONY : test45.c.s
 
 test6.o: test6.c.o
@@ -621,7 +621,7 @@ test6.o: test6.c.o
 
 # target to build an object file
 test6.c.o:
-	cd /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/test6.dir/build.make test/CMakeFiles/test6.dir/test6.c.o
+	cd /home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/test6.dir/build.make test/CMakeFiles/test6.dir/test6.c.o
 .PHONY : test6.c.o
 
 test6.i: test6.c.i
@@ -630,7 +630,7 @@ test6.i: test6.c.i
 
 # target to preprocess a source file
 test6.c.i:
-	cd /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/test6.dir/build.make test/CMakeFiles/test6.dir/test6.c.i
+	cd /home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/test6.dir/build.make test/CMakeFiles/test6.dir/test6.c.i
 .PHONY : test6.c.i
 
 test6.s: test6.c.s
@@ -639,7 +639,7 @@ test6.s: test6.c.s
 
 # target to generate assembly for a file
 test6.c.s:
-	cd /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/test6.dir/build.make test/CMakeFiles/test6.dir/test6.c.s
+	cd /home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/test6.dir/build.make test/CMakeFiles/test6.dir/test6.c.s
 .PHONY : test6.c.s
 
 test8.o: test8.c.o
@@ -648,7 +648,7 @@ test8.o: test8.c.o
 
 # target to build an object file
 test8.c.o:
-	cd /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/test8.dir/build.make test/CMakeFiles/test8.dir/test8.c.o
+	cd /home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/test8.dir/build.make test/CMakeFiles/test8.dir/test8.c.o
 .PHONY : test8.c.o
 
 test8.i: test8.c.i
@@ -657,7 +657,7 @@ test8.i: test8.c.i
 
 # target to preprocess a source file
 test8.c.i:
-	cd /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/test8.dir/build.make test/CMakeFiles/test8.dir/test8.c.i
+	cd /home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/test8.dir/build.make test/CMakeFiles/test8.dir/test8.c.i
 .PHONY : test8.c.i
 
 test8.s: test8.c.s
@@ -666,7 +666,7 @@ test8.s: test8.c.s
 
 # target to generate assembly for a file
 test8.c.s:
-	cd /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/test8.dir/build.make test/CMakeFiles/test8.dir/test8.c.s
+	cd /home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/test8.dir/build.make test/CMakeFiles/test8.dir/test8.c.s
 .PHONY : test8.c.s
 
 test9.o: test9.c.o
@@ -675,7 +675,7 @@ test9.o: test9.c.o
 
 # target to build an object file
 test9.c.o:
-	cd /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/test9.dir/build.make test/CMakeFiles/test9.dir/test9.c.o
+	cd /home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/test9.dir/build.make test/CMakeFiles/test9.dir/test9.c.o
 .PHONY : test9.c.o
 
 test9.i: test9.c.i
@@ -684,7 +684,7 @@ test9.i: test9.c.i
 
 # target to preprocess a source file
 test9.c.i:
-	cd /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/test9.dir/build.make test/CMakeFiles/test9.dir/test9.c.i
+	cd /home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/test9.dir/build.make test/CMakeFiles/test9.dir/test9.c.i
 .PHONY : test9.c.i
 
 test9.s: test9.c.s
@@ -693,7 +693,7 @@ test9.s: test9.c.s
 
 # target to generate assembly for a file
 test9.c.s:
-	cd /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/test9.dir/build.make test/CMakeFiles/test9.dir/test9.c.s
+	cd /home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/test9.dir/build.make test/CMakeFiles/test9.dir/test9.c.s
 .PHONY : test9.c.s
 
 test95.o: test95.c.o
@@ -702,7 +702,7 @@ test95.o: test95.c.o
 
 # target to build an object file
 test95.c.o:
-	cd /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/test95.dir/build.make test/CMakeFiles/test95.dir/test95.c.o
+	cd /home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/test95.dir/build.make test/CMakeFiles/test95.dir/test95.c.o
 .PHONY : test95.c.o
 
 test95.i: test95.c.i
@@ -711,7 +711,7 @@ test95.i: test95.c.i
 
 # target to preprocess a source file
 test95.c.i:
-	cd /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/test95.dir/build.make test/CMakeFiles/test95.dir/test95.c.i
+	cd /home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/test95.dir/build.make test/CMakeFiles/test95.dir/test95.c.i
 .PHONY : test95.c.i
 
 test95.s: test95.c.s
@@ -720,7 +720,7 @@ test95.s: test95.c.s
 
 # target to generate assembly for a file
 test95.c.s:
-	cd /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/test95.dir/build.make test/CMakeFiles/test95.dir/test95.c.s
+	cd /home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/test95.dir/build.make test/CMakeFiles/test95.dir/test95.c.s
 .PHONY : test95.c.s
 
 test_issue373.o: test_issue373.c.o
@@ -729,7 +729,7 @@ test_issue373.o: test_issue373.c.o
 
 # target to build an object file
 test_issue373.c.o:
-	cd /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/test_issue373.dir/build.make test/CMakeFiles/test_issue373.dir/test_issue373.c.o
+	cd /home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/test_issue373.dir/build.make test/CMakeFiles/test_issue373.dir/test_issue373.c.o
 .PHONY : test_issue373.c.o
 
 test_issue373.i: test_issue373.c.i
@@ -738,7 +738,7 @@ test_issue373.i: test_issue373.c.i
 
 # target to preprocess a source file
 test_issue373.c.i:
-	cd /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/test_issue373.dir/build.make test/CMakeFiles/test_issue373.dir/test_issue373.c.i
+	cd /home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/test_issue373.dir/build.make test/CMakeFiles/test_issue373.dir/test_issue373.c.i
 .PHONY : test_issue373.c.i
 
 test_issue373.s: test_issue373.c.s
@@ -747,7 +747,7 @@ test_issue373.s: test_issue373.c.s
 
 # target to generate assembly for a file
 test_issue373.c.s:
-	cd /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/test_issue373.dir/build.make test/CMakeFiles/test_issue373.dir/test_issue373.c.s
+	cd /home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/test_issue373.dir/build.make test/CMakeFiles/test_issue373.dir/test_issue373.c.s
 .PHONY : test_issue373.c.s
 
 test_sync_session_present.o: test_sync_session_present.c.o
@@ -756,7 +756,7 @@ test_sync_session_present.o: test_sync_session_present.c.o
 
 # target to build an object file
 test_sync_session_present.c.o:
-	cd /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/test_sync_session_present.dir/build.make test/CMakeFiles/test_sync_session_present.dir/test_sync_session_present.c.o
+	cd /home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/test_sync_session_present.dir/build.make test/CMakeFiles/test_sync_session_present.dir/test_sync_session_present.c.o
 .PHONY : test_sync_session_present.c.o
 
 test_sync_session_present.i: test_sync_session_present.c.i
@@ -765,7 +765,7 @@ test_sync_session_present.i: test_sync_session_present.c.i
 
 # target to preprocess a source file
 test_sync_session_present.c.i:
-	cd /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/test_sync_session_present.dir/build.make test/CMakeFiles/test_sync_session_present.dir/test_sync_session_present.c.i
+	cd /home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/test_sync_session_present.dir/build.make test/CMakeFiles/test_sync_session_present.dir/test_sync_session_present.c.i
 .PHONY : test_sync_session_present.c.i
 
 test_sync_session_present.s: test_sync_session_present.c.s
@@ -774,7 +774,7 @@ test_sync_session_present.s: test_sync_session_present.c.s
 
 # target to generate assembly for a file
 test_sync_session_present.c.s:
-	cd /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/test_sync_session_present.dir/build.make test/CMakeFiles/test_sync_session_present.dir/test_sync_session_present.c.s
+	cd /home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/test_sync_session_present.dir/build.make test/CMakeFiles/test_sync_session_present.dir/test_sync_session_present.c.s
 .PHONY : test_sync_session_present.c.s
 
 thread.o: thread.c.o
@@ -783,7 +783,7 @@ thread.o: thread.c.o
 
 # target to build an object file
 thread.c.o:
-	cd /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/thread.dir/build.make test/CMakeFiles/thread.dir/thread.c.o
+	cd /home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/thread.dir/build.make test/CMakeFiles/thread.dir/thread.c.o
 .PHONY : thread.c.o
 
 thread.i: thread.c.i
@@ -792,7 +792,7 @@ thread.i: thread.c.i
 
 # target to preprocess a source file
 thread.c.i:
-	cd /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/thread.dir/build.make test/CMakeFiles/thread.dir/thread.c.i
+	cd /home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/thread.dir/build.make test/CMakeFiles/thread.dir/thread.c.i
 .PHONY : thread.c.i
 
 thread.s: thread.c.s
@@ -801,7 +801,7 @@ thread.s: thread.c.s
 
 # target to generate assembly for a file
 thread.c.s:
-	cd /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/thread.dir/build.make test/CMakeFiles/thread.dir/thread.c.s
+	cd /home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(MAKE) -f test/CMakeFiles/thread.dir/build.make test/CMakeFiles/thread.dir/thread.c.s
 .PHONY : thread.c.s
 
 # Help Target
@@ -889,6 +889,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

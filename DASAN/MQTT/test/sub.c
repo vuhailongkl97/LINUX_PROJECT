@@ -2,13 +2,15 @@
 #include <stdlib.h>
 #include <string.h>
 #include "MQTTClient.h"
-#define ADDRESS     "tcp://192.168.0.104:1883"
+#define ADDRESS     "tcp://localhost:1883"
 #define CLIENTID    "ExampleClientSub"
 #define TOPIC       "outTopic"
 #define PAYLOAD     "Hello World!"
 #define QOS         1
 #define TIMEOUT     10000L
 MQTTClient client;
+MQTTClient fake_data;
+
 
 volatile MQTTClient_deliveryToken deliveredtoken;
 void delivered(void *context, MQTTClient_deliveryToken dt)
@@ -21,9 +23,9 @@ int msgarrvd(void *context, char *topicName, int topicLen, MQTTClient_message *m
 {
     int i;
     char* payloadptr;
-    printf("Message arrived\n");
-    printf("     topic: %s\n", topicName);
-    printf("   message: ");
+    //printf("Message arrived\n");
+    //printf("     topic: %s\n", topicName);
+    //printf("   message: ");
     payloadptr = message->payload;
     for(i=0; i<message->payloadlen; i++)
     {

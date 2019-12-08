@@ -7,6 +7,7 @@
 #include <string.h>
 #include <fcntl.h>
 #include "lib_types.h"
+#include <MQTTClient.h>
 #define DATA_FORMAT "%f %f %f %d %d"
 
 enum command {
@@ -25,8 +26,13 @@ FILE* device_init(const char *file);
 int device_release(FILE *fp);
 int get_target(int x1, int y1, float vx, float vy, int *dx, int *dy);
 
+#ifdef SERIAL
 int get_data(FILE *fp, pdata *p);
-
 void caculator_velocity(FILE *fp, mouse *self);
+#elif defined(MQTT)
+int get_data(MQTTClient_message *, pdata *p);
+void caculator_velocity(MQTTClient_message *, mouse *self);
+
+#endif
 
 #endif

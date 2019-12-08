@@ -4,9 +4,9 @@
 #include "SoftwareSerial.h"
 #include <PubSubClient.h>
 
-IPAddress server(10, 0, 0, 2);
-char ssid[] = "XYZ";           // your network SSID (name)
-char pass[] = "pwd";           // your network password
+IPAddress server( 192,168,137,32);
+char ssid[] = "DESKTOP-VA";           // your network SSID (name)
+char pass[] = "123456a@";           // your network password
 int status = WL_IDLE_STATUS;   // the Wifi radio's status
 
 // Initialize the Ethernet client object
@@ -14,7 +14,7 @@ WiFiEspClient espClient;
 
 PubSubClient client(espClient);
 
-SoftwareSerial soft(2,3); // RX, TX
+SoftwareSerial soft(6,7); // RX, TX
 void setup() {
   // initialize serial for debugging
   Serial.begin(9600);
@@ -62,6 +62,8 @@ void loop() {
   if (!client.connected()) {
     reconnect();
   }
+  client.publish("command","hellokk");
+  
   client.loop();
 }
 
