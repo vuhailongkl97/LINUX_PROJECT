@@ -7,9 +7,7 @@
 
 #include "lib_game_obj.h"
 #include "milis.h"
-#ifdef MQTT 
 #include "mqtt_lib.h"
-#endif
 
 void test_mouse(void *_self,int x_des, int y_des, int speed)
 {
@@ -230,7 +228,6 @@ int main(int argc, char *argv[])
        	go = gameobj_init( g_change_dev, g_movement, g_attach, event_keyboard);
 
 	assert(go);
-
 #ifdef SERIAL
 	fp = device_init(dev_file);
 	assert(fp);
@@ -241,9 +238,8 @@ int main(int argc, char *argv[])
 #elif defined(MQTT)
 	mqtt_init(x, go);
 	sleep(1);
-	mqtt_kick_start_get_data();
+	mqtt_cmd(PAYLOAD_MQTT_START);
 #endif
-
 	do {
 #ifdef SERIAL
 		control(fp,x,go);
@@ -255,7 +251,7 @@ int main(int argc, char *argv[])
 #ifdef SERIAL
        device_release(fp);
 #elif defined(MQTT)
-	mqtt_kick_stop_get_data();
+	mqtt_cmd(PAYLOAD_MQTT_STOP);
 	mqtt_free();
 #endif
     x->dstor(x);

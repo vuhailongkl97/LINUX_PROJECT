@@ -25,13 +25,20 @@ int data;
 #define RXD2 16
 #define TXD2 17
 #define WAIT_TIME_SEND_MQTT 50
-#define WAIT_TIME_GET_DATA 10
+#define WAIT_TIME_GET_DATA 15
 int synced;
 char ch ;
 int serialCount;
 char buffer[30],buffer4send[30];
 int ok = 1;
 int stop_send_data = 1;
+int MQTT_EN = 1;
+
+enum MQTT_STATE { 
+  MQTT_STOP = '0', 
+  MQTT_START = '1',
+  MQTT_OFF = '2' // FOR SERIAL MODE
+};
 void receivedCallback(char* topic, byte* payload, unsigned int length) {
   Serial.print("Message received: ");
   Serial.println(topic);
@@ -42,14 +49,20 @@ void receivedCallback(char* topic, byte* payload, unsigned int length) {
 //  }
   if (length > 0)
   {
-  if(payload[0] == '1')
-  {
-    stop_send_data = 0;
-  }
-  else 
-  {
-    stop_send_data = 1;  
-  }
+    if(payload[0] == MQTT_START)
+    {
+      stop_send_data = 0;
+      MQTT_EN = 1;
+    }
+    else if (payload[0] == MQTT_STOP) 
+    {
+      stop_send_data = 1;  
+    }
+    else if (payload[0] == MQTT_OFF)
+    {
+      stop_send_data = 1;
+      MQTT_EN = 0;
+    }
   }
 
 }
@@ -119,44 +132,49 @@ void loop() {
   client.loop();
   /* we measure temperature every 3 secs
   we count until 3 secs reached to avoid blocking program if using delay()*/
-  if ( ok == 1 && (millis() - last_time4getData >  WAIT_TIME_GET_DATA))
+  if ( 1 == MQTT_EN)
   {
-    Serial2.println("a");
-    last_time4getData = millis();
-    //Serial2.print((char)Serial.read());  
-  }
-  
-  if(Serial2.available()) {
-    ok =0;
-    ch = (char)Serial2.read();
-    if(synced  == 0 && ch != '^')
-      goto head1;
-    synced = 1;
-    if (serialCount > sizeof(buffer))
+    if ( ok == 1 && (millis() - last_time4getData >  WAIT_TIME_GET_DATA))
     {
-      synced = 0;
-      goto head1;
+      Serial2.println("a");
+      last_time4getData = millis();
+      //Serial2.print((char)Serial.read());  
     }
-    if(serialCount > 0 || ch == '^')
-    {
-      if( ch == '\n')
+    
+    if(Serial2.available()) {
+      ok =0;
+      ch = (char)Serial2.read();
+      if(synced  == 0 && ch != '^')
+        goto head1;
+      synced = 1;
+      if (serialCount > sizeof(buffer))
       {
+        synced = 0;
         serialCount = 0;
-        ok = 1;
-        //Serial.println(buffer);  
-        strncpy(buffer4send, buffer, sizeof(buffer));
-        memset(buffer, 0, sizeof(buffer));
-        ready4send = 1;
-        delay(5);
         goto head1;
       }
-      buffer[serialCount++] = ch;
+      if(serialCount > 0 || ch == '^')
+      {
+        if( ch == '\n')
+        {
+          serialCount = 0;
+          ok = 1;
+          //Serial.println(buffer);  
+          strncpy(buffer4send, buffer, sizeof(buffer));
+          memset(buffer, 0, sizeof(buffer));
+          ready4send = 1;
+          delay(5);
+          goto head1;
+        }
+        buffer[serialCount++] = ch;
+      }
     }
-  }
-  if ( (ready4send) && (millis() - last_time4sendMQTT > WAIT_TIME_SEND_MQTT )&& (!stop_send_data))
-  {
-    client.publish(DATA_TRANSFER, buffer4send);
-    last_time4sendMQTT = millis();
+    if ( (ready4send) && (millis() - last_time4sendMQTT > WAIT_TIME_SEND_MQTT )&& (!stop_send_data))
+    {
+      ready4send = 0;
+      client.publish(DATA_TRANSFER, buffer4send);
+      last_time4sendMQTT = millis();
+    }
   }
 
 }

@@ -20,7 +20,9 @@ int msgarrvd(void *context, char *topicName, int topicLen, MQTTClient_message *m
     }
     putchar('\n');
 
+#ifdef MQTT
     control(message, x, go);
+#endif
 
     MQTTClient_freeMessage(&message);
     MQTTClient_free(topicName);
@@ -58,35 +60,19 @@ void mqtt_free()
 	MQTTClient_disconnect(client, 10000);
 	MQTTClient_destroy(&client);
 }
-void mqtt_kick_start_get_data()
+void mqtt_cmd(char *cmd)
 {
 	MQTTClient_message pubmsg = MQTTClient_message_initializer;
 	MQTTClient_deliveryToken token;
-	pubmsg.payload = PAYLOAD_START;
-	pubmsg.payloadlen = strlen(PAYLOAD_START);
+	pubmsg.payload = cmd;
+	pubmsg.payloadlen = strlen(cmd);
 	pubmsg.qos = QOS;
 	pubmsg.retained = 0;
 	deliveredtoken = 0;
 	MQTTClient_publishMessage(client, TOPIC_TRIGGER_EVENT, &pubmsg, &token);
 	printf("Waiting for publication of %s\n"
            "on topic %s for client with ClientID: %s\n",
-            PAYLOAD_START, TOPIC, CLIENTID);
+            cmd, TOPIC, CLIENTID);
 	while(deliveredtoken != token);
-	usleep(5000);
-}
-void mqtt_kick_stop_get_data()
-{
-	MQTTClient_message pubmsg = MQTTClient_message_initializer;
-	MQTTClient_deliveryToken token;
-	pubmsg.payload = PAYLOAD_STOP;
-	pubmsg.payloadlen = strlen(PAYLOAD_STOP);
-	pubmsg.qos = QOS;
-	pubmsg.retained = 0;
-	deliveredtoken = 0;
-	MQTTClient_publishMessage(client, TOPIC_TRIGGER_EVENT, &pubmsg, &token);
-	printf("Waiting for publication of %s\n"
-           "on topic %s for client with ClientID: %s\n",
-            PAYLOAD_STOP, TOPIC, CLIENTID);
-	while(deliveredtoken != token);
-	usleep(5000);
+	usleep(500);
 }
