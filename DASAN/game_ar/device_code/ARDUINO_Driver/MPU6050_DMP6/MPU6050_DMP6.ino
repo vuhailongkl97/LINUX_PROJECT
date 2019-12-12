@@ -1,4 +1,4 @@
-  // I2C device class (I2Cdev) demonstration Arduino sketch for MPU6050 class using DMP (MotionApps v2.0)
+// I2C device class (I2Cdev) demonstration Arduino sketch for MPU6050 class using DMP (MotionApps v2.0)
 // 6/21/2012 by Jeff Rowberg <jeff@rowberg.net>
 // Updates should (hopefully) always be available at https://github.com/jrowberg/i2cdevlib
 //
@@ -351,8 +351,10 @@ void loop() {
 	}
             // display Euler angles in degrees
             mpu.dmpGetQuaternion(&q, fifoBuffer);
-            mpu.dmpGetGravity(&gravity, &q);
-            mpu.dmpGetYawPitchRoll(ypr, &q, &gravity);
+           // mpu.dmpGetGravity(&gravity, &q);
+           // mpu.dmpGetYawPitchRoll(ypr, &q, &gravity);
+           // mpu.dmpGetQuaternion(&q, fifoBuffer);
+            mpu.dmpGetEuler(ypr, &q);
 
 
         // blink LED to indicate activity
@@ -384,7 +386,7 @@ void loop() {
             Serial.print(" ");
             Serial.print(ypr[1] * 180/M_PI);
             Serial.print(" ");
-            Serial.print(ypr[2] * 180/M_PI);
+            Serial.print(-ypr[2] * 180/M_PI);
             Serial.print(" ");
             Serial.print(mouse_click_state);
             Serial.print(" ");
