@@ -130,8 +130,8 @@ const int btn_left_mouse = 4;
 //get state value
 unsigned long last_btn_sp = 0; 
 unsigned long last_btn_shot = 0; 
-int OX = A0;
-int OY = A1;
+int OX = A1;
+int OY = A0;
 
 int mouse_get_state()
 {
@@ -147,7 +147,7 @@ int mouse_get_state()
   if ( millis() - last_btn_shot > 100)
   {
     m_state &= ~( 1u << 0);
-    //m_state |= ((!digitalRead(btn_left_mouse)) << 0);
+    m_state |= ((!digitalRead(btn_left_mouse)) << 0);
     last_btn_shot = millis();
   }
 	return m_state;
@@ -351,10 +351,8 @@ void loop() {
 	}
             // display Euler angles in degrees
             mpu.dmpGetQuaternion(&q, fifoBuffer);
-           // mpu.dmpGetGravity(&gravity, &q);
-           // mpu.dmpGetYawPitchRoll(ypr, &q, &gravity);
-           // mpu.dmpGetQuaternion(&q, fifoBuffer);
-            mpu.dmpGetEuler(ypr, &q);
+            mpu.dmpGetGravity(&gravity, &q);
+            mpu.dmpGetYawPitchRoll(ypr, &q, &gravity);
 
 
         // blink LED to indicate activity
@@ -386,7 +384,7 @@ void loop() {
             Serial.print(" ");
             Serial.print(ypr[1] * 180/M_PI);
             Serial.print(" ");
-            Serial.print(-ypr[2] * 180/M_PI);
+            Serial.print(ypr[2] * 180/M_PI);
             Serial.print(" ");
             Serial.print(mouse_click_state);
             Serial.print(" ");
