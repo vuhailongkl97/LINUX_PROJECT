@@ -61,7 +61,7 @@ void control(MQTTClient_message *mess, mouse *x,game_obj *go)
 
 	if (mIDLE  != p.mouse_state)
 	{
-		if (LEFT_CLICK & p.mouse_state != 0)
+		if (LEFT_CLICK & p.mouse_state )
 		{
 			x->click(x);			
 		}
@@ -81,14 +81,24 @@ void control(MQTTClient_message *mess, mouse *x,game_obj *go)
 			}
 			if (5 == is_sp_mouse)
 			{
-			     int tmp = RATIO*p.pitch;
-			     int step = abs(tmp -x_old_pos);
-			     if ( tmp > x_old_pos)
+			     int tmp_x = RATIO*p.pitch;
+			     int tmp_y = RATIO*p.yaw;
+			     int step = abs(tmp_x-x_old_pos);
+			     int step_y= abs(tmp_y -y_old_pos);
+
+			     if ( tmp_x > ( x_old_pos +10 ))
 			     	move_mouse_n_pixel(x, M_RIGHT, step);
-			     else if( tmp < x_old_pos)
+			     else if(  tmp_x < (x_old_pos - 10))
 			     	move_mouse_n_pixel(x, M_LEFT, step);
 
-			     //printf("chenh lech %d %d\n", x_old_pos ,tmp);
+			     if ( tmp_y > ( y_old_pos  + 10 ))
+			     	move_mouse_n_pixel(x, M_UP, step_y);
+			     else if( tmp_y  < (y_old_pos - 10 ) )
+			     	move_mouse_n_pixel(x, M_DOWN, step_y);
+
+
+			     printf("chenh lech %d %d\n", x_old_pos ,tmp_x);
+			     printf("22chenh lech %d %d\n", x_old_pos ,tmp_y);
 
 			     //printf("button support is pressed x_old_pos %d x current %f\n", x_old_pos, p.pitch);
 			}
@@ -153,6 +163,7 @@ void control(MQTTClient_message *mess, mouse *x,game_obj *go)
 
 	dont_move:
 	{
+#if 1
 		// should release or  keep state button
 
 		// hien tai co truoc day ko co 
@@ -177,6 +188,7 @@ void control(MQTTClient_message *mess, mouse *x,game_obj *go)
 			press_key(go, KEY_S,0); 
 
 		old_movement_state = p.movement_state;
+#endif
 	}
 }
 int main(int argc, char *argv[])
