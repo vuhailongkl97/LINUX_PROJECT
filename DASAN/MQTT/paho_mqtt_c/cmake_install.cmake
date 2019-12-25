@@ -1,4 +1,4 @@
-# Install script for directory: /home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c
+# Install script for directory: /home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,33 +39,33 @@ endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/samples" TYPE FILE FILES
-    "/home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/src/samples/MQTTAsync_publish.c"
-    "/home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/src/samples/MQTTAsync_subscribe.c"
-    "/home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/src/samples/MQTTClient_publish.c"
-    "/home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/src/samples/MQTTClient_publish_async.c"
-    "/home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/src/samples/MQTTClient_subscribe.c"
-    "/home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/src/samples/paho_c_pub.c"
-    "/home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/src/samples/paho_c_sub.c"
-    "/home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/src/samples/paho_cs_pub.c"
-    "/home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/src/samples/paho_cs_sub.c"
-    "/home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/src/samples/pubsub_opts.c"
+    "/home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/src/samples/MQTTAsync_publish.c"
+    "/home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/src/samples/MQTTAsync_subscribe.c"
+    "/home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/src/samples/MQTTClient_publish.c"
+    "/home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/src/samples/MQTTClient_publish_async.c"
+    "/home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/src/samples/MQTTClient_subscribe.c"
+    "/home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/src/samples/paho_c_pub.c"
+    "/home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/src/samples/paho_c_sub.c"
+    "/home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/src/samples/paho_cs_pub.c"
+    "/home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/src/samples/paho_cs_sub.c"
+    "/home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/src/samples/pubsub_opts.c"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/." TYPE FILE FILES
-    "/home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/CONTRIBUTING.md"
-    "/home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/epl-v10"
-    "/home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/edl-v10"
-    "/home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/README.md"
-    "/home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/notice.html"
+    "/home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/CONTRIBUTING.md"
+    "/home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/epl-v10"
+    "/home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/edl-v10"
+    "/home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/README.md"
+    "/home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/notice.html"
     )
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/src/cmake_install.cmake")
-  include("/home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/test/cmake_install.cmake")
+  include("/home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/src/cmake_install.cmake")
+  include("/home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/test/cmake_install.cmake")
 
 endif()
 
@@ -77,5 +77,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/longkl/Desktop/longvh/working/linux_project/DASAN/MQTT/paho_mqtt_c/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
