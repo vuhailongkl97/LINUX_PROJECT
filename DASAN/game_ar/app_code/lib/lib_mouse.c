@@ -26,12 +26,12 @@ void move_mouse_n_pixel(mouse *self, enum DIRECTION  d, int times)
 		break;
 	case M_UP:
   		event.code = REL_Y;
-  		event.value = -1;
+  		event.value = -2;
 		//times = (int)(times*2);
 		break;
 	case M_DOWN:
   		event.code = REL_Y;
-  		event.value = 1;
+  		event.value = 2;
 		//times = (int)(times*2);
 		break;
 	default:

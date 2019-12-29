@@ -1,7 +1,3 @@
-echo "MQTT BROKER IP: $(ifconfig wlp2s0 | sed -n "s/.*inet[[:space:]]\([[:digit:]]*\.[[:digit:]]*\.[[:digit:]]\.[[:digit:]]*\).*$/\1/p")"
-echo "Keyboard file : $(cat /proc/bus/input/devices | grep -A 5 keyboard | grep Handlers | sed -n "s/.*\(event[[:digit:]]*\).*$/\1/p")"
-echo "mouse file : $(cat /proc/bus/input/devices  | grep -A 5 mousek |sed -n "s/.*\(event[[:digit:]]*\).*$/\1/p")"
-
 make clean &> /dev/null
 echo "start make fake mouse"
 make &> /dev/null
@@ -20,3 +16,7 @@ else
 		echo "insmode successfully"
 	fi
 fi
+
+echo "MQTT BROKER IP: $(ifconfig wlp2s0 | sed -n "s/.*inet[[:space:]]\([[:digit:]]*\.[[:digit:]]*\.[[:digit:]]\.[[:digit:]]*\).*$/\1/p")"
+echo "Keyboard file : $(cat /proc/bus/input/devices | grep -A 5 keyboard | grep Handlers | sed -n "s/.*\(event[[:digit:]]*\).*$/\1/p")"
+echo "mouse file : $(cat /proc/bus/input/devices  | grep -A 5 mousek |sed -n "s/.*\(event[[:digit:]]*\).*$/\1/p")"
