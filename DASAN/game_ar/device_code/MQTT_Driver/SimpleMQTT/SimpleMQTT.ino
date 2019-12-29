@@ -2,12 +2,17 @@
 #include <PubSubClient.h>
 #include <Wire.h>
 /* change it with your ssid-password */
-const char* ssid = "WIfi Nha Minh";
-const char* password = "12345678";
+const char* ssid = "AndroidAP_6721";
+//const char* ssid = "WIfi Nha Minh";
+
+//const char* password = "12345678";
+
+
+const char * password = "12344321";
 /* this is the IP of PC/raspberry where you installed MQTT Server 
 on Wins use "ipconfig" 
 on Linux use "ifconfig" to get its IP address */
-const char* mqtt_server = "192.168.0.106";
+const char* mqtt_server = "192.168.43.94";
 
 float temperature = 0;
 
@@ -33,7 +38,6 @@ char buffer[30],buffer4send[30];
 int ok = 1;
 int stop_send_data = 1;
 int MQTT_EN = 1;
-
 enum MQTT_STATE { 
   MQTT_STOP = '0', 
   MQTT_START = '1',
@@ -130,8 +134,6 @@ void loop() {
   /* this function will listen for incomming 
   subscribed topic-process-invoke receivedCallback */
   client.loop();
-  /* we measure temperature every 3 secs
-  we count until 3 secs reached to avoid blocking program if using delay()*/
   if ( 1 == MQTT_EN)
   {
     if ( ok == 1 && (millis() - last_time4getData >  WAIT_TIME_GET_DATA))
@@ -159,7 +161,7 @@ void loop() {
         {
           serialCount = 0;
           ok = 1;
-          //Serial.println(buffer);  
+          
           strncpy(buffer4send, buffer, sizeof(buffer));
           memset(buffer, 0, sizeof(buffer));
           ready4send = 1;
