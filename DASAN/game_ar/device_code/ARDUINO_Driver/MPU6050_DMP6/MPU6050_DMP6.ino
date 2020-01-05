@@ -139,7 +139,7 @@ int mouse_get_state()
 	// check button here 
   if ( millis() - last_btn_sp > 100)
   {
-    m_state &= ~(1u << 2);
+    m_state &= ~(STOP_MOVE);
     if ( !digitalRead(button_sp))
     {
       m_state |= STOP_MOVE; 
@@ -149,7 +149,7 @@ int mouse_get_state()
   }
   if ( millis() - last_btn_shot > 100)
   {
-    m_state &= ~( 1u << 0)
+    m_state &= ~(LEFT_CLICK);
     if ( !digitalRead(btn_left_mouse) )
     {
       m_state |= LEFT_CLICK;
