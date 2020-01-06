@@ -2,17 +2,17 @@
 #include <PubSubClient.h>
 #include <Wire.h>
 /* change it with your ssid-password */
-//const char* ssid = "AndroidAP_6721";
-const char* ssid = "WIfi Nha Minh";
+const char* ssid = "AndroidAP_6721";
+//const char* ssid = "WIfi Nha Minh";
 
-const char* password = "12345678";
+//const char* password = "12345678";
 
 
-//const char * password = "12344321";
+const char * password = "12344321";
 /* this is the IP of PC/raspberry where you installed MQTT Server 
 on Wins use "ipconfig" 
 on Linux use "ifconfig" to get its IP address */
-const char* mqtt_server = "192.168.0.97";
+const char* mqtt_server = "192.168.43.94";
 
 float temperature = 0;
 
